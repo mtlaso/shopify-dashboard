@@ -1,3 +1,4 @@
+import { VALIDATIONS } from "@/app/lib/types";
 import { PrismaClient } from "@/db/generated/client";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
@@ -17,7 +18,10 @@ export const auth = betterAuth({
 		},
 	},
 	emailAndPassword: {
+		autoSignIn: true,
 		enabled: true,
+		minPasswordLength: VALIDATIONS.password.min,
+		maxPasswordLength: VALIDATIONS.password.max,
 	},
 	database: prismaAdapter(prisma, {
 		provider: "postgresql",

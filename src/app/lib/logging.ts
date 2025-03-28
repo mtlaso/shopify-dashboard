@@ -1,5 +1,5 @@
 /**
- * error affiche une erreur.
+ * error log de niveau ERROR.
  * @param err erreur à affcher.
  */
 // biome-ignore lint/suspicious/noExplicitAny: logging.
@@ -16,7 +16,7 @@ function error(err: any): void {
 }
 
 /**
- * log affiche un log.
+ * info log de niveau INFO.
  * @param msg message à afficher.
  */
 // biome-ignore lint/suspicious/noExplicitAny: logging.

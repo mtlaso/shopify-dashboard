@@ -43,7 +43,7 @@ export const signupFormSchema = z
 				message: "Le mot de passe doit contenir une lettre et un chiffre.",
 			})
 			.trim(),
-		passwordConfirm: z.string(),
+		passwordConfirm: z.string().trim(),
 	})
 	.superRefine((val, ctx) => {
 		if (val.password !== val.passwordConfirm) {
@@ -54,3 +54,18 @@ export const signupFormSchema = z
 			});
 		}
 	});
+
+export const signinFormSchema = z.object({
+	email: z.string().email({ message: "Entrez un courriel valide." }).trim(),
+	password: z
+		.string()
+		.min(VALIDATIONS.password.min, {
+			// Vider le message par défaut.
+			message: "",
+		})
+		.max(VALIDATIONS.password.max, {
+			// Vider le message par défaut.
+			message: "",
+		})
+		.trim(),
+});

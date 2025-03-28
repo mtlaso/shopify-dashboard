@@ -1,6 +1,6 @@
 "use server";
 import { logger } from "@/app/lib/logging";
-import { signupFormSchema } from "@/app/lib/types";
+import { signinFormSchema, signupFormSchema } from "@/app/lib/types";
 import { auth } from "@/lib/auth";
 import { APIError } from "better-auth/api";
 import { redirect } from "next/navigation";
@@ -73,6 +73,63 @@ export async function signup(
 				email: formData.get("email") as string,
 				password: null,
 				passwordConfirm: null,
+			},
+		};
+	}
+
+	redirect("/dashboard");
+}
+
+export type SigninState = State<{
+	email: string;
+	password: string | null;
+}>;
+
+export async function signin(
+	_prevState: SigninState,
+	formData: FormData,
+): Promise<SigninState> {
+	const validatedFields = signinFormSchema.safeParse({
+		email: formData.get("email"),
+		password: formData.get("password"),
+	});
+
+	if (!validatedFields.success) {
+		return {
+			errmsg: null,
+			errors: validatedFields.error.flatten().fieldErrors,
+			data: {
+				email: formData.get("email") as string,
+				password: formData.get("password") as string,
+			},
+		};
+	}
+
+	try {
+		const t = await auth.api.signInEmail({
+			body: {
+				email: validatedFields.data.email,
+				password: validatedFields.data.password,
+			},
+		});
+
+		logger.info(`Utilisateur connecté : ${t.user.email}`);
+	} catch (err) {
+		let errmsg = "";
+		logger.error(err);
+
+		if (err instanceof APIError) {
+			errmsg = "Courriel ou mot de passe invalide.";
+		} else {
+			errmsg = "Une erreur est survenue lors de la connexion.";
+		}
+
+		return {
+			errmsg,
+			errors: null,
+			data: {
+				email: formData.get("email") as string,
+				password: null,
 			},
 		};
 	}

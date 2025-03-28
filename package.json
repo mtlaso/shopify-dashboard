@@ -6,11 +6,23 @@
 		"dev": "next dev --turbopack",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"generate:dev": "npx prisma generate",
+		"prisma:studio": "pnpm prisma studio",
+		"migrate:reset:dev": "dotenv -e .env.local -- pnpm prisma migrate reset",
+		"migrate:dev": "dotenv -e .env.local -- pnpm prisma migrate dev",
+		"migrate:prod": "dotenv -e .env.production -- pnpm prisma migrate deploy"
+	},
+	"prisma": {
+		"schema": "src/db/schema.prisma"
 	},
 	"dependencies": {
+		"@next/env": "^15.2.4",
+		"@prisma/client": "^6.5.0",
+		"better-auth": "^1.2.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
+		"dotenv-cli": "^8.0.0",
 		"lucide-react": "^0.484.0",
 		"next": "15.2.4",
 		"react": "^19.0.0",
@@ -24,6 +36,7 @@
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"prisma": "^6.5.0",
 		"tailwindcss": "^4",
 		"typescript": "^5"
 	}

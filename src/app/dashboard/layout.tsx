@@ -1,13 +1,17 @@
 import { AppSidebar } from "@/app/ui/dashboard/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/shadcn/ui/sidebar";
+import { cookies } from "next/headers";
 
-export default function RootLayout({
+export default async function RootLayout({
 	children,
 }: Readonly<{
 	children: React.ReactNode;
-}>): React.JSX.Element {
+}>): Promise<React.JSX.Element> {
+	const cookieStore = await cookies();
+	const isSideBarOpen = cookieStore.get("sidebar_state")?.value === "true";
+
 	return (
-		<SidebarProvider>
+		<SidebarProvider defaultOpen={isSideBarOpen}>
 			<AppSidebar />
 			<main>
 				<SidebarTrigger />

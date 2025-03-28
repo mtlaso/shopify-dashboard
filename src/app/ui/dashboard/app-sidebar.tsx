@@ -1,20 +1,25 @@
+import { SidebarFooterContent } from "@/app/ui/dashboard/sidebar-footer-content";
+import { SidebarMainContent } from "@/app/ui/dashboard/sidebar-main-content";
+import { SidebarTopContent } from "@/app/ui/dashboard/sidebar-top-content";
 import {
 	Sidebar,
 	SidebarContent,
 	SidebarFooter,
-	SidebarGroup,
 	SidebarHeader,
 } from "@/shadcn/ui/sidebar";
 
 export function AppSidebar(): React.JSX.Element {
 	return (
-		<Sidebar>
-			<SidebarHeader />
+		<Sidebar collapsible="icon">
+			<SidebarHeader>
+				<SidebarTopContent />
+			</SidebarHeader>
 			<SidebarContent>
-				<SidebarGroup />
-				<SidebarGroup />
+				<SidebarMainContent />
 			</SidebarContent>
-			<SidebarFooter />
+			<SidebarFooter>
+				<SidebarFooterContent />
+			</SidebarFooter>
 		</Sidebar>
 	);
 }

@@ -4,12 +4,24 @@ import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 
-// // https://www.prisma.io/docs/orm/prisma-client/setup-and-configuration/databases-connections#prevent-hot-reloading-from-creating-new-instances-of-prismaclient
-// const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
-// export const prisma = globalForPrisma.prisma || new PrismaClient();
+// https://www.timsanteford.com/posts/how-to-fix-too-many-database-connections-opened-in-prisma-with-next-js-hot-reload/
+const prismaClientSingleton = (): PrismaClient => {
+	return new PrismaClient();
+};
 
-// if (process.env.NODE_ENV !== "production") globalForPrisma.prisma = prisma;
-export const prisma = new PrismaClient();
+// Ensure the global object is extended to store the Prisma client
+// biome-ignore lint/suspicious/noShadowRestrictedNames: Pour le dev.
+declare const globalThis: {
+	prismaGlobal: ReturnType<typeof prismaClientSingleton>;
+} & typeof global;
+
+// Use the existing Prisma client if it exists, or create a new one
+export const prisma = globalThis.prismaGlobal ?? prismaClientSingleton();
+
+if (process.env.NODE_ENV !== "production") {
+	// Store the Prisma client in globalThis to reuse in development
+	globalThis.prismaGlobal = prisma;
+}
 
 export const auth = betterAuth({
 	session: {

@@ -1,3 +1,4 @@
+import { signout } from "@/app/lib/actions";
 import { auth } from "@/lib/auth";
 import {
 	DropdownMenu,
@@ -31,11 +32,19 @@ export async function SidebarFooterContent(): Promise<React.JSX.Element> {
 						className="w-[--radix-popper-anchor-width]"
 					>
 						<DropdownMenuItem>
-							<span>Déconnexion</span>
+							<LogOutForm />
 						</DropdownMenuItem>
 					</DropdownMenuContent>
 				</DropdownMenu>
 			</SidebarMenuItem>
 		</SidebarMenu>
+	);
+}
+
+function LogOutForm(): React.JSX.Element {
+	return (
+		<form action={signout}>
+			<SidebarMenuButton type="submit">Déconnexion</SidebarMenuButton>
+		</form>
 	);
 }

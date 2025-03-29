@@ -3,6 +3,7 @@ import { logger } from "@/app/lib/logging";
 import { signinFormSchema, signupFormSchema } from "@/app/lib/types";
 import { auth } from "@/lib/auth";
 import { APIError } from "better-auth/api";
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
 /**
@@ -135,4 +136,20 @@ export async function signin(
 	}
 
 	redirect("/dashboard");
+}
+
+export async function signout(): Promise<void> {
+	logger.info("déconnexion en cours...");
+
+	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		logger.info("Utilisateur déconnecté :", session?.user.email);
+	} catch (err) {
+		logger.error(err);
+	}
+
+	await auth.api.signOut({
+		headers: await headers(),
+	});
+	redirect("/");
 }

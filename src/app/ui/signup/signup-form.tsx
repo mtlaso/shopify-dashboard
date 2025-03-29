@@ -2,10 +2,10 @@
 import { type SignupState, signup } from "@/app/lib/actions";
 import { APP_NAME, VALIDATIONS } from "@/app/lib/types";
 import { SPACING } from "@/app/ui/spacing";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
+import { Button } from "@/shadcn/ui/button";
+import { Input } from "@/shadcn/ui/input";
+import { Label } from "@/shadcn/ui/label";
 import { KeyRoundIcon } from "lucide-react";
 import Link from "next/link";
 import { useActionState } from "react";

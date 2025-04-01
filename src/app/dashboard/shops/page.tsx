@@ -14,7 +14,7 @@ import { ChevronsUpDown } from "lucide-react";
 
 export default async function Page(): Promise<React.JSX.Element> {
 	const userShops = await data.getUserShops();
-	logger.info(userShops);
+	logger.info("usershops", userShops);
 	return (
 		<section>
 			<h1 className="text-bolder text-2xl">Boutiques</h1>

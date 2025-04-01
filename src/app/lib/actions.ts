@@ -173,24 +173,29 @@ export async function addShopifyShop(
 	_prevState: AddShopifyShopState,
 	formData: FormData,
 ): Promise<AddShopifyShopState> {
-	const validatedFields = addShopifyShopFormSchema.safeParse({
-		shopUrlHost: formData.get("shop-url-host"),
-		accessToken: formData.get("access-token"),
-	});
-
-	if (!validatedFields.success) {
-		return {
-			errmsg: null,
-			errors: validatedFields.error.flatten().fieldErrors,
-			data: {
-				shopUrlHost: formData.get("shop-url-host") as string,
-				accessToken: formData.get("access-token") as string,
-			},
-			successmsg: null,
-		};
-	}
-
 	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		if (!session) {
+			throw new Error("Utilisateur non connecté.");
+		}
+
+		const validatedFields = addShopifyShopFormSchema.safeParse({
+			shopUrlHost: formData.get("shop-url-host"),
+			accessToken: formData.get("access-token"),
+		});
+
+		if (!validatedFields.success) {
+			return {
+				errmsg: null,
+				errors: validatedFields.error.flatten().fieldErrors,
+				data: {
+					shopUrlHost: formData.get("shop-url-host") as string,
+					accessToken: formData.get("access-token") as string,
+				},
+				successmsg: null,
+			};
+		}
+
 		logger.info("Ajout de la boutique Shopify en cours...");
 		logger.info("URL de la boutique :", validatedFields.data.shopUrlHost);
 
@@ -211,6 +216,7 @@ export async function addShopifyShop(
 					shopifyId: data.shop.id,
 					name: data.shop.name,
 					accessToken: validatedFields.data.accessToken,
+					userId: session.user.id,
 				},
 			});
 

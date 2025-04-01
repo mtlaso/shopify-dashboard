@@ -16,25 +16,26 @@ import { Suspense } from "react";
 
 export default function Page(): React.JSX.Element {
 	return (
-		<section>
-			<h1 className="text-bolder text-2xl">Boutiques</h1>
-			<Separator className="my-4" />
+		<section className={SPACING.SM}>
+			<div>
+				<h1 className="text-bolder text-2xl">Boutiques</h1>
+				<Separator className="my-4" />
 
-			<Collapsible className={cn("w-[300px]", SPACING.SM)}>
-				<div className="flex items-center space-x-2">
-					<p className="text-muted-foreground">Ajouter une boutique</p>
-					<CollapsibleTrigger asChild>
-						<Button variant="outline" size="sm">
-							<ChevronsUpDown className="h-4 w-4" />
-							<span className="sr-only">Toggle</span>
-						</Button>
-					</CollapsibleTrigger>
-				</div>
-				<CollapsibleContent className={SPACING.MD}>
-					<AddShopifyStoreForm />
-				</CollapsibleContent>
-			</Collapsible>
-
+				<Collapsible className={cn("w-[300px]", SPACING.SM)}>
+					<div className="flex items-center space-x-2">
+						<p className="text-muted-foreground">Ajouter une boutique</p>
+						<CollapsibleTrigger asChild>
+							<Button variant="outline" size="sm">
+								<ChevronsUpDown className="h-4 w-4" />
+								<span className="sr-only">Toggle</span>
+							</Button>
+						</CollapsibleTrigger>
+					</div>
+					<CollapsibleContent className={SPACING.MD}>
+						<AddShopifyStoreForm />
+					</CollapsibleContent>
+				</Collapsible>
+			</div>
 			<Suspense fallback={<CardSkeleton />}>
 				<ShopsWrapper />
 			</Suspense>
@@ -46,7 +47,7 @@ async function ShopsWrapper(): Promise<React.JSX.Element> {
 	const userShops = await data.getUserShops();
 
 	return (
-		<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in">
+		<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
 			{userShops.map((shop) => (
 				<ShopItem key={shop.id} shop={shop} />
 			))}

@@ -273,7 +273,7 @@ export async function addShopifyShop(
 
 		if (err instanceof ShopifyInvalidApiKeyError) {
 			return {
-				errmsg: null,
+				errmsg: "Une erreur est survenue lors de l'ajout de la boutique.",
 				errors: {
 					accessToken: ["Clé API invalide."],
 				},
@@ -295,6 +295,8 @@ export async function addShopifyShop(
 			successmsg: null,
 		};
 	}
+
+	revalidatePath("/dashboard/shops");
 
 	return {
 		errmsg: null,

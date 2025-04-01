@@ -196,6 +196,24 @@ export async function addShopifyShop(
 			};
 		}
 
+		const shopAlreadyExists = await prisma.shop.findFirst({
+			where: {
+				accessToken: validatedFields.data.accessToken,
+			},
+		});
+
+		if (shopAlreadyExists) {
+			return {
+				errmsg: "Cette boutique Shopify a déjà été ajoutée.",
+				errors: null,
+				data: {
+					shopUrlHost: formData.get("shop-url-host") as string,
+					accessToken: formData.get("access-token") as string,
+				},
+				successmsg: null,
+			};
+		}
+
 		logger.info("Ajout de la boutique Shopify en cours...");
 		logger.info("URL de la boutique :", validatedFields.data.shopUrlHost);
 

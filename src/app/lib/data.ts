@@ -16,9 +16,9 @@ async function getUserShops(): Promise<Shop[]> {
 			throw new Error("Utilisateur non connecté.");
 		}
 
-		logger.info("id", session);
-
-		return (await prisma.shop.findMany({})) as Shop[];
+		return (await prisma.shop.findMany({
+			where: { userId: session.user.id },
+		})) as Shop[];
 	} catch (err) {
 		logger.error(err);
 		throw new Error(

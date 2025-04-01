@@ -1,9 +1,16 @@
 import { data } from "@/app/lib/data";
-import { logger } from "@/app/lib/logging";
 import { AddShopifyStoreForm } from "@/app/ui/dashboard/stores/add-shopify-shop-form";
+import { CardSkeleton } from "@/app/ui/skeletons";
 import { SPACING } from "@/app/ui/spacing";
 import { cn } from "@/lib/utils";
 import { Button } from "@/shadcn/ui/button";
+import {
+	Card,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/shadcn/ui/card";
 import {
 	Collapsible,
 	CollapsibleContent,
@@ -11,19 +18,13 @@ import {
 } from "@/shadcn/ui/collapsible";
 import { Separator } from "@/shadcn/ui/separator";
 import { ChevronsUpDown } from "lucide-react";
+import { Suspense } from "react";
 
-export default async function Page(): Promise<React.JSX.Element> {
-	const userShops = await data.getUserShops();
-	logger.info("usershops", userShops);
+export default function Page(): React.JSX.Element {
 	return (
 		<section>
 			<h1 className="text-bolder text-2xl">Boutiques</h1>
 			<Separator className="my-4" />
-			{userShops.length === 0 && (
-				<p className="text-muted-foreground">
-					Vous n'avez pas encore de boutique.
-				</p>
-			)}
 
 			<Collapsible className={cn("w-[300px]", SPACING.SM)}>
 				<div className="flex items-center space-x-2">
@@ -39,6 +40,32 @@ export default async function Page(): Promise<React.JSX.Element> {
 					<AddShopifyStoreForm />
 				</CollapsibleContent>
 			</Collapsible>
+
+			<Suspense fallback={<CardSkeleton />}>
+				<ShopsWrapper />
+			</Suspense>
+		</section>
+	);
+}
+
+async function ShopsWrapper(): Promise<React.JSX.Element> {
+	const userShops = await data.getUserShops();
+
+	return (
+		<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in">
+			{userShops.map((shop) => (
+				<Card key={shop.id} className="break-all">
+					<CardHeader>
+						<CardTitle>{shop.name}</CardTitle>
+						<CardDescription>{shop.shopifyId}</CardDescription>
+						<CardDescription>{shop.accessToken}</CardDescription>
+					</CardHeader>
+
+					<CardFooter>
+						<Button variant="outline">Supprimer</Button>
+					</CardFooter>
+				</Card>
+			))}
 		</section>
 	);
 }

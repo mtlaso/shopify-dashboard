@@ -2,12 +2,17 @@ import { z } from "zod";
 
 export const APP_NAME = "[ecommrc]";
 
+type valKeys = "name" | "password" | "shopUrlHost" | "accessToken";
+type valValues = {
+	min: number;
+	max: number;
+	regex?: RegExp;
+};
+
 /**
  * VALIDATIONS contient les valeurs de configuration de champs.
  */
-export const VALIDATIONS: {
-	[key: string]: { min: number; max: number; regex?: RegExp };
-} = {
+export const VALIDATIONS: Record<valKeys, valValues> = {
 	name: {
 		min: 2,
 		max: 70,
@@ -16,6 +21,15 @@ export const VALIDATIONS: {
 		min: 8,
 		max: 182,
 		regex: /^(?=.*[A-Za-z])(?=.*\d).+$/,
+	},
+	shopUrlHost: {
+		min: 10, // http://a.a (10 caractères)
+		max: 2083,
+		regex: /^[a-zA-Z0-9-]+\.myshopify\.com$/,
+	},
+	accessToken: {
+		min: 5,
+		max: 255,
 	},
 } as const;
 
@@ -66,6 +80,30 @@ export const signinFormSchema = z.object({
 		.max(VALIDATIONS.password.max, {
 			// Vider le message par défaut.
 			message: "",
+		})
+		.trim(),
+});
+
+export const addShopifyShopFormSchema = z.object({
+	shopUrlHost: z
+		.string()
+		.trim()
+		.min(VALIDATIONS.shopUrlHost.min, {
+			message: `Minimum ${VALIDATIONS.shopUrlHost.min} caractères.`,
+		})
+		.max(VALIDATIONS.shopUrlHost.max, {
+			message: `Maximum ${VALIDATIONS.shopUrlHost.max} caractères.`,
+		})
+		.regex(VALIDATIONS.shopUrlHost.regex as RegExp, {
+			message: 'Le lien doit être du format "xxx.myshopify.com"',
+		}),
+	accessToken: z
+		.string()
+		.min(VALIDATIONS.accessToken.min, {
+			message: `Minimum ${VALIDATIONS.accessToken.min} caractères.`,
+		})
+		.max(VALIDATIONS.accessToken.max, {
+			message: `Maximum ${VALIDATIONS.accessToken.max} caractères.`,
 		})
 		.trim(),
 });

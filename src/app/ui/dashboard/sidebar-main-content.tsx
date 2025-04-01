@@ -21,7 +21,7 @@ const items = [
 	},
 	{
 		title: "Boutiques",
-		url: "/dashboard/stores",
+		url: "/dashboard/shops",
 		icon: ShoppingCartIcon,
 	},
 ];

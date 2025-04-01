@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "product_image" ALTER COLUMN "url" DROP NOT NULL,
+ALTER COLUMN "width" DROP NOT NULL,
+ALTER COLUMN "height" DROP NOT NULL;

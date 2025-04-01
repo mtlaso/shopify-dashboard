@@ -117,10 +117,45 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.StoreScalarFieldEnum = {
+exports.Prisma.ProductImageScalarFieldEnum = {
   id: 'id',
-  name: 'name',
+  url: 'url',
+  altText: 'altText',
+  width: 'width',
+  height: 'height',
+  productId: 'productId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProductSEOScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
   description: 'description',
+  productId: 'productId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProductScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  handle: 'handle',
+  availableForSale: 'availableForSale',
+  description: 'description',
+  title: 'title',
+  tags: 'tags',
+  shopId: 'shopId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  productSEOId: 'productSEOId'
+};
+
+exports.Prisma.ShopScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  name: 'name',
+  accessToken: 'accessToken',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt',
   userId: 'userId'
@@ -189,7 +224,10 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Store: 'Store',
+  ProductImage: 'ProductImage',
+  ProductSEO: 'ProductSEO',
+  Product: 'Product',
+  Shop: 'Shop',
   User: 'User',
   Session: 'Session',
   Account: 'Account',

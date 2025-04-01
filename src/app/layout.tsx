@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "@/app/ui/globals.css";
 import { inter } from "@/app/ui/fonts";
+import { Toaster } from "@/shadcn/ui/sonner";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -14,7 +15,10 @@ export default function RootLayout({
 }>): React.JSX.Element {
 	return (
 		<html lang="en">
-			<body className={`${inter.className} antialiased`}>{children}</body>
+			<body className={`${inter.className} antialiased`}>
+				{children}
+				<Toaster />
+			</body>
 		</html>
 	);
 }

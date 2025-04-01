@@ -1,7 +1,12 @@
 "use server";
 import { logger } from "@/app/lib/logging";
-import { signinFormSchema, signupFormSchema } from "@/app/lib/types";
-import { auth } from "@/lib/auth";
+import { ShopifyClient, ShopifyInvalidApiKeyError } from "@/app/lib/shopify";
+import {
+	addShopifyShopFormSchema,
+	signinFormSchema,
+	signupFormSchema,
+} from "@/app/lib/types";
+import { auth, prisma } from "@/lib/auth";
 import { APIError } from "better-auth/api";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
@@ -13,6 +18,7 @@ type State<T, E extends string = keyof T & string> = {
 	errors: { [key in E]?: string[] } | null;
 	data: T | null;
 	errmsg: string | null;
+	successmsg: string | null;
 };
 
 export type SignupState = State<{
@@ -43,6 +49,7 @@ export async function signup(
 				password: formData.get("password") as string,
 				passwordConfirm: formData.get("password-confirm") as string,
 			},
+			successmsg: null,
 		};
 	}
 
@@ -75,6 +82,7 @@ export async function signup(
 				password: null,
 				passwordConfirm: null,
 			},
+			successmsg: null,
 		};
 	}
 
@@ -103,6 +111,7 @@ export async function signin(
 				email: formData.get("email") as string,
 				password: formData.get("password") as string,
 			},
+			successmsg: null,
 		};
 	}
 
@@ -132,6 +141,7 @@ export async function signin(
 				email: formData.get("email") as string,
 				password: null,
 			},
+			successmsg: null,
 		};
 	}
 
@@ -152,4 +162,124 @@ export async function signout(): Promise<void> {
 		headers: await headers(),
 	});
 	redirect("/");
+}
+
+export type AddShopifyShopState = State<{
+	shopUrlHost: string;
+	accessToken: string;
+}>;
+
+export async function addShopifyShop(
+	_prevState: AddShopifyShopState,
+	formData: FormData,
+): Promise<AddShopifyShopState> {
+	const validatedFields = addShopifyShopFormSchema.safeParse({
+		shopUrlHost: formData.get("shop-url-host"),
+		accessToken: formData.get("access-token"),
+	});
+
+	if (!validatedFields.success) {
+		return {
+			errmsg: null,
+			errors: validatedFields.error.flatten().fieldErrors,
+			data: {
+				shopUrlHost: formData.get("shop-url-host") as string,
+				accessToken: formData.get("access-token") as string,
+			},
+			successmsg: null,
+		};
+	}
+
+	try {
+		logger.info("Ajout de la boutique Shopify en cours...");
+		logger.info("URL de la boutique :", validatedFields.data.shopUrlHost);
+
+		const client = new ShopifyClient(
+			validatedFields.data.shopUrlHost,
+			validatedFields.data.accessToken,
+		);
+
+		// TODO: verifier si existe deja
+
+		// Vérifier si la clé API est valide en effectuant une requête sur l'API GraphQL Storefront API de Shopify.
+		const data = await client.getShopProducts();
+		logger.info("Ajout données...", data);
+
+		await prisma.$transaction(async (tx) => {
+			const shop = await tx.shop.create({
+				data: {
+					shopifyId: data.shop.id,
+					name: data.shop.name,
+					accessToken: validatedFields.data.accessToken,
+				},
+			});
+
+			const shopProducts = await tx.product.createManyAndReturn({
+				data: data.products.map((product) => ({
+					shopId: shop.id,
+					shopifyId: product.id,
+					handle: product.handle,
+					availableForSale: product.availableForSale,
+					description: product.description,
+					title: product.title,
+					tags: product.tags,
+				})),
+			});
+
+			await tx.productSEO.createMany({
+				data: data.products.map((product, i) => ({
+					title: product.seo?.title,
+					description: product.seo?.description,
+					productId: shopProducts[i].id,
+				})),
+			});
+
+			await tx.productImage.createMany({
+				data: data.products.map((product, i) => ({
+					url: product.featuredImage?.url,
+					altText: product.featuredImage?.altText,
+					width: product.featuredImage?.width,
+					height: product.featuredImage?.height,
+					productId: shopProducts[i].id,
+				})),
+			});
+		});
+	} catch (err) {
+		logger.error(err);
+
+		if (err instanceof ShopifyInvalidApiKeyError) {
+			return {
+				errmsg: null,
+				errors: {
+					accessToken: ["Clé API invalide."],
+				},
+				data: {
+					shopUrlHost: formData.get("shop-url-host") as string,
+					accessToken: formData.get("access-token") as string,
+				},
+				successmsg: null,
+			};
+		}
+
+		return {
+			errmsg: "Une erreur est survenue lors de l'ajout de la boutique.",
+			errors: null,
+			data: {
+				shopUrlHost: formData.get("shop-url-host") as string,
+				accessToken: formData.get("access-token") as string,
+			},
+			successmsg: null,
+		};
+	}
+
+	return {
+		errmsg: null,
+		errors: null,
+		// data: null
+		data: {
+			shopUrlHost: formData.get("shop-url-host") as string,
+			accessToken: formData.get("access-token") as string,
+		},
+		successmsg: "Boutique Shopify ajoutée avec succès.",
+	};
 }

@@ -3,11 +3,13 @@ import { logger } from "@/app/lib/logging";
 import { ShopifyClient, ShopifyInvalidApiKeyError } from "@/app/lib/shopify";
 import {
 	addShopifyShopFormSchema,
+	deleteShopFormSchema,
 	signinFormSchema,
 	signupFormSchema,
 } from "@/app/lib/types";
 import { auth, prisma } from "@/lib/auth";
 import { APIError } from "better-auth/api";
+import { revalidatePath } from "next/cache";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -18,7 +20,7 @@ type State<T, E extends string = keyof T & string> = {
 	errors: { [key in E]?: string[] } | null;
 	data: T | null;
 	errmsg: string | null;
-	successmsg: string | null;
+	successmsg?: string | null;
 };
 
 export type SignupState = State<{
@@ -222,8 +224,6 @@ export async function addShopifyShop(
 			validatedFields.data.accessToken,
 		);
 
-		// TODO: verifier si existe deja
-
 		// Vérifier si la clé API est valide en effectuant une requête sur l'API GraphQL Storefront API de Shopify.
 		const data = await client.getShopProducts();
 		logger.info("Ajout données...", data);
@@ -305,5 +305,63 @@ export async function addShopifyShop(
 			accessToken: formData.get("access-token") as string,
 		},
 		successmsg: "Boutique Shopify ajoutée avec succès.",
+	};
+}
+
+// action delete shop
+export type DeleteShopState = State<{
+	id: string;
+}>;
+
+export async function deleteShop(id: string): Promise<DeleteShopState> {
+	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		if (!session) {
+			throw new Error("Utilisateur non connecté.");
+		}
+
+		const validatedFields = deleteShopFormSchema.safeParse({
+			id: id,
+		});
+
+		if (!validatedFields.success) {
+			return {
+				errmsg:
+					"Une erreur est survenue lors de la suppression de la boutique.",
+				errors: validatedFields.error.flatten().fieldErrors,
+				data: {
+					id,
+				},
+			};
+		}
+
+		logger.info(
+			`Suppression de la boutique Shopify ${validatedFields.data.id}, utilisateur ${session.user.id}`,
+		);
+
+		await prisma.shop.delete({
+			where: {
+				id: validatedFields.data.id,
+				userId: session.user.id,
+			},
+		});
+	} catch (err) {
+		logger.error(err);
+
+		return {
+			errmsg: "Une erreur est survenue lors de la suppression de la boutique.",
+			errors: null,
+			data: {
+				id,
+			},
+		};
+	}
+
+	revalidatePath("/dashboard/shops");
+
+	return {
+		errmsg: null,
+		errors: null,
+		data: null,
 	};
 }

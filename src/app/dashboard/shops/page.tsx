@@ -1,16 +1,10 @@
 import { data } from "@/app/lib/data";
-import { AddShopifyStoreForm } from "@/app/ui/dashboard/stores/add-shopify-shop-form";
+import { AddShopifyStoreForm } from "@/app/ui/dashboard/shops/add-shopify-shop-form";
+import { ShopItem } from "@/app/ui/dashboard/shops/shop-item";
 import { CardSkeleton } from "@/app/ui/skeletons";
 import { SPACING } from "@/app/ui/spacing";
 import { cn } from "@/lib/utils";
 import { Button } from "@/shadcn/ui/button";
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/shadcn/ui/card";
 import {
 	Collapsible,
 	CollapsibleContent,
@@ -54,17 +48,7 @@ async function ShopsWrapper(): Promise<React.JSX.Element> {
 	return (
 		<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 animate-in">
 			{userShops.map((shop) => (
-				<Card key={shop.id} className="break-all">
-					<CardHeader>
-						<CardTitle>{shop.name}</CardTitle>
-						<CardDescription>{shop.shopifyId}</CardDescription>
-						<CardDescription>{shop.accessToken}</CardDescription>
-					</CardHeader>
-
-					<CardFooter>
-						<Button variant="outline">Supprimer</Button>
-					</CardFooter>
-				</Card>
+				<ShopItem key={shop.id} shop={shop} />
 			))}
 		</section>
 	);

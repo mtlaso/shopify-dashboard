@@ -18,6 +18,7 @@ export function SigninForm({
 		errors: null,
 		errmsg: null,
 		data: null,
+		successmsg: null,
 	};
 
 	const [state, action, pending] = useActionState(signin, initialState);

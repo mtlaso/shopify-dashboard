@@ -18,6 +18,7 @@ export function SignupForm({
 		errors: null,
 		errmsg: null,
 		data: null,
+		successmsg: null,
 	};
 	const [state, action, pending] = useActionState(signup, initialState);
 

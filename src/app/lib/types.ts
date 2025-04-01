@@ -2,7 +2,12 @@ import { z } from "zod";
 
 export const APP_NAME = "[ecommrc]";
 
-type valKeys = "name" | "password" | "shopUrlHost" | "accessToken";
+type valKeys =
+	| "name"
+	| "password"
+	| "shopUrlHost"
+	| "accessToken"
+	| "deleteShop";
 type valValues = {
 	min: number;
 	max: number;
@@ -28,6 +33,10 @@ export const VALIDATIONS: Record<valKeys, valValues> = {
 		regex: /^[a-zA-Z0-9-]+\.myshopify\.com$/,
 	},
 	accessToken: {
+		min: 5,
+		max: 255,
+	},
+	deleteShop: {
 		min: 5,
 		max: 255,
 	},
@@ -106,4 +115,16 @@ export const addShopifyShopFormSchema = z.object({
 			message: `Maximum ${VALIDATIONS.accessToken.max} caractères.`,
 		})
 		.trim(),
+});
+
+export const deleteShopFormSchema = z.object({
+	id: z
+		.string()
+		.trim()
+		.min(VALIDATIONS.deleteShop.min, {
+			message: `Minimum ${VALIDATIONS.deleteShop.min} caractères.`,
+		})
+		.max(VALIDATIONS.deleteShop.max, {
+			message: `Maximum ${VALIDATIONS.deleteShop.max} caractères.`,
+		}),
 });

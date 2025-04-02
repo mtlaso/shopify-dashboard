@@ -67,6 +67,7 @@ const product = /* GraphQL */ `
     seo {
       ...seo
     }
+    onlineStoreUrl
     tags
     updatedAt
   }

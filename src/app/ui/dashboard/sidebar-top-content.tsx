@@ -1,6 +1,6 @@
 "use client";
 
-import { useShopStore } from "@/app/lib/store/shop";
+import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { APP_NAME } from "@/app/lib/types";
 import type { Shop } from "@/db/generated/client";
 import {
@@ -11,12 +11,17 @@ import {
 } from "@/shadcn/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton } from "@/shadcn/ui/sidebar";
 import { ChevronDown } from "lucide-react";
+import { useQueryStates } from "nuqs";
 
 export function SidebarTopContent({
 	shops,
 }: { shops: Shop[] }): React.JSX.Element {
-	const selectedShopId = useShopStore((state) => state.selectedShopId);
-	const setSelectedShop = useShopStore((state) => state.setSelectedShop);
+	const [{ selectedShopId }, setSelectedShopId] = useQueryStates(
+		shopUrlState.searchParams,
+		{
+			urlKeys: shopUrlState.urlKeys,
+		},
+	);
 
 	return (
 		<div className="group-data-[collapsible=icon]:hidden">
@@ -36,7 +41,7 @@ export function SidebarTopContent({
 							<DropdownMenuItem
 								key={shop.id}
 								onClick={(): void => {
-									setSelectedShop(shop.id);
+									setSelectedShopId({ selectedShopId: shop.id });
 								}}
 							>
 								<span>{shop.name}</span>

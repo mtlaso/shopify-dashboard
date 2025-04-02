@@ -1,5 +1,6 @@
 "use client";
 
+import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { cn } from "@/lib/utils";
 import {
 	SidebarGroup,
@@ -11,7 +12,7 @@ import {
 } from "@/shadcn/ui/sidebar";
 import { Home, ShoppingCartIcon } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 
 const items = [
 	{
@@ -28,6 +29,9 @@ const items = [
 
 export function SidebarMainContent(): React.JSX.Element {
 	const pathname = usePathname();
+	const queryParams = useSearchParams();
+	const shopId = queryParams.get(shopUrlState.SHOP_KEY);
+
 	return (
 		<SidebarGroup>
 			<SidebarGroupLabel>App</SidebarGroupLabel>
@@ -37,7 +41,12 @@ export function SidebarMainContent(): React.JSX.Element {
 						<SidebarMenuItem key={item.title}>
 							<SidebarMenuButton asChild>
 								<Link
-									href={item.url}
+									href={{
+										pathname: item.url,
+										query: {
+											[shopUrlState.SHOP_KEY]: shopId,
+										},
+									}}
 									className={cn({
 										"font-medium bg-accent": pathname === item.url,
 									})}

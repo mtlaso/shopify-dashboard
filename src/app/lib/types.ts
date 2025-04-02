@@ -1,6 +1,8 @@
 import { z } from "zod";
 
 export const APP_NAME = "[ecommrc]";
+export const SELECTED_SHOP_COOKIE_NAME = "selected_shop_cookie_name";
+export const SELECTED_SHOP_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 
 type valKeys =
 	| "name"

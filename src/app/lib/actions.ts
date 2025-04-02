@@ -233,6 +233,8 @@ export async function addShopifyShop(
 				data: {
 					shopifyId: data.shop.id,
 					name: data.shop.name,
+					description: data.shop.description,
+					shipsToCountries: data.shop.shipsToCountries,
 					accessToken: validatedFields.data.accessToken,
 					userId: session.user.id,
 				},
@@ -247,6 +249,7 @@ export async function addShopifyShop(
 					description: product.description,
 					title: product.title,
 					tags: product.tags,
+					onlineStoreUrl: product.onlineStoreUrl,
 				})),
 			});
 

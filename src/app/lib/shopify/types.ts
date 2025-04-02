@@ -6,6 +6,13 @@ export type Connection<T> = {
 	edges: Array<Edge<T>>;
 };
 
+export type Localization = {
+	availableCountries: {
+		name: string;
+		isoCode: string;
+	}[];
+};
+
 export type ProductOption = {
 	id: string;
 	name: string;
@@ -57,12 +64,15 @@ export type ShopifyProduct = {
 	images: Connection<Image>;
 	seo: SEO;
 	tags: string[];
+	onlineStoreUrl: string;
 	updatedAt: string;
 };
 
 export type ShopifyShop = {
 	id: string;
 	name: string;
+	description: string;
+	shipsToCountries: string[];
 };
 
 export type ShopifyProductsOperation = {

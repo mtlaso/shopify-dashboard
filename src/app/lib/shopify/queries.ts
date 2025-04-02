@@ -16,6 +16,7 @@ const getShopProducts = /* GraphQL */ `
     shop {
       id
       name
+      shipsToCountries
     }
   }
   ${shopifyFragments.product}

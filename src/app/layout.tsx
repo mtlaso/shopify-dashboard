@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "@/app/ui/globals.css";
 import { inter } from "@/app/ui/fonts";
 import { Toaster } from "@/shadcn/ui/sonner";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 
 export const metadata: Metadata = {
 	title: "Create Next App",
@@ -16,7 +17,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`${inter.className} antialiased`}>
-				{children}
+				<NuqsAdapter>{children}</NuqsAdapter>
 				<Toaster />
 			</body>
 		</html>

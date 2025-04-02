@@ -3808,6 +3808,7 @@ export namespace Prisma {
     availableForSale: boolean | null
     description: string | null
     title: string | null
+    onlineStoreUrl: string | null
     shopId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3821,6 +3822,7 @@ export namespace Prisma {
     availableForSale: boolean | null
     description: string | null
     title: string | null
+    onlineStoreUrl: string | null
     shopId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -3835,6 +3837,7 @@ export namespace Prisma {
     description: number
     title: number
     tags: number
+    onlineStoreUrl: number
     shopId: number
     createdAt: number
     updatedAt: number
@@ -3850,6 +3853,7 @@ export namespace Prisma {
     availableForSale?: true
     description?: true
     title?: true
+    onlineStoreUrl?: true
     shopId?: true
     createdAt?: true
     updatedAt?: true
@@ -3863,6 +3867,7 @@ export namespace Prisma {
     availableForSale?: true
     description?: true
     title?: true
+    onlineStoreUrl?: true
     shopId?: true
     createdAt?: true
     updatedAt?: true
@@ -3877,6 +3882,7 @@ export namespace Prisma {
     description?: true
     title?: true
     tags?: true
+    onlineStoreUrl?: true
     shopId?: true
     createdAt?: true
     updatedAt?: true
@@ -3962,8 +3968,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description: string | null
-    title: string
+    title: string | null
     tags: string[]
+    onlineStoreUrl: string
     shopId: string | null
     createdAt: Date
     updatedAt: Date
@@ -3995,6 +4002,7 @@ export namespace Prisma {
     description?: boolean
     title?: boolean
     tags?: boolean
+    onlineStoreUrl?: boolean
     shopId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4012,6 +4020,7 @@ export namespace Prisma {
     description?: boolean
     title?: boolean
     tags?: boolean
+    onlineStoreUrl?: boolean
     shopId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4027,6 +4036,7 @@ export namespace Prisma {
     description?: boolean
     title?: boolean
     tags?: boolean
+    onlineStoreUrl?: boolean
     shopId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -4042,13 +4052,14 @@ export namespace Prisma {
     description?: boolean
     title?: boolean
     tags?: boolean
+    onlineStoreUrl?: boolean
     shopId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productSEOId?: boolean
   }
 
-  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "handle" | "availableForSale" | "description" | "title" | "tags" | "shopId" | "createdAt" | "updatedAt" | "productSEOId", ExtArgs["result"]["product"]>
+  export type ProductOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "handle" | "availableForSale" | "description" | "title" | "tags" | "onlineStoreUrl" | "shopId" | "createdAt" | "updatedAt" | "productSEOId", ExtArgs["result"]["product"]>
   export type ProductInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Shop?: boolean | Product$ShopArgs<ExtArgs>
     ProductSEO?: boolean | Product$ProductSEOArgs<ExtArgs>
@@ -4074,8 +4085,9 @@ export namespace Prisma {
       handle: string
       availableForSale: boolean
       description: string | null
-      title: string
+      title: string | null
       tags: string[]
+      onlineStoreUrl: string
       shopId: string | null
       createdAt: Date
       updatedAt: Date
@@ -4513,6 +4525,7 @@ export namespace Prisma {
     readonly description: FieldRef<"Product", 'String'>
     readonly title: FieldRef<"Product", 'String'>
     readonly tags: FieldRef<"Product", 'String[]'>
+    readonly onlineStoreUrl: FieldRef<"Product", 'String'>
     readonly shopId: FieldRef<"Product", 'String'>
     readonly createdAt: FieldRef<"Product", 'DateTime'>
     readonly updatedAt: FieldRef<"Product", 'DateTime'>
@@ -5002,6 +5015,7 @@ export namespace Prisma {
     id: string | null
     shopifyId: string | null
     name: string | null
+    description: string | null
     accessToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -5012,6 +5026,7 @@ export namespace Prisma {
     id: string | null
     shopifyId: string | null
     name: string | null
+    description: string | null
     accessToken: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -5022,6 +5037,8 @@ export namespace Prisma {
     id: number
     shopifyId: number
     name: number
+    description: number
+    shipsToCountries: number
     accessToken: number
     createdAt: number
     updatedAt: number
@@ -5034,6 +5051,7 @@ export namespace Prisma {
     id?: true
     shopifyId?: true
     name?: true
+    description?: true
     accessToken?: true
     createdAt?: true
     updatedAt?: true
@@ -5044,6 +5062,7 @@ export namespace Prisma {
     id?: true
     shopifyId?: true
     name?: true
+    description?: true
     accessToken?: true
     createdAt?: true
     updatedAt?: true
@@ -5054,6 +5073,8 @@ export namespace Prisma {
     id?: true
     shopifyId?: true
     name?: true
+    description?: true
+    shipsToCountries?: true
     accessToken?: true
     createdAt?: true
     updatedAt?: true
@@ -5137,6 +5158,8 @@ export namespace Prisma {
     id: string
     shopifyId: string
     name: string
+    description: string | null
+    shipsToCountries: string[]
     accessToken: string
     createdAt: Date
     updatedAt: Date
@@ -5164,6 +5187,8 @@ export namespace Prisma {
     id?: boolean
     shopifyId?: boolean
     name?: boolean
+    description?: boolean
+    shipsToCountries?: boolean
     accessToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5177,6 +5202,8 @@ export namespace Prisma {
     id?: boolean
     shopifyId?: boolean
     name?: boolean
+    description?: boolean
+    shipsToCountries?: boolean
     accessToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5188,6 +5215,8 @@ export namespace Prisma {
     id?: boolean
     shopifyId?: boolean
     name?: boolean
+    description?: boolean
+    shipsToCountries?: boolean
     accessToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -5199,13 +5228,15 @@ export namespace Prisma {
     id?: boolean
     shopifyId?: boolean
     name?: boolean
+    description?: boolean
+    shipsToCountries?: boolean
     accessToken?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     userId?: boolean
   }
 
-  export type ShopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "name" | "accessToken" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["shop"]>
+  export type ShopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "name" | "description" | "shipsToCountries" | "accessToken" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["shop"]>
   export type ShopInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Products?: boolean | Shop$ProductsArgs<ExtArgs>
     User?: boolean | Shop$UserArgs<ExtArgs>
@@ -5228,6 +5259,8 @@ export namespace Prisma {
       id: string
       shopifyId: string
       name: string
+      description: string | null
+      shipsToCountries: string[]
       accessToken: string
       createdAt: Date
       updatedAt: Date
@@ -5660,6 +5693,8 @@ export namespace Prisma {
     readonly id: FieldRef<"Shop", 'String'>
     readonly shopifyId: FieldRef<"Shop", 'String'>
     readonly name: FieldRef<"Shop", 'String'>
+    readonly description: FieldRef<"Shop", 'String'>
+    readonly shipsToCountries: FieldRef<"Shop", 'String[]'>
     readonly accessToken: FieldRef<"Shop", 'String'>
     readonly createdAt: FieldRef<"Shop", 'DateTime'>
     readonly updatedAt: FieldRef<"Shop", 'DateTime'>
@@ -10588,6 +10623,7 @@ export namespace Prisma {
     description: 'description',
     title: 'title',
     tags: 'tags',
+    onlineStoreUrl: 'onlineStoreUrl',
     shopId: 'shopId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -10601,6 +10637,8 @@ export namespace Prisma {
     id: 'id',
     shopifyId: 'shopifyId',
     name: 'name',
+    description: 'description',
+    shipsToCountries: 'shipsToCountries',
     accessToken: 'accessToken',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt',
@@ -10904,8 +10942,9 @@ export namespace Prisma {
     handle?: StringFilter<"Product"> | string
     availableForSale?: BoolFilter<"Product"> | boolean
     description?: StringNullableFilter<"Product"> | string | null
-    title?: StringFilter<"Product"> | string
+    title?: StringNullableFilter<"Product"> | string | null
     tags?: StringNullableListFilter<"Product">
+    onlineStoreUrl?: StringFilter<"Product"> | string
     shopId?: StringNullableFilter<"Product"> | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
@@ -10921,8 +10960,9 @@ export namespace Prisma {
     handle?: SortOrder
     availableForSale?: SortOrder
     description?: SortOrderInput | SortOrder
-    title?: SortOrder
+    title?: SortOrderInput | SortOrder
     tags?: SortOrder
+    onlineStoreUrl?: SortOrder
     shopId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10941,8 +10981,9 @@ export namespace Prisma {
     handle?: StringFilter<"Product"> | string
     availableForSale?: BoolFilter<"Product"> | boolean
     description?: StringNullableFilter<"Product"> | string | null
-    title?: StringFilter<"Product"> | string
+    title?: StringNullableFilter<"Product"> | string | null
     tags?: StringNullableListFilter<"Product">
+    onlineStoreUrl?: StringFilter<"Product"> | string
     shopId?: StringNullableFilter<"Product"> | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
@@ -10958,8 +10999,9 @@ export namespace Prisma {
     handle?: SortOrder
     availableForSale?: SortOrder
     description?: SortOrderInput | SortOrder
-    title?: SortOrder
+    title?: SortOrderInput | SortOrder
     tags?: SortOrder
+    onlineStoreUrl?: SortOrder
     shopId?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -10978,8 +11020,9 @@ export namespace Prisma {
     handle?: StringWithAggregatesFilter<"Product"> | string
     availableForSale?: BoolWithAggregatesFilter<"Product"> | boolean
     description?: StringNullableWithAggregatesFilter<"Product"> | string | null
-    title?: StringWithAggregatesFilter<"Product"> | string
+    title?: StringNullableWithAggregatesFilter<"Product"> | string | null
     tags?: StringNullableListFilter<"Product">
+    onlineStoreUrl?: StringWithAggregatesFilter<"Product"> | string
     shopId?: StringNullableWithAggregatesFilter<"Product"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
@@ -10993,6 +11036,8 @@ export namespace Prisma {
     id?: StringFilter<"Shop"> | string
     shopifyId?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
+    description?: StringNullableFilter<"Shop"> | string | null
+    shipsToCountries?: StringNullableListFilter<"Shop">
     accessToken?: StringFilter<"Shop"> | string
     createdAt?: DateTimeFilter<"Shop"> | Date | string
     updatedAt?: DateTimeFilter<"Shop"> | Date | string
@@ -11005,6 +11050,8 @@ export namespace Prisma {
     id?: SortOrder
     shopifyId?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    shipsToCountries?: SortOrder
     accessToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11020,6 +11067,8 @@ export namespace Prisma {
     NOT?: ShopWhereInput | ShopWhereInput[]
     shopifyId?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
+    description?: StringNullableFilter<"Shop"> | string | null
+    shipsToCountries?: StringNullableListFilter<"Shop">
     accessToken?: StringFilter<"Shop"> | string
     createdAt?: DateTimeFilter<"Shop"> | Date | string
     updatedAt?: DateTimeFilter<"Shop"> | Date | string
@@ -11032,6 +11081,8 @@ export namespace Prisma {
     id?: SortOrder
     shopifyId?: SortOrder
     name?: SortOrder
+    description?: SortOrderInput | SortOrder
+    shipsToCountries?: SortOrder
     accessToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -11048,6 +11099,8 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Shop"> | string
     shopifyId?: StringWithAggregatesFilter<"Shop"> | string
     name?: StringWithAggregatesFilter<"Shop"> | string
+    description?: StringNullableWithAggregatesFilter<"Shop"> | string | null
+    shipsToCountries?: StringNullableListFilter<"Shop">
     accessToken?: StringWithAggregatesFilter<"Shop"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Shop"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Shop"> | Date | string
@@ -11491,8 +11544,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -11507,8 +11561,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     shopId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11523,8 +11578,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11539,8 +11595,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     shopId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11555,8 +11612,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     shopId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11569,8 +11627,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -11582,8 +11641,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     shopId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11594,6 +11654,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11605,6 +11667,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11616,6 +11680,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11627,6 +11693,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11638,6 +11706,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -11648,6 +11718,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -11657,6 +11729,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -12229,6 +12303,7 @@ export namespace Prisma {
     description?: SortOrder
     title?: SortOrder
     tags?: SortOrder
+    onlineStoreUrl?: SortOrder
     shopId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12242,6 +12317,7 @@ export namespace Prisma {
     availableForSale?: SortOrder
     description?: SortOrder
     title?: SortOrder
+    onlineStoreUrl?: SortOrder
     shopId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12255,6 +12331,7 @@ export namespace Prisma {
     availableForSale?: SortOrder
     description?: SortOrder
     title?: SortOrder
+    onlineStoreUrl?: SortOrder
     shopId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12288,6 +12365,8 @@ export namespace Prisma {
     id?: SortOrder
     shopifyId?: SortOrder
     name?: SortOrder
+    description?: SortOrder
+    shipsToCountries?: SortOrder
     accessToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12298,6 +12377,7 @@ export namespace Prisma {
     id?: SortOrder
     shopifyId?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     accessToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12308,6 +12388,7 @@ export namespace Prisma {
     id?: SortOrder
     shopifyId?: SortOrder
     name?: SortOrder
+    description?: SortOrder
     accessToken?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -12653,6 +12734,10 @@ export namespace Prisma {
     update?: XOR<XOR<ProductImageUpdateToOneWithWhereWithoutProductInput, ProductImageUpdateWithoutProductInput>, ProductImageUncheckedUpdateWithoutProductInput>
   }
 
+  export type ShopCreateshipsToCountriesInput = {
+    set: string[]
+  }
+
   export type ProductCreateNestedManyWithoutShopInput = {
     create?: XOR<ProductCreateWithoutShopInput, ProductUncheckedCreateWithoutShopInput> | ProductCreateWithoutShopInput[] | ProductUncheckedCreateWithoutShopInput[]
     connectOrCreate?: ProductCreateOrConnectWithoutShopInput | ProductCreateOrConnectWithoutShopInput[]
@@ -12671,6 +12756,11 @@ export namespace Prisma {
     connectOrCreate?: ProductCreateOrConnectWithoutShopInput | ProductCreateOrConnectWithoutShopInput[]
     createMany?: ProductCreateManyShopInputEnvelope
     connect?: ProductWhereUniqueInput | ProductWhereUniqueInput[]
+  }
+
+  export type ShopUpdateshipsToCountriesInput = {
+    set?: string[]
+    push?: string | string[]
   }
 
   export type ProductUpdateManyWithoutShopNestedInput = {
@@ -13049,8 +13139,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -13064,8 +13155,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     shopId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13095,8 +13187,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13110,8 +13203,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     shopId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13125,8 +13219,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -13140,8 +13235,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     shopId?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13171,8 +13267,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13186,8 +13283,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     shopId?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13199,6 +13297,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13209,6 +13309,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13281,6 +13383,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13291,6 +13395,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13361,8 +13467,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -13376,8 +13483,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -13449,8 +13557,9 @@ export namespace Prisma {
     handle?: StringFilter<"Product"> | string
     availableForSale?: BoolFilter<"Product"> | boolean
     description?: StringNullableFilter<"Product"> | string | null
-    title?: StringFilter<"Product"> | string
+    title?: StringNullableFilter<"Product"> | string | null
     tags?: StringNullableListFilter<"Product">
+    onlineStoreUrl?: StringFilter<"Product"> | string
     shopId?: StringNullableFilter<"Product"> | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
@@ -13566,6 +13675,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13576,6 +13687,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13680,6 +13793,8 @@ export namespace Prisma {
     id?: StringFilter<"Shop"> | string
     shopifyId?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
+    description?: StringNullableFilter<"Shop"> | string | null
+    shipsToCountries?: StringNullableListFilter<"Shop">
     accessToken?: StringFilter<"Shop"> | string
     createdAt?: DateTimeFilter<"Shop"> | Date | string
     updatedAt?: DateTimeFilter<"Shop"> | Date | string
@@ -13820,8 +13935,9 @@ export namespace Prisma {
     handle: string
     availableForSale: boolean
     description?: string | null
-    title: string
+    title?: string | null
     tags?: ProductCreatetagsInput | string[]
+    onlineStoreUrl: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productSEOId?: string | null
@@ -13833,8 +13949,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13848,8 +13965,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13863,8 +13981,9 @@ export namespace Prisma {
     handle?: StringFieldUpdateOperationsInput | string
     availableForSale?: BoolFieldUpdateOperationsInput | boolean
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    title?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
     tags?: ProductUpdatetagsInput | string[]
+    onlineStoreUrl?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productSEOId?: NullableStringFieldUpdateOperationsInput | string | null
@@ -13899,6 +14018,8 @@ export namespace Prisma {
     id?: string
     shopifyId: string
     name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
     accessToken: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -13983,6 +14104,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -13993,6 +14116,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -14003,6 +14128,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
     accessToken?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string

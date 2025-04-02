@@ -39,7 +39,7 @@ export async function ShipsToCountriesChart({
 				</p>
 			</div>
 
-			<div className="h72 w-full rounded-md overflow-scroll">{elements}</div>
+			<div className="overflow-scroll">{elements}</div>
 		</div>
 	);
 }

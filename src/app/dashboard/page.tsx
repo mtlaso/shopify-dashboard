@@ -1,4 +1,5 @@
 import { shopUrlState } from "@/app/lib/stores/shop-state";
+import { AmountProductsChart } from "@/app/ui/dashboard/charts/amount-products-chart";
 import { ShipsToCountriesChart } from "@/app/ui/dashboard/charts/ships-to-countries-chart";
 import { Separator } from "@/shadcn/ui/separator";
 import { Suspense } from "react";
@@ -29,6 +30,9 @@ export default async function Page(props: {
 			<section className="grid grid-cols-1 sm:grid-cols-2 gap-4">
 				<Suspense fallback={<p>chargement...</p>}>
 					<ShipsToCountriesChart selectedShopId={selectedShopId} />
+				</Suspense>
+				<Suspense fallback={<p>chargement...</p>}>
+					<AmountProductsChart selectedShopId={selectedShopId} />
 				</Suspense>
 			</section>
 		</section>

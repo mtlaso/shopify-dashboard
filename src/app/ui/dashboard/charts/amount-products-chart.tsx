@@ -7,12 +7,12 @@ export async function AmountProductsChart({
 }: {
 	selectedShopId: string;
 }): Promise<React.JSX.Element> {
-	const l = await data.getUserShopData(selectedShopId);
+	const num = await data.getUserShopProductsData(selectedShopId);
 
 	return (
 		<div
 			className={cn(
-				"flex flex-col justifycenter h-72 w-1/2 p-4 bg-secondary border rounded",
+				"flex flex-col justifycenter h-72 p-4 bg-secondary border rounded",
 				SPACING.SM,
 			)}
 		>
@@ -23,8 +23,13 @@ export async function AmountProductsChart({
 				</p>
 			</div>
 
-			<div className="flex flex-col justify-center items-center h-full wfull">
-				{l.length}
+			<div className="flex flex-col justify-center items-center h-full">
+				<span className="font-semibold text-lg">
+					{num &&
+						new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
+							num.length,
+						)}
+				</span>
 			</div>
 		</div>
 	);

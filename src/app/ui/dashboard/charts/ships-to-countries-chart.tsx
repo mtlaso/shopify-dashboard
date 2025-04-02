@@ -12,6 +12,15 @@ export async function ShipsToCountriesChart({
 
 	const elements = [];
 	for (const country of countries) {
+		if (!list) {
+			elements.push(
+				<div key={0} className="flex items-center">
+					<p>Aucune donnée</p>
+				</div>,
+			);
+			break;
+		}
+
 		if (list.includes(country.code)) {
 			elements.push(
 				<div key={country.code} className="flex items-center">

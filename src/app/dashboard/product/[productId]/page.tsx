@@ -1,4 +1,5 @@
 import { data } from "@/app/lib/data";
+import { ProductAiEnhancement } from "@/app/ui/dashboard/product-ai-enhacement";
 import { SPACING } from "@/app/ui/spacing";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/shadcn/ui/separator";
@@ -26,6 +27,8 @@ export default async function Page({
 		notFound();
 	}
 
+	const context = JSON.stringify(shopData);
+
 	return (
 		<section>
 			<div className="flex">
@@ -35,7 +38,6 @@ export default async function Page({
 
 			<Link
 				href={product.onlineStoreUrl}
-				prefetch={true}
 				className="flex items-center my-4 underline underline-offset-4"
 			>
 				{product.onlineStoreUrl.split(".myshopify.com/")[1]}
@@ -119,7 +121,7 @@ export default async function Page({
 						<h2 className="text-lg font-semibold">Tags</h2>
 						{product.tags.length > 0 && (
 							<p className="text-muted-foreground text-sm">
-								{product.tags.length} tags{" "}
+								{product.tags.length} tags
 							</p>
 						)}
 
@@ -128,7 +130,7 @@ export default async function Page({
 						)}
 					</div>
 
-					<div className="flex flex-wrap gap-1">
+					<div className="overflow-scroll h-full flex flex-wrap gap-1 content-start">
 						{product.tags.map((tag) => (
 							<span
 								key={tag}
@@ -140,7 +142,6 @@ export default async function Page({
 					</div>
 				</div>
 
-				{/* product seo /* */}
 				<div
 					className={cn(
 						"p-4 bg-secondary border rounded h-72 overflow-hidden",
@@ -151,7 +152,7 @@ export default async function Page({
 						<h2 className="text-lg font-semibold">Informations SEO</h2>
 						{product.ProductSEO?.title && (
 							<p className="text-muted-foreground text-sm">
-								Informations SEO pour votre site.
+								Informations SEO du produit.
 							</p>
 						)}
 
@@ -178,6 +179,8 @@ export default async function Page({
 						)}
 					</div>
 				</div>
+
+				<ProductAiEnhancement context={context} />
 			</div>
 		</section>
 	);

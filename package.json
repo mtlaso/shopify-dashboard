@@ -18,6 +18,8 @@
 		"schema": "src/db/schema.prisma"
 	},
 	"dependencies": {
+		"@ai-sdk/amazon-bedrock": "^2.2.4",
+		"@ai-sdk/react": "^1.2.5",
 		"@icons-pack/react-simple-icons": "^12.3.0",
 		"@next/env": "^15.2.4",
 		"@prisma/client": "^6.5.0",
@@ -32,6 +34,7 @@
 		"@radix-ui/react-slot": "^1.1.2",
 		"@radix-ui/react-tooltip": "^1.1.8",
 		"@types/cookie-signature": "^1.1.2",
+		"ai": "^4.2.10",
 		"better-auth": "^1.2.5",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",

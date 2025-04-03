@@ -44,7 +44,7 @@ export default function Page(): React.JSX.Element {
 }
 
 async function ShopsWrapper(): Promise<React.JSX.Element> {
-	const userShops = await data.getUserShops();
+	const userShops = await data.getShops();
 
 	return (
 		<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">

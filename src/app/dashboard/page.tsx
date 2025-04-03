@@ -30,8 +30,8 @@ export default async function Page(props: {
 			<h1 className="text-bolder text-2xl">Accueil</h1>
 			<Separator className="my-4" />
 
-			<div className={SPACING.SM}>
-				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+			<div className={SPACING.MD}>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
 					<Suspense fallback={<p>chargement...</p>}>
 						<SEOInsightsChart selectedShopId={selectedShopId} />
 					</Suspense>
@@ -41,13 +41,13 @@ export default async function Page(props: {
 					<Suspense fallback={<p>chargement...</p>}>
 						<AmountProductsChart selectedShopId={selectedShopId} />
 					</Suspense>
-				</section>
+				</div>
 
-				<section>
+				<div>
 					<Suspense>
 						<Products selectedShopId={selectedShopId} />
 					</Suspense>
-				</section>
+				</div>
 			</div>
 		</section>
 	);

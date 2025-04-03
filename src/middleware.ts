@@ -3,7 +3,9 @@ import { type NextRequest, NextResponse } from "next/server";
 
 export async function middleware(req: NextRequest): Promise<NextResponse> {
 	const sessionCookie = (await cookies()).get(
-		"better-auth.session_token",
+		process.env.VERCEL_ENV === "production"
+			? "__Secure-better-auth.session_data"
+			: "better-auth.session_token",
 	)?.value;
 
 	/**

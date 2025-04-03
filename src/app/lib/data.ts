@@ -9,7 +9,7 @@ import "server-only";
  * @returns {Promise<Shop[]>} Les boutiques de l'Utilisateur connecté.
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */
-async function getUserShops(): Promise<Shop[]> {
+async function getShops(): Promise<Shop[]> {
 	try {
 		const session = await auth.api.getSession({ headers: await headers() });
 		if (!session) {
@@ -33,7 +33,7 @@ async function getUserShops(): Promise<Shop[]> {
  * @returns {Promise<string[]>|null} Les pays de livraison de la boutique de l'Utilisateur connecté.
  * @throws {Error} Erreur lors de la récupération des destinations de livraison.
  */
-async function getUserShopCountriesShippingTo(
+async function getShopCountriesShippingTo(
 	shopId: string,
 ): Promise<string[] | null> {
 	try {
@@ -64,7 +64,7 @@ async function getUserShopCountriesShippingTo(
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */
 // biome-ignore lint/nursery/useExplicitType: Type trop complexe pour être explicitement déclaré.
-async function getUserShopData(shopId: string) {
+async function getShopData(shopId: string) {
 	try {
 		const session = await auth.api.getSession({ headers: await headers() });
 		if (!session) {
@@ -77,7 +77,7 @@ async function getUserShopData(shopId: string) {
 	} catch (err) {
 		logger.error(err);
 		throw new Error(
-			"Erreur inattendue lors de la récupération des boutiques de l'utilisateur.",
+			"Erreur inattendue lors de la récupération d'une boutique de l'utilisateur.",
 		);
 	}
 }
@@ -88,7 +88,7 @@ async function getUserShopData(shopId: string) {
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */
 // biome-ignore lint/nursery/useExplicitType: Type trop complexe pour être explicitement déclaré.
-async function getUserShopProductsData(shopId: string) {
+async function getShopProductsData(shopId: string) {
 	try {
 		const session = await auth.api.getSession({ headers: await headers() });
 		if (!session) {
@@ -115,11 +115,47 @@ async function getUserShopProductsData(shopId: string) {
 }
 
 /**
+ * getShopProduct retourne les données d'un produit de la boutique de l'utilisateur connecté.
+ * @param {string} shopId - L'identifiant de la boutique.
+ * @param {string} productId - L'identifiant du produit.
+ * @throws {Error} Erreur inattendue lors de la récupération du produit.
+ */
+// biome-ignore lint/nursery/useExplicitType: Type trop complexe pour être explicitement déclaré.
+async function getShopProduct(shopId: string, productId: string) {
+	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		if (!session) {
+			throw new Error("Utilisateur non connecté.");
+		}
+
+		return await prisma.shop.findFirst({
+			where: { id: shopId, userId: session.user.id },
+			include: {
+				Products: {
+					where: { id: productId },
+					take: 1,
+					include: {
+						ProductSEO: true,
+						ProductImage: true,
+					},
+				},
+			},
+		});
+	} catch (err) {
+		logger.error(err);
+		throw new Error(
+			"Erreur inattendue lors de la récupération de produit de l'utilisateur.",
+		);
+	}
+}
+
+/**
  * data permet d'effectuer des operations de récupération de données.
  */
 export const data = {
-	getUserShops,
-	getUserShopCountriesShippingTo,
-	getUserShopData,
-	getUserShopProductsData,
+	getShops,
+	getShopCountriesShippingTo,
+	getShopData,
+	getShopProductsData,
+	getShopProduct,
 };

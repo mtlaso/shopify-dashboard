@@ -8,7 +8,7 @@ export async function ShipsToCountriesChart({
 }: {
 	selectedShopId: string;
 }): Promise<React.JSX.Element> {
-	const list = await data.getUserShopCountriesShippingTo(selectedShopId);
+	const list = await data.getShopCountriesShippingTo(selectedShopId);
 
 	const elements = [];
 	for (const country of countries) {
@@ -41,10 +41,10 @@ export async function ShipsToCountriesChart({
 		>
 			<div>
 				<h1 className="text-bolder font-semibold">
-					Pays admissibles à livraisons
+					Pays admissibles à livraison
 				</h1>
 				<p className="text-muted-foreground text-sm">
-					Les pays dans lesquels vous livrez vos commandes.
+					Les pays dans lesquels vous livrez des commandes.
 				</p>
 			</div>
 

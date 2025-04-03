@@ -7,7 +7,7 @@ export async function SEOInsightsChart({
 }: {
 	selectedShopId: string;
 }): Promise<React.JSX.Element> {
-	const userShopData = await data.getUserShopData(selectedShopId);
+	const userShopData = await data.getShopData(selectedShopId);
 
 	return (
 		<div
@@ -31,7 +31,7 @@ export async function SEOInsightsChart({
 							Description :
 							{userShopData?.description && userShopData.description}
 							{!userShopData?.description && (
-								<span className="border rounded-md px-2 mx-2">
+								<span className="border text-sm rounded-md px-2 mx-2">
 									Aucune description
 								</span>
 							)}

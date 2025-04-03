@@ -18,7 +18,7 @@ export async function Products({
 }: {
 	selectedShopId: string;
 }): Promise<React.JSX.Element> {
-	const products = await data.getUserShopProductsData(selectedShopId);
+	const products = await data.getShopProductsData(selectedShopId);
 
 	return (
 		<Table>

@@ -10,7 +10,7 @@ export default async function RootLayout({
 }>): Promise<React.JSX.Element> {
 	const cookieStore = await cookies();
 	const isSideBarOpen = cookieStore.get("sidebar_state")?.value === "true";
-	const userShops = await data.getUserShops();
+	const userShops = await data.getShops();
 
 	return (
 		<SidebarProvider defaultOpen={isSideBarOpen}>

@@ -3,6 +3,7 @@ import { AmountProductsChart } from "@/app/ui/dashboard/charts/amount-products-c
 import { SEOInsightsChart } from "@/app/ui/dashboard/charts/seo-insights.chart";
 import { ShipsToCountriesChart } from "@/app/ui/dashboard/charts/ships-to-countries-chart";
 import { Products } from "@/app/ui/dashboard/products";
+import { SPACING } from "@/app/ui/spacing";
 import { Separator } from "@/shadcn/ui/separator";
 import { Suspense } from "react";
 
@@ -29,26 +30,25 @@ export default async function Page(props: {
 			<h1 className="text-bolder text-2xl">Accueil</h1>
 			<Separator className="my-4" />
 
-			<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-				<Suspense fallback={<p>chargement...</p>}>
-					<SEOInsightsChart selectedShopId={selectedShopId} />
-				</Suspense>
-				<Suspense fallback={<p>chargement...</p>}>
-					<ShipsToCountriesChart selectedShopId={selectedShopId} />
-				</Suspense>
-				<Suspense fallback={<p>chargement...</p>}>
-					<AmountProductsChart selectedShopId={selectedShopId} />
-				</Suspense>
-			</section>
+			<div className={SPACING.SM}>
+				<section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+					<Suspense fallback={<p>chargement...</p>}>
+						<SEOInsightsChart selectedShopId={selectedShopId} />
+					</Suspense>
+					<Suspense fallback={<p>chargement...</p>}>
+						<ShipsToCountriesChart selectedShopId={selectedShopId} />
+					</Suspense>
+					<Suspense fallback={<p>chargement...</p>}>
+						<AmountProductsChart selectedShopId={selectedShopId} />
+					</Suspense>
+				</section>
 
-			{/* <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-col-4">
-        <p>produots</p>
-      </section> */}
-			<section>
-				<Suspense>
-					<Products selectedShopId={selectedShopId} />
-				</Suspense>
-			</section>
+				<section>
+					<Suspense>
+						<Products selectedShopId={selectedShopId} />
+					</Suspense>
+				</section>
+			</div>
 		</section>
 	);
 }

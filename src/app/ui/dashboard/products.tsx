@@ -52,18 +52,13 @@ export async function Products({
 								href={product.onlineStoreUrl}
 								prefetch={false}
 								target="_blank"
-								className="cursor-wait underline underline-offset-4 hover:opacity-90 transition-all duration-200"
+								className="underline underline-offset-4"
 							>
 								{product.onlineStoreUrl.split(".myshopify.com/")[1]}
 							</Link>
 						</TableCell>
 					</TableRow>
 				))}
-				{/* <TableRow>
-          <TableCell className="font-medium">INV001</TableCell>
-          <TableCell>Paid</TableCell>
-          <TableCell>Credit Card</TableCell>
-        </TableRow> */}
 			</TableBody>
 		</Table>
 	);

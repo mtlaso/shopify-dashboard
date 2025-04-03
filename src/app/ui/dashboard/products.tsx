@@ -1,4 +1,5 @@
 import { data } from "@/app/lib/data";
+import { shopUrlState } from "@/app/lib/stores/shop-state";
 import {
 	Table,
 	TableBody,
@@ -46,7 +47,20 @@ export async function Products({
 								height={30}
 							/>
 						</TableCell>
-						<TableCell>{product.handle}</TableCell>
+						<TableCell>
+							<Link
+								href={{
+									pathname: `/dashboard/product/${product.id}`,
+									query: {
+										[shopUrlState.SHOP_KEY]: selectedShopId,
+									},
+								}}
+								prefetch={true}
+								className="underline underline-offset-4"
+							>
+								{product.handle}
+							</Link>
+						</TableCell>
 						<TableCell>
 							<Link
 								href={product.onlineStoreUrl}

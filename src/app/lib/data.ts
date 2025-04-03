@@ -95,7 +95,7 @@ async function getUserShopProductsData(shopId: string) {
 			throw new Error("Utilisateur non connecté.");
 		}
 
-		return await prisma.shop.findMany({
+		return await prisma.shop.findFirst({
 			where: { id: shopId, userId: session.user.id },
 			include: {
 				Products: {

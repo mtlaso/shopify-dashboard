@@ -7,7 +7,7 @@ export async function AmountProductsChart({
 }: {
 	selectedShopId: string;
 }): Promise<React.JSX.Element> {
-	const num = await data.getUserShopProductsData(selectedShopId);
+	const products = await data.getUserShopProductsData(selectedShopId);
 
 	return (
 		<div
@@ -19,16 +19,18 @@ export async function AmountProductsChart({
 			<div>
 				<h1 className="text-bolder font-semibold">Nombre de produits</h1>
 				<p className="text-muted-foreground text-sm">
-					Le nombre de produits que vous avez dans votre boutique.
+					Le nombre de produits que vous vendez dans votre boutique.
 				</p>
 			</div>
 
 			<div className="flex flex-col justify-center items-center h-full">
 				<span className="font-semibold text-lg">
-					{num &&
+					{products &&
 						new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
-							num.length,
+							products.Products.length,
 						)}
+
+					{!products && "Aucune donnée"}
 				</span>
 			</div>
 		</div>

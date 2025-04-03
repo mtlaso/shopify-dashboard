@@ -19,7 +19,7 @@ export async function AmountProductsChart({
 			<div>
 				<h1 className="text-bolder font-semibold">Nombre de produits</h1>
 				<p className="text-muted-foreground text-sm">
-					Le nombre de produits que vous vendez dans votre boutique.
+					Le nombre de produits que vous vendez sur votre boutique.
 				</p>
 			</div>
 

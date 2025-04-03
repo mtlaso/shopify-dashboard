@@ -5,7 +5,7 @@ import { headers } from "next/headers";
 import "server-only";
 
 /**
- * getUserShops retourne les boutiques de l'Utilisateur connecté.
+ * getShops retourne les boutiques de l'Utilisateur connecté.
  * @returns {Promise<Shop[]>} Les boutiques de l'Utilisateur connecté.
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */
@@ -28,7 +28,7 @@ async function getShops(): Promise<Shop[]> {
 }
 
 /**
- * getUserShopCountriesShippingTo retourne les pays de livraison de la boutique de l'Utilisateur connecté.
+ * getShopCountriesShippingTo retourne les pays de livraison de la boutique de l'Utilisateur connecté.
  * @param {string} shopId - L'identifiant de la boutique.
  * @returns {Promise<string[]>|null} Les pays de livraison de la boutique de l'Utilisateur connecté.
  * @throws {Error} Erreur lors de la récupération des destinations de livraison.
@@ -59,7 +59,7 @@ async function getShopCountriesShippingTo(
 }
 
 /**
- * getUserShopData retourne les données de la boutique de l'utilisateur connecté.
+ * getShopData retourne les données de la boutique de l'utilisateur connecté.
  * @param {string} shopId - L'identifiant de la boutique.
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */
@@ -83,7 +83,7 @@ async function getShopData(shopId: string) {
 }
 
 /**
- * getUserShopProductData retourne les données des produits de la boutique de l'utilisateur connecté.
+ * getShopProductData retourne les données des produits de la boutique de l'utilisateur connecté.
  * @param {string} shopId - L'identifiant de la boutique.
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
  */

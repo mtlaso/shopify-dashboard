@@ -1,3 +1,5 @@
+import type { MediaContentType } from "@/db/generated/client";
+
 export type Edge<T> = {
 	node: T;
 };
@@ -23,17 +25,16 @@ export type SEO = {
 };
 
 export type Media = {
+	id: string;
 	alt: string;
 	mediaContentType: MediaContentType;
-	Video: Video;
-	ExternalVideo: ExternalVideo;
-	MediaImage: MediaImage;
+	originalSource: Video;
+	originUrl: ExternalVideo;
+	image: MediaImage;
 };
 
 export type MediaImage = {
-	image: {
-		url: string;
-	};
+	url: string;
 };
 
 export type ExternalVideo = {
@@ -41,16 +42,8 @@ export type ExternalVideo = {
 };
 
 export type Video = {
-	sources: {
-		url: string;
-	}[];
+	url: string;
 };
-
-export type MediaContentType =
-	| "VIDEO"
-	| "EXTERNAL_VIDEO"
-	| "IMAGE"
-	| "MODEL_3D";
 
 export type ProductVariant = {
 	id: string;

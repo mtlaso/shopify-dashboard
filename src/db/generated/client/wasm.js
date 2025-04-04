@@ -127,8 +127,8 @@ exports.Prisma.FeaturedMediaVideoScalarFieldEnum = {
 
 exports.Prisma.FeaturedMediaExternalVideoScalarFieldEnum = {
   id: 'id',
-  originUrl: 'originUrl',
-  productFeatureMediaId: 'productFeatureMediaId',
+  url: 'url',
+  productFeaturedMediaId: 'productFeaturedMediaId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -136,7 +136,7 @@ exports.Prisma.FeaturedMediaExternalVideoScalarFieldEnum = {
 exports.Prisma.FeaturedMediaImageScalarFieldEnum = {
   id: 'id',
   url: 'url',
-  productFeatureMediaId: 'productFeatureMediaId',
+  productFeaturedMediaId: 'productFeaturedMediaId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };

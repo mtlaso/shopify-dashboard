@@ -57,6 +57,7 @@ export function AddShopifyStoreForm(): React.JSX.Element {
 					})}
 					name="access-token"
 					required
+					placeholder="shpat_..."
 				/>
 
 				<Link

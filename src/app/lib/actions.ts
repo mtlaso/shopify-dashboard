@@ -226,11 +226,7 @@ export async function addShopifyShop(
 
 		// Vérifier si la clé API est valide en effectuant une requête sur l'API de Shopify.
 		const data = await client.getShopProducts();
-		// logger.info("Ajout données...", data);
-		// logger.info("Ajout données...", data.products);
-		// logger.info("Ajout données...", data.products[0].variants[0]);
-		logger.info("Ajout données...", data.products[0].id);
-		logger.info("Ajout données...", data.products[0].variants);
+		logger.info("Ajout données...", data);
 
 		await prisma.$transaction(async (tx) => {
 			const shop = await tx.shop.create({
@@ -287,15 +283,53 @@ export async function addShopifyShop(
 					})),
 			});
 
-			//   await tx.productImage.createMany({
-			//     data: data.products.map((product, i) => ({
-			//       url: product.featuredImage?.url,
-			//       altText: product.featuredImage?.altText,
-			//       width: product.featuredImage?.width,
-			//       height: product.featuredImage?.height,
-			//       productId: shopProducts[i].id,
-			//     })),
-			//   });
+			const featuredMedia = await tx.productFeaturedMedia.createManyAndReturn({
+				data: data.products.map((product) => ({
+					shopifyId: product.featuredMedia.id,
+					alt: product.featuredMedia.alt,
+					mediaContentType: product.featuredMedia.mediaContentType,
+					productId: shopProducts.find((p) => p.shopifyId === product.id)!.id,
+				})),
+			});
+
+			// Crée FeaturedImageXXX selon mediaContentType.
+			// data.products.forEach((product) => {
+			for (const product of data.products) {
+				const media = product.featuredMedia;
+				const mediaContentType = media.mediaContentType;
+				const mediaId = featuredMedia.find(
+					(fm) => fm.shopifyId === media.id,
+				)!.id;
+
+				switch (mediaContentType) {
+					case "IMAGE":
+						await tx.featuredMediaImage.create({
+							data: {
+								url: media.image.url,
+								productFeaturedMediaId: mediaId,
+							},
+						});
+						break;
+					case "VIDEO":
+						await tx.featuredMediaVideo.create({
+							data: {
+								url: media.originalSource.url,
+								productFeaturedMediaId: mediaId,
+							},
+						});
+						break;
+					case "EXTERNAL_VIDEO":
+						await tx.featuredMediaExternalVideo.create({
+							data: {
+								url: media.originUrl.originUrl,
+								productFeaturedMediaId: mediaId,
+							},
+						});
+						break;
+					default:
+						break;
+				}
+			}
 		});
 	} catch (err) {
 		logger.error(err);

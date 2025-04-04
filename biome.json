@@ -33,6 +33,9 @@
 			"nursery": {
 				"useExplicitType": "warn"
 			},
+			"style": {
+				"noNonNullAssertion": "off"
+			},
 			"correctness": {
 				"noUnusedVariables": {
 					"level": "warn",

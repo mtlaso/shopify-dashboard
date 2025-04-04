@@ -3160,24 +3160,24 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoMinAggregateOutputType = {
     id: string | null
-    originUrl: string | null
-    productFeatureMediaId: string | null
+    url: string | null
+    productFeaturedMediaId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type FeaturedMediaExternalVideoMaxAggregateOutputType = {
     id: string | null
-    originUrl: string | null
-    productFeatureMediaId: string | null
+    url: string | null
+    productFeaturedMediaId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
   export type FeaturedMediaExternalVideoCountAggregateOutputType = {
     id: number
-    originUrl: number
-    productFeatureMediaId: number
+    url: number
+    productFeaturedMediaId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3186,24 +3186,24 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoMinAggregateInputType = {
     id?: true
-    originUrl?: true
-    productFeatureMediaId?: true
+    url?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type FeaturedMediaExternalVideoMaxAggregateInputType = {
     id?: true
-    originUrl?: true
-    productFeatureMediaId?: true
+    url?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
   }
 
   export type FeaturedMediaExternalVideoCountAggregateInputType = {
     id?: true
-    originUrl?: true
-    productFeatureMediaId?: true
+    url?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3283,8 +3283,8 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoGroupByOutputType = {
     id: string
-    originUrl: string
-    productFeatureMediaId: string
+    url: string
+    productFeaturedMediaId: string
     createdAt: Date
     updatedAt: Date
     _count: FeaturedMediaExternalVideoCountAggregateOutputType | null
@@ -3308,8 +3308,8 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    originUrl?: boolean
-    productFeatureMediaId?: boolean
+    url?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -3317,8 +3317,8 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    originUrl?: boolean
-    productFeatureMediaId?: boolean
+    url?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -3326,8 +3326,8 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    originUrl?: boolean
-    productFeatureMediaId?: boolean
+    url?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -3335,13 +3335,13 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoSelectScalar = {
     id?: boolean
-    originUrl?: boolean
-    productFeatureMediaId?: boolean
+    url?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FeaturedMediaExternalVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "originUrl" | "productFeatureMediaId" | "createdAt" | "updatedAt", ExtArgs["result"]["featuredMediaExternalVideo"]>
+  export type FeaturedMediaExternalVideoOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "productFeaturedMediaId" | "createdAt" | "updatedAt", ExtArgs["result"]["featuredMediaExternalVideo"]>
   export type FeaturedMediaExternalVideoInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
   }
@@ -3359,8 +3359,8 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      originUrl: string
-      productFeatureMediaId: string
+      url: string
+      productFeaturedMediaId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["featuredMediaExternalVideo"]>
@@ -3788,8 +3788,8 @@ export namespace Prisma {
    */ 
   interface FeaturedMediaExternalVideoFieldRefs {
     readonly id: FieldRef<"FeaturedMediaExternalVideo", 'String'>
-    readonly originUrl: FieldRef<"FeaturedMediaExternalVideo", 'String'>
-    readonly productFeatureMediaId: FieldRef<"FeaturedMediaExternalVideo", 'String'>
+    readonly url: FieldRef<"FeaturedMediaExternalVideo", 'String'>
+    readonly productFeaturedMediaId: FieldRef<"FeaturedMediaExternalVideo", 'String'>
     readonly createdAt: FieldRef<"FeaturedMediaExternalVideo", 'DateTime'>
     readonly updatedAt: FieldRef<"FeaturedMediaExternalVideo", 'DateTime'>
   }
@@ -4219,7 +4219,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMinAggregateOutputType = {
     id: string | null
     url: string | null
-    productFeatureMediaId: string | null
+    productFeaturedMediaId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4227,7 +4227,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMaxAggregateOutputType = {
     id: string | null
     url: string | null
-    productFeatureMediaId: string | null
+    productFeaturedMediaId: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4235,7 +4235,7 @@ export namespace Prisma {
   export type FeaturedMediaImageCountAggregateOutputType = {
     id: number
     url: number
-    productFeatureMediaId: number
+    productFeaturedMediaId: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -4245,7 +4245,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMinAggregateInputType = {
     id?: true
     url?: true
-    productFeatureMediaId?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4253,7 +4253,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMaxAggregateInputType = {
     id?: true
     url?: true
-    productFeatureMediaId?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4261,7 +4261,7 @@ export namespace Prisma {
   export type FeaturedMediaImageCountAggregateInputType = {
     id?: true
     url?: true
-    productFeatureMediaId?: true
+    productFeaturedMediaId?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4342,7 +4342,7 @@ export namespace Prisma {
   export type FeaturedMediaImageGroupByOutputType = {
     id: string
     url: string
-    productFeatureMediaId: string
+    productFeaturedMediaId: string
     createdAt: Date
     updatedAt: Date
     _count: FeaturedMediaImageCountAggregateOutputType | null
@@ -4367,7 +4367,7 @@ export namespace Prisma {
   export type FeaturedMediaImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
-    productFeatureMediaId?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -4376,7 +4376,7 @@ export namespace Prisma {
   export type FeaturedMediaImageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
-    productFeatureMediaId?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -4385,7 +4385,7 @@ export namespace Prisma {
   export type FeaturedMediaImageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
-    productFeatureMediaId?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
@@ -4394,12 +4394,12 @@ export namespace Prisma {
   export type FeaturedMediaImageSelectScalar = {
     id?: boolean
     url?: boolean
-    productFeatureMediaId?: boolean
+    productFeaturedMediaId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FeaturedMediaImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "productFeatureMediaId" | "createdAt" | "updatedAt", ExtArgs["result"]["featuredMediaImage"]>
+  export type FeaturedMediaImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "productFeaturedMediaId" | "createdAt" | "updatedAt", ExtArgs["result"]["featuredMediaImage"]>
   export type FeaturedMediaImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     productFeaturedMedia?: boolean | ProductFeaturedMediaDefaultArgs<ExtArgs>
   }
@@ -4418,7 +4418,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       url: string
-      productFeatureMediaId: string
+      productFeaturedMediaId: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["featuredMediaImage"]>
@@ -4847,7 +4847,7 @@ export namespace Prisma {
   interface FeaturedMediaImageFieldRefs {
     readonly id: FieldRef<"FeaturedMediaImage", 'String'>
     readonly url: FieldRef<"FeaturedMediaImage", 'String'>
-    readonly productFeatureMediaId: FieldRef<"FeaturedMediaImage", 'String'>
+    readonly productFeaturedMediaId: FieldRef<"FeaturedMediaImage", 'String'>
     readonly createdAt: FieldRef<"FeaturedMediaImage", 'DateTime'>
     readonly updatedAt: FieldRef<"FeaturedMediaImage", 'DateTime'>
   }
@@ -16565,8 +16565,8 @@ export namespace Prisma {
 
   export const FeaturedMediaExternalVideoScalarFieldEnum: {
     id: 'id',
-    originUrl: 'originUrl',
-    productFeatureMediaId: 'productFeatureMediaId',
+    url: 'url',
+    productFeaturedMediaId: 'productFeaturedMediaId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -16577,7 +16577,7 @@ export namespace Prisma {
   export const FeaturedMediaImageScalarFieldEnum: {
     id: 'id',
     url: 'url',
-    productFeatureMediaId: 'productFeatureMediaId',
+    productFeaturedMediaId: 'productFeaturedMediaId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -16884,8 +16884,8 @@ export namespace Prisma {
     OR?: FeaturedMediaExternalVideoWhereInput[]
     NOT?: FeaturedMediaExternalVideoWhereInput | FeaturedMediaExternalVideoWhereInput[]
     id?: StringFilter<"FeaturedMediaExternalVideo"> | string
-    originUrl?: StringFilter<"FeaturedMediaExternalVideo"> | string
-    productFeatureMediaId?: StringFilter<"FeaturedMediaExternalVideo"> | string
+    url?: StringFilter<"FeaturedMediaExternalVideo"> | string
+    productFeaturedMediaId?: StringFilter<"FeaturedMediaExternalVideo"> | string
     createdAt?: DateTimeFilter<"FeaturedMediaExternalVideo"> | Date | string
     updatedAt?: DateTimeFilter<"FeaturedMediaExternalVideo"> | Date | string
     productFeaturedMedia?: XOR<ProductFeaturedMediaScalarRelationFilter, ProductFeaturedMediaWhereInput>
@@ -16893,8 +16893,8 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoOrderByWithRelationInput = {
     id?: SortOrder
-    originUrl?: SortOrder
-    productFeatureMediaId?: SortOrder
+    url?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     productFeaturedMedia?: ProductFeaturedMediaOrderByWithRelationInput
@@ -16902,20 +16902,20 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    productFeatureMediaId?: string
+    productFeaturedMediaId?: string
     AND?: FeaturedMediaExternalVideoWhereInput | FeaturedMediaExternalVideoWhereInput[]
     OR?: FeaturedMediaExternalVideoWhereInput[]
     NOT?: FeaturedMediaExternalVideoWhereInput | FeaturedMediaExternalVideoWhereInput[]
-    originUrl?: StringFilter<"FeaturedMediaExternalVideo"> | string
+    url?: StringFilter<"FeaturedMediaExternalVideo"> | string
     createdAt?: DateTimeFilter<"FeaturedMediaExternalVideo"> | Date | string
     updatedAt?: DateTimeFilter<"FeaturedMediaExternalVideo"> | Date | string
     productFeaturedMedia?: XOR<ProductFeaturedMediaScalarRelationFilter, ProductFeaturedMediaWhereInput>
-  }, "id" | "productFeatureMediaId">
+  }, "id" | "productFeaturedMediaId">
 
   export type FeaturedMediaExternalVideoOrderByWithAggregationInput = {
     id?: SortOrder
-    originUrl?: SortOrder
-    productFeatureMediaId?: SortOrder
+    url?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FeaturedMediaExternalVideoCountOrderByAggregateInput
@@ -16928,8 +16928,8 @@ export namespace Prisma {
     OR?: FeaturedMediaExternalVideoScalarWhereWithAggregatesInput[]
     NOT?: FeaturedMediaExternalVideoScalarWhereWithAggregatesInput | FeaturedMediaExternalVideoScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"FeaturedMediaExternalVideo"> | string
-    originUrl?: StringWithAggregatesFilter<"FeaturedMediaExternalVideo"> | string
-    productFeatureMediaId?: StringWithAggregatesFilter<"FeaturedMediaExternalVideo"> | string
+    url?: StringWithAggregatesFilter<"FeaturedMediaExternalVideo"> | string
+    productFeaturedMediaId?: StringWithAggregatesFilter<"FeaturedMediaExternalVideo"> | string
     createdAt?: DateTimeWithAggregatesFilter<"FeaturedMediaExternalVideo"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"FeaturedMediaExternalVideo"> | Date | string
   }
@@ -16940,7 +16940,7 @@ export namespace Prisma {
     NOT?: FeaturedMediaImageWhereInput | FeaturedMediaImageWhereInput[]
     id?: StringFilter<"FeaturedMediaImage"> | string
     url?: StringFilter<"FeaturedMediaImage"> | string
-    productFeatureMediaId?: StringFilter<"FeaturedMediaImage"> | string
+    productFeaturedMediaId?: StringFilter<"FeaturedMediaImage"> | string
     createdAt?: DateTimeFilter<"FeaturedMediaImage"> | Date | string
     updatedAt?: DateTimeFilter<"FeaturedMediaImage"> | Date | string
     productFeaturedMedia?: XOR<ProductFeaturedMediaScalarRelationFilter, ProductFeaturedMediaWhereInput>
@@ -16949,7 +16949,7 @@ export namespace Prisma {
   export type FeaturedMediaImageOrderByWithRelationInput = {
     id?: SortOrder
     url?: SortOrder
-    productFeatureMediaId?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     productFeaturedMedia?: ProductFeaturedMediaOrderByWithRelationInput
@@ -16957,7 +16957,7 @@ export namespace Prisma {
 
   export type FeaturedMediaImageWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    productFeatureMediaId?: string
+    productFeaturedMediaId?: string
     AND?: FeaturedMediaImageWhereInput | FeaturedMediaImageWhereInput[]
     OR?: FeaturedMediaImageWhereInput[]
     NOT?: FeaturedMediaImageWhereInput | FeaturedMediaImageWhereInput[]
@@ -16965,12 +16965,12 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"FeaturedMediaImage"> | Date | string
     updatedAt?: DateTimeFilter<"FeaturedMediaImage"> | Date | string
     productFeaturedMedia?: XOR<ProductFeaturedMediaScalarRelationFilter, ProductFeaturedMediaWhereInput>
-  }, "id" | "productFeatureMediaId">
+  }, "id" | "productFeaturedMediaId">
 
   export type FeaturedMediaImageOrderByWithAggregationInput = {
     id?: SortOrder
     url?: SortOrder
-    productFeatureMediaId?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FeaturedMediaImageCountOrderByAggregateInput
@@ -16984,7 +16984,7 @@ export namespace Prisma {
     NOT?: FeaturedMediaImageScalarWhereWithAggregatesInput | FeaturedMediaImageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"FeaturedMediaImage"> | string
     url?: StringWithAggregatesFilter<"FeaturedMediaImage"> | string
-    productFeatureMediaId?: StringWithAggregatesFilter<"FeaturedMediaImage"> | string
+    productFeaturedMediaId?: StringWithAggregatesFilter<"FeaturedMediaImage"> | string
     createdAt?: DateTimeWithAggregatesFilter<"FeaturedMediaImage"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"FeaturedMediaImage"> | Date | string
   }
@@ -17793,7 +17793,7 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoCreateInput = {
     id?: string
-    originUrl: string
+    url: string
     createdAt?: Date | string
     updatedAt?: Date | string
     productFeaturedMedia: ProductFeaturedMediaCreateNestedOneWithoutFeaturedMediaExternalVideoInput
@@ -17801,15 +17801,15 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoUncheckedCreateInput = {
     id?: string
-    originUrl: string
-    productFeatureMediaId: string
+    url: string
+    productFeaturedMediaId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type FeaturedMediaExternalVideoUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     productFeaturedMedia?: ProductFeaturedMediaUpdateOneRequiredWithoutFeaturedMediaExternalVideoNestedInput
@@ -17817,31 +17817,31 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    productFeatureMediaId?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    productFeaturedMediaId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeaturedMediaExternalVideoCreateManyInput = {
     id?: string
-    originUrl: string
-    productFeatureMediaId: string
+    url: string
+    productFeaturedMediaId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type FeaturedMediaExternalVideoUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeaturedMediaExternalVideoUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    productFeatureMediaId?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    productFeaturedMediaId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17857,7 +17857,7 @@ export namespace Prisma {
   export type FeaturedMediaImageUncheckedCreateInput = {
     id?: string
     url: string
-    productFeatureMediaId: string
+    productFeaturedMediaId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17873,7 +17873,7 @@ export namespace Prisma {
   export type FeaturedMediaImageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    productFeatureMediaId?: StringFieldUpdateOperationsInput | string
+    productFeaturedMediaId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -17881,7 +17881,7 @@ export namespace Prisma {
   export type FeaturedMediaImageCreateManyInput = {
     id?: string
     url: string
-    productFeatureMediaId: string
+    productFeaturedMediaId: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17896,7 +17896,7 @@ export namespace Prisma {
   export type FeaturedMediaImageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
-    productFeatureMediaId?: StringFieldUpdateOperationsInput | string
+    productFeaturedMediaId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18824,24 +18824,24 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoCountOrderByAggregateInput = {
     id?: SortOrder
-    originUrl?: SortOrder
-    productFeatureMediaId?: SortOrder
+    url?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type FeaturedMediaExternalVideoMaxOrderByAggregateInput = {
     id?: SortOrder
-    originUrl?: SortOrder
-    productFeatureMediaId?: SortOrder
+    url?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type FeaturedMediaExternalVideoMinOrderByAggregateInput = {
     id?: SortOrder
-    originUrl?: SortOrder
-    productFeatureMediaId?: SortOrder
+    url?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18849,7 +18849,7 @@ export namespace Prisma {
   export type FeaturedMediaImageCountOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
-    productFeatureMediaId?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18857,7 +18857,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMaxOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
-    productFeatureMediaId?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -18865,7 +18865,7 @@ export namespace Prisma {
   export type FeaturedMediaImageMinOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
-    productFeatureMediaId?: SortOrder
+    productFeaturedMediaId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -20436,14 +20436,14 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoCreateWithoutProductFeaturedMediaInput = {
     id?: string
-    originUrl: string
+    url: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type FeaturedMediaExternalVideoUncheckedCreateWithoutProductFeaturedMediaInput = {
     id?: string
-    originUrl: string
+    url: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -20547,14 +20547,14 @@ export namespace Prisma {
 
   export type FeaturedMediaExternalVideoUpdateWithoutProductFeaturedMediaInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FeaturedMediaExternalVideoUncheckedUpdateWithoutProductFeaturedMediaInput = {
     id?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

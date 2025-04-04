@@ -4,7 +4,7 @@ const media = /* GraphQL */ `
      alt
      mediaContentType
       ... on Video {
-        sources {
+        originalSource {
           url
         }
       }
@@ -57,37 +57,6 @@ const product = /* GraphQL */ `
   ${media}
   ${seo}
 `;
-// const product = /* GraphQL */ `
-//   fragment product on Product {
-//     id
-//     handle
-//     title
-//     description
-//     variants(first: 10) {
-//       edges {
-//         node {
-//           id
-//           title
-//           product {
-//             id
-//             handle
-//             onlineStoreUrl
-//           }
-//         }
-//       }
-//     }
-//     onlineStoreUrl
-//     tags
-//     featuredMedia {
-//         ...media
-//     }
-//     seo {
-//       ...seo
-//     }
-//   }
-//   ${media}
-//   ${seo}
-// `;
 
 /**
  * shopifyFragments permet de regrouper les fragments utilisés dans les requêtes GraphQL de shopify.

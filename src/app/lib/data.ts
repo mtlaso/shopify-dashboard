@@ -98,10 +98,10 @@ async function getShopProductsData(shopId: string) {
 		return await prisma.shop.findFirst({
 			where: { id: shopId, userId: session.user.id },
 			include: {
-				Products: {
+				products: {
 					include: {
 						ProductSEO: true,
-						ProductImage: true,
+						featuredMedia: true,
 					},
 				},
 			},

@@ -27,7 +27,7 @@ export async function AmountProductsChart({
 				<span className="font-semibold text-lg">
 					{products &&
 						new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
-							products.Products.length,
+							products.products.length,
 						)}
 
 					{!products && "Aucune donnée"}

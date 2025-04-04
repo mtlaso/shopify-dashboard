@@ -8,18 +8,63 @@ generator client {
   output   = "generated/client"
 }
 
-model ProductImage {
-  id        String   @id @default(ulid())
-  url       String?
-  altText   String?
-  width     Int?
-  height    Int?
-  Product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  productId String   @unique
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+enum MediaContentType {
+  VIDEO
+  EXTERNAL_VIDEO
+  IMAGE
+  MODEL_3D
+}
 
-  @@map("product_image")
+model FeaturedMediaVideo {
+  id                     String               @id @default(ulid())
+  url                    String
+  productFeaturedMedia   ProductFeaturedMedia @relation(fields: [productFeaturedMediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productFeaturedMediaId String               @unique
+  createdAt              DateTime             @default(now())
+  updatedAt              DateTime             @updatedAt
+
+  @@map("featured_media_video")
+}
+
+model FeaturedMediaExternalVideo {
+  id                    String               @id @default(ulid())
+  originUrl             String
+  productFeaturedMedia  ProductFeaturedMedia @relation(fields: [productFeatureMediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productFeatureMediaId String               @unique
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+
+  @@map("featured_media_external_video")
+}
+
+model FeaturedMediaImage {
+  id                    String               @id @default(ulid())
+  url                   String
+  productFeaturedMedia  ProductFeaturedMedia @relation(fields: [productFeatureMediaId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productFeatureMediaId String               @unique
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+
+  @@map("featured_media_image")
+}
+
+model ProductFeaturedMedia {
+  id                           String                      @id @default(ulid())
+  shopifyId                    String
+  alt                          String?
+  mediaContentType             MediaContentType
+  featuredMediaVideo           FeaturedMediaVideo?
+  featuredMediaExternalVideo   FeaturedMediaExternalVideo?
+  featuredMediaImage           FeaturedMediaImage?
+  Product                      Product                     @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId                    String                      @unique
+  createdAt                    DateTime                    @default(now())
+  updatedAt                    DateTime                    @updatedAt
+  featuredMediaVideoId         String?
+  featuredMediaExternalVideoId String?
+  featuredMediaImageId         String?
+
+  @@map("product_featured_media")
 }
 
 model ProductSEO {
@@ -34,22 +79,49 @@ model ProductSEO {
   @@map("product_seo")
 }
 
-model Product {
-  id               String        @id @default(ulid())
+model ProductVariantProduct {
+  id               String         @id @default(ulid())
   shopifyId        String
   handle           String
-  availableForSale Boolean
-  description      String?
-  title            String?
-  tags             String[]
-  Shop             Shop?         @relation(fields: [shopId], references: [id], onDelete: Cascade, onUpdate: Cascade)
-  ProductSEO       ProductSEO?
-  ProductImage     ProductImage?
   onlineStoreUrl   String
-  shopId           String?
-  createdAt        DateTime      @default(now())
-  updatedAt        DateTime      @updatedAt
-  productSEOId     String?
+  productVariant   ProductVariant @relation(fields: [productVariantId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productVariantId String         @unique
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+
+  @@map("product_variant_product")
+}
+
+model ProductVariant {
+  id                      String                 @id @default(ulid())
+  shopifyId               String
+  title                   String?
+  productVariantProduct   ProductVariantProduct?
+  product                 Product?               @relation(fields: [productId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  productId               String?
+  productVariantProductId String?
+  createdAt               DateTime               @default(now())
+  updatedAt               DateTime               @updatedAt
+
+  @@map("product_variant")
+}
+
+model Product {
+  id             String                @id @default(ulid())
+  shopifyId      String
+  handle         String
+  description    String?
+  title          String?
+  tags           String[]
+  onlineStoreUrl String
+  shop           Shop?                 @relation(fields: [shopId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  ProductSEO     ProductSEO?
+  variants       ProductVariant[]
+  featuredMedia  ProductFeaturedMedia?
+  shopId         String?
+  createdAt      DateTime              @default(now())
+  updatedAt      DateTime              @updatedAt
+  productSEOId   String?
 
   @@map("product")
 }
@@ -60,7 +132,7 @@ model Shop {
   name             String
   description      String?
   shipsToCountries String[]
-  Products         Product[]
+  products         Product[]
   accessToken      String
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt

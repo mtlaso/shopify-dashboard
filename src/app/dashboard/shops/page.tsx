@@ -15,6 +15,29 @@ import { ChevronsUpDown } from "lucide-react";
 import { Suspense } from "react";
 
 export default function Page(): React.JSX.Element {
+	// const req = await fetch(
+	// 	"https://b01yvd-r5.myshopify.com/admin/api/2025-01/graphql.json",
+	// 	{
+	// 		redirect: "follow",
+	// 		headers: {
+	// 			"X-Shopify-Access-Token": "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",
+	// 			"Content-Type": "application/json",
+	// 		},
+	// 		method: "POST",
+	// 		body: JSON.stringify({
+	// 			query: `query {
+	//        shop {
+	//          id
+	//          name
+	//        }
+	//      }`,
+	// 		}),
+	// 	},
+	// );
+
+	// const res = await req.json();
+	// console.log(res);
+
 	return (
 		<section className={SPACING.SM}>
 			<div>

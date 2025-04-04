@@ -117,15 +117,41 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.ProductImageScalarFieldEnum = {
+exports.Prisma.FeaturedMediaVideoScalarFieldEnum = {
   id: 'id',
   url: 'url',
-  altText: 'altText',
-  width: 'width',
-  height: 'height',
-  productId: 'productId',
+  productFeaturedMediaId: 'productFeaturedMediaId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FeaturedMediaExternalVideoScalarFieldEnum = {
+  id: 'id',
+  originUrl: 'originUrl',
+  productFeatureMediaId: 'productFeatureMediaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.FeaturedMediaImageScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  productFeatureMediaId: 'productFeatureMediaId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProductFeaturedMediaScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  alt: 'alt',
+  mediaContentType: 'mediaContentType',
+  productId: 'productId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  featuredMediaVideoId: 'featuredMediaVideoId',
+  featuredMediaExternalVideoId: 'featuredMediaExternalVideoId',
+  featuredMediaImageId: 'featuredMediaImageId'
 };
 
 exports.Prisma.ProductSEOScalarFieldEnum = {
@@ -137,11 +163,30 @@ exports.Prisma.ProductSEOScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.ProductVariantProductScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  handle: 'handle',
+  onlineStoreUrl: 'onlineStoreUrl',
+  productVariantId: 'productVariantId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.ProductVariantScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  title: 'title',
+  productId: 'productId',
+  productVariantProductId: 'productVariantProductId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.ProductScalarFieldEnum = {
   id: 'id',
   shopifyId: 'shopifyId',
   handle: 'handle',
-  availableForSale: 'availableForSale',
   description: 'description',
   title: 'title',
   tags: 'tags',
@@ -224,11 +269,21 @@ exports.Prisma.NullsOrder = {
   first: 'first',
   last: 'last'
 };
-
+exports.MediaContentType = exports.$Enums.MediaContentType = {
+  VIDEO: 'VIDEO',
+  EXTERNAL_VIDEO: 'EXTERNAL_VIDEO',
+  IMAGE: 'IMAGE',
+  MODEL_3D: 'MODEL_3D'
+};
 
 exports.Prisma.ModelName = {
-  ProductImage: 'ProductImage',
+  FeaturedMediaVideo: 'FeaturedMediaVideo',
+  FeaturedMediaExternalVideo: 'FeaturedMediaExternalVideo',
+  FeaturedMediaImage: 'FeaturedMediaImage',
+  ProductFeaturedMedia: 'ProductFeaturedMedia',
   ProductSEO: 'ProductSEO',
+  ProductVariantProduct: 'ProductVariantProduct',
+  ProductVariant: 'ProductVariant',
   Product: 'Product',
   Shop: 'Shop',
   User: 'User',

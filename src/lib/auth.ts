@@ -1,15 +1,11 @@
 import { VALIDATIONS } from "@/app/lib/types";
 import { PrismaClient } from "@/db/generated/client";
-import { Pool } from "@neondatabase/serverless";
-import { PrismaNeon } from "@prisma/adapter-neon";
 import { betterAuth } from "better-auth";
 import { prismaAdapter } from "better-auth/adapters/prisma";
 import { nextCookies } from "better-auth/next-js";
 
 // https://www.timsanteford.com/posts/how-to-fix-too-many-database-connections-opened-in-prisma-with-next-js-hot-reload/
 const prismaClientSingleton = (): PrismaClient => {
-	const pool = new Pool({ connectionString: process.env.DATABASE_URL });
-	const _adapter = new PrismaNeon(pool);
 	return new PrismaClient({
 		datasources: {
 			db: {

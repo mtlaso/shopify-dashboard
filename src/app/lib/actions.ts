@@ -217,16 +217,20 @@ export async function addShopifyShop(
 		}
 
 		logger.info("Ajout de la boutique Shopify en cours...");
-		logger.info("URL de la boutique :", validatedFields.data.shopUrlHost);
+		logger.info("URL de la boutique", validatedFields.data.shopUrlHost);
 
 		const client = new ShopifyClient(
 			validatedFields.data.shopUrlHost,
 			validatedFields.data.accessToken,
 		);
 
-		// Vérifier si la clé API est valide en effectuant une requête sur l'API GraphQL Storefront API de Shopify.
+		// Vérifier si la clé API est valide en effectuant une requête sur l'API de Shopify.
 		const data = await client.getShopProducts();
-		logger.info("Ajout données...", data);
+		// logger.info("Ajout données...", data);
+		// logger.info("Ajout données...", data.products);
+		// logger.info("Ajout données...", data.products[0].variants[0]);
+		logger.info("Ajout données...", data.products[0].id);
+		logger.info("Ajout données...", data.products[0].variants);
 
 		await prisma.$transaction(async (tx) => {
 			const shop = await tx.shop.create({
@@ -242,12 +246,11 @@ export async function addShopifyShop(
 
 			const shopProducts = await tx.product.createManyAndReturn({
 				data: data.products.map((product) => ({
-					shopId: shop.id,
 					shopifyId: product.id,
+					shopId: shop.id,
 					handle: product.handle,
-					availableForSale: product.availableForSale,
-					description: product.description,
 					title: product.title,
+					description: product.description,
 					tags: product.tags,
 					onlineStoreUrl: product.onlineStoreUrl,
 				})),
@@ -261,15 +264,38 @@ export async function addShopifyShop(
 				})),
 			});
 
-			await tx.productImage.createMany({
-				data: data.products.map((product, i) => ({
-					url: product.featuredImage?.url,
-					altText: product.featuredImage?.altText,
-					width: product.featuredImage?.width,
-					height: product.featuredImage?.height,
-					productId: shopProducts[i].id,
-				})),
+			const productVariants = await tx.productVariant.createManyAndReturn({
+				data: data.products
+					.flatMap((product) => product.variants)
+					.map((variant) => ({
+						shopifyId: variant.id,
+						title: variant.title,
+						productId: shopProducts.find(
+							(p) => p.shopifyId === variant.product.id,
+						)?.id,
+					})),
 			});
+
+			await tx.productVariantProduct.createMany({
+				data: data.products
+					.flatMap((product) => product.variants)
+					.map((variant, i) => ({
+						shopifyId: variant.product.id,
+						handle: variant.product.handle,
+						onlineStoreUrl: variant.product.onlineStoreUrl,
+						productVariantId: productVariants[i].id,
+					})),
+			});
+
+			//   await tx.productImage.createMany({
+			//     data: data.products.map((product, i) => ({
+			//       url: product.featuredImage?.url,
+			//       altText: product.featuredImage?.altText,
+			//       width: product.featuredImage?.width,
+			//       height: product.featuredImage?.height,
+			//       productId: shopProducts[i].id,
+			//     })),
+			//   });
 		});
 	} catch (err) {
 		logger.error(err);

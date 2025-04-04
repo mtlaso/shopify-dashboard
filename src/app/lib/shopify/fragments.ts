@@ -1,9 +1,21 @@
-const image = /* GraphQL */ `
-  fragment image on Image {
-    url
-    altText
-    width
-    height
+const media = /* GraphQL */ `
+  fragment media on Media {
+     id
+     alt
+     mediaContentType
+      ... on Video {
+        sources {
+          url
+        }
+      }
+      ... on MediaImage {
+        image {
+          url
+        }
+      }
+      ... on ExternalVideo {
+        originUrl
+      }
   }
 `;
 
@@ -18,68 +30,70 @@ const product = /* GraphQL */ `
   fragment product on Product {
     id
     handle
-    availableForSale
     title
     description
-    descriptionHtml
-    options {
-      id
-      name
-      values
-    }
-    priceRange {
-      maxVariantPrice {
-        amount
-        currencyCode
-      }
-      minVariantPrice {
-        amount
-        currencyCode
-      }
-    }
-    variants(first: 250) {
+    onlineStoreUrl
+    tags
+    variants(first: 10) {
       edges {
         node {
           id
           title
-          availableForSale
-          selectedOptions {
-            name
-            value
-          }
-          price {
-            amount
-            currencyCode
+          product {
+            id
+            handle
+            onlineStoreUrl
           }
         }
       }
     }
-    featuredImage {
-      ...image
-    }
-    images(first: 20) {
-      edges {
-        node {
-          ...image
-        }
-      }
+    featuredMedia {
+      ...media
     }
     seo {
       ...seo
     }
-    onlineStoreUrl
-    tags
-    updatedAt
   }
-  ${image}
+  ${media}
   ${seo}
 `;
+// const product = /* GraphQL */ `
+//   fragment product on Product {
+//     id
+//     handle
+//     title
+//     description
+//     variants(first: 10) {
+//       edges {
+//         node {
+//           id
+//           title
+//           product {
+//             id
+//             handle
+//             onlineStoreUrl
+//           }
+//         }
+//       }
+//     }
+//     onlineStoreUrl
+//     tags
+//     featuredMedia {
+//         ...media
+//     }
+//     seo {
+//       ...seo
+//     }
+//   }
+//   ${media}
+//   ${seo}
+// `;
 
 /**
  * shopifyFragments permet de regrouper les fragments utilisés dans les requêtes GraphQL de shopify.
  */
 export const shopifyFragments = {
-	image,
+	media,
 	seo,
 	product,
 };

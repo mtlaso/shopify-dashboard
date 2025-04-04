@@ -2,7 +2,6 @@ import { logger } from "@/app/lib/logging";
 import { shopifyQueries } from "@/app/lib/shopify/queries";
 import type {
 	Connection,
-	Image,
 	ShopifyProduct,
 	ShopifyProductsOperation,
 } from "@/app/lib/shopify/types";
@@ -33,23 +32,24 @@ export class ShopifyClient {
 	 */
 	private endpoint: URL;
 	/**
-	 * Token d'accès à l'API GraphQL Storefront API de Shopify.
+	 * Token d'accès à l'API GraphQL Admin API de Shopify.
 	 */
 	private accessToken: string;
 
 	/**
 	 * Constructeur de la classe ShopifyClient.
 	 * @param shopUrlHost URL host de la boutique Shopify SANS 'https://' (ex : maboutique.myshopify.com).
-	 * @param accessToken Token d'accès à l'API GraphQL Storefront API de Shopify.
+	 * @param accessToken Token d'accès à l'API GraphQL Admin API de Shopify.
 	 */
 	constructor(shopUrlHost: string, accessToken: string) {
-		// this.endpoint = new URL(`https://${shopUrlHost}/admin/api/2024-04/graphql.json`)
-		this.endpoint = new URL(`https://${shopUrlHost}/api/2025-01/graphql.json`);
+		this.endpoint = new URL(
+			`https://${shopUrlHost}/admin/api/2025-01/graphql.json`,
+		);
 		this.accessToken = accessToken;
 	}
 
 	/**
-	 * shopifyFetch permet d'effectuer des requêtes sur l'API GraphQL Storefront API de Shopify.
+	 * shopifyFetch permet d'effectuer des requêtes sur l'API de Shopify.
 	 * @returns Promise<{ status: number; body: T } | never>
 	 * @throws ShopifyInvalidApiKeyError si la clé API est invalide.
 	 * @throws ShopifyUnknownError si une erreur inconnue est survenue.
@@ -65,8 +65,7 @@ export class ShopifyClient {
 				method: "POST",
 				headers: {
 					"Content-Type": "application/json",
-					// 'X-Shopify-Access-Token': this.accessToken,
-					"X-Shopify-Storefront-Access-Token": this.accessToken,
+					"X-Shopify-Access-Token": this.accessToken,
 					...headers,
 				},
 				body: JSON.stringify({
@@ -135,33 +134,12 @@ const reshapeProducts = (products: ShopifyProduct[]) => {
 
 // biome-ignore lint/nursery/useExplicitType: type complexe.
 const reshapeProduct = (product: ShopifyProduct) => {
-	const { images, variants, ...rest } = product;
+	const { variants, ...rest } = product;
 
 	return {
 		...rest,
-		images: reshapeImages(images, product.title),
 		variants: removeEdgesAndNodes(variants),
 	};
-};
-
-const reshapeImages = (
-	images: Connection<Image>,
-	productTitle: string,
-): {
-	altText: string;
-	url: string;
-	width: number;
-	height: number;
-}[] => {
-	const flattened = removeEdgesAndNodes(images);
-
-	return flattened.map((image) => {
-		const filename = image.url.match(/.*\/(.*)\..*/)?.[1];
-		return {
-			...image,
-			altText: image.altText || `${productTitle} - ${filename}`,
-		};
-	});
 };
 
 const removeEdgesAndNodes = <T>(array: Connection<T>): T[] => {

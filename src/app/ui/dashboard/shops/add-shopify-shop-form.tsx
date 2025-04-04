@@ -34,13 +34,21 @@ export function AddShopifyStoreForm(): React.JSX.Element {
 					})}
 				/>
 
+				<Link
+					target="_blank"
+					href="/help/add-shop"
+					className="underline underline-offset-4 text-sm"
+				>
+					Comment obtenir votre URL de boutique ?
+				</Link>
+
 				{state?.errors?.shopUrlHost && (
 					<p className="text-pink-500 text-sm">{state.errors.shopUrlHost}</p>
 				)}
 			</div>
 
 			<div className={SPACING.SM}>
-				<Label htmlFor="access-token">Storefront API access token</Label>
+				<Label htmlFor="access-token">Admin API access token</Label>
 				<Input
 					id="access-token"
 					defaultValue={state?.data?.accessToken}
@@ -51,13 +59,21 @@ export function AddShopifyStoreForm(): React.JSX.Element {
 					required
 				/>
 
+				<Link
+					target="_blank"
+					href="/help/add-shop"
+					className="underline underline-offset-4 text-sm"
+				>
+					Comment obtenir votre access token ?
+				</Link>
+
 				{state?.errors?.accessToken && (
 					<p className="text-pink-500 text-sm">{state.errors.accessToken}</p>
 				)}
 			</div>
 
 			{state?.successmsg && (
-				<p className="text-green-500">{state.successmsg}</p>
+				<p className="text-green-500 text-sm">{state.successmsg}</p>
 			)}
 
 			<Button className="w-full" disabled={pending}>
@@ -68,16 +84,6 @@ export function AddShopifyStoreForm(): React.JSX.Element {
 			{state?.errmsg && (
 				<p className="mt-2 text-sm text-pink-500">{state.errmsg}</p>
 			)}
-
-			<div className="text-center text-sm">
-				<Link
-					target="_blank"
-					href="/help/shopify-adminapi-accesstoken"
-					className="underline underline-offset-4"
-				>
-					Comment obtenir votre access token ?
-				</Link>
-			</div>
 		</form>
 	);
 }

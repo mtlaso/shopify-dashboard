@@ -13,15 +13,8 @@ export type Localization = {
 	}[];
 };
 
-export type ProductOption = {
-	id: string;
-	name: string;
-	values: string[];
-};
-
 export type Money = {
 	amount: string;
-	currencyCode: string;
 };
 
 export type SEO = {
@@ -29,43 +22,56 @@ export type SEO = {
 	description: string;
 };
 
-export type Image = {
-	url: string;
-	altText: string;
-	width: number;
-	height: number;
+export type Media = {
+	alt: string;
+	mediaContentType: MediaContentType;
+	Video: Video;
+	ExternalVideo: ExternalVideo;
+	MediaImage: MediaImage;
 };
+
+export type MediaImage = {
+	image: {
+		url: string;
+	};
+};
+
+export type ExternalVideo = {
+	originUrl: string;
+};
+
+export type Video = {
+	sources: {
+		url: string;
+	}[];
+};
+
+export type MediaContentType =
+	| "VIDEO"
+	| "EXTERNAL_VIDEO"
+	| "IMAGE"
+	| "MODEL_3D";
 
 export type ProductVariant = {
 	id: string;
 	title: string;
-	availableForSale: boolean;
-	selectedOptions: {
-		name: string;
-		value: string;
-	}[];
-	price: Money;
+	product: {
+		id: string;
+		handle: string;
+		onlineStoreUrl: string;
+	};
 };
 
 export type ShopifyProduct = {
 	id: string;
 	handle: string;
-	availableForSale: boolean;
 	title: string;
 	description: string;
-	descriptionHtml: string;
-	options: ProductOption[];
-	priceRange: {
-		maxVariantPrice: Money;
-		minVariantPrice: Money;
-	};
 	variants: Connection<ProductVariant>;
-	featuredImage: Image;
-	images: Connection<Image>;
+	featuredMedia: Media;
 	seo: SEO;
 	tags: string[];
 	onlineStoreUrl: string;
-	updatedAt: string;
 };
 
 export type ShopifyShop = {

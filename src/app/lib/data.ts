@@ -101,7 +101,13 @@ async function getShopProductsData(shopId: string) {
 				products: {
 					include: {
 						ProductSEO: true,
-						featuredMedia: true,
+						featuredMedia: {
+							include: {
+								featuredMediaVideo: true,
+								featuredMediaImage: true,
+								featuredMediaExternalVideo: true,
+							},
+						},
 					},
 				},
 			},
@@ -131,12 +137,12 @@ async function getShopProduct(shopId: string, productId: string) {
 		return await prisma.shop.findFirst({
 			where: { id: shopId, userId: session.user.id },
 			include: {
-				Products: {
+				products: {
 					where: { id: productId },
 					take: 1,
 					include: {
 						ProductSEO: true,
-						ProductImage: true,
+						featuredMedia: true,
 					},
 				},
 			},

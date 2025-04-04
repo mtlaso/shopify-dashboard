@@ -34,18 +34,44 @@ export async function Products({
 				</TableRow>
 			</TableHeader>
 			<TableBody>
-				{products?.Products.map((product) => (
+				{products?.products.map((product) => (
 					<TableRow key={product.id}>
 						<TableCell className="font-medium">
-							<Image
-								className="aspect-square rounded"
-								src={
-									product.ProductImage?.url ?? "https://picsum.photos/200/300"
-								}
-								alt={product.ProductImage?.altText ?? "Image produit"}
-								width={30}
-								height={30}
-							/>
+							{/* // product.featuredMedia.id?.url ?? "https://picsum.photos/200/300" */}
+							{product.featuredMedia?.mediaContentType === "VIDEO" && (
+								<video
+									className="aspect-square rounded"
+									src={product.featuredMedia?.featuredMediaVideo?.url}
+									width={30}
+									height={30}
+									muted
+									controls={false}
+								/>
+							)}
+
+							{product.featuredMedia?.mediaContentType === "IMAGE" && (
+								<Image
+									className="aspect-square rounded"
+									src={
+										product.featuredMedia?.featuredMediaImage?.url ??
+										"https://picsum.photos/200/300"
+									}
+									alt="Image produit"
+									width={30}
+									height={30}
+								/>
+							)}
+
+							{product.featuredMedia?.mediaContentType === "EXTERNAL_VIDEO" && (
+								<video
+									className="aspect-square rounded"
+									src={product.featuredMedia?.featuredMediaExternalVideo?.url}
+									width={30}
+									height={30}
+									muted
+									controls={false}
+								/>
+							)}
 						</TableCell>
 						<TableCell>
 							<Link

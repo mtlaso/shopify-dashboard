@@ -2,6 +2,7 @@ import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { AmountProductsChart } from "@/app/ui/dashboard/charts/amount-products-chart";
 import { SEOInsightsChart } from "@/app/ui/dashboard/charts/seo-insights.chart";
 import { ShipsToCountriesChart } from "@/app/ui/dashboard/charts/ships-to-countries-chart";
+import { Products } from "@/app/ui/dashboard/products";
 import { SPACING } from "@/app/ui/spacing";
 import { Separator } from "@/shadcn/ui/separator";
 import { Suspense } from "react";
@@ -43,9 +44,9 @@ export default async function Page(props: {
 				</div>
 
 				<div>
-					{/* <Suspense>
+					<Suspense>
 						<Products selectedShopId={selectedShopId} />
-					</Suspense> */}
+					</Suspense>
 				</div>
 			</div>
 		</section>

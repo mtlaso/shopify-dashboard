@@ -1,5 +1,4 @@
 "use client";
-
 import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { APP_NAME } from "@/app/lib/types";
 import type { Shop } from "@/db/generated/client";
@@ -11,17 +10,31 @@ import {
 } from "@/shadcn/ui/dropdown-menu";
 import { SidebarMenu, SidebarMenuButton } from "@/shadcn/ui/sidebar";
 import { ChevronDown } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useQueryStates } from "nuqs";
+import { toast } from "sonner";
 
 export function SidebarTopContent({
 	shops,
 }: { shops: Shop[] }): React.JSX.Element {
+	const pathname = usePathname();
 	const [{ selectedShopId }, setSelectedShopId] = useQueryStates(
 		shopUrlState.searchParams,
 		{
 			urlKeys: shopUrlState.urlKeys,
 		},
 	);
+
+	const handleSelectShop = (shopId: string): void => {
+		const prevSelectedShopId = selectedShopId;
+		setSelectedShopId({ selectedShopId: shopId });
+
+		if (prevSelectedShopId !== shopId && pathname === "/dashboard") {
+			toast.info("Veuillez rafraichir la page", {
+				position: "top-center",
+			});
+		}
+	};
 
 	return (
 		<div className="group-data-[collapsible=icon]:hidden">
@@ -40,9 +53,7 @@ export function SidebarTopContent({
 						{shops.map((shop) => (
 							<DropdownMenuItem
 								key={shop.id}
-								onClick={(): void => {
-									setSelectedShopId({ selectedShopId: shop.id });
-								}}
+								onClick={(): void => handleSelectShop(shop.id)}
 							>
 								<span>{shop.name}</span>
 							</DropdownMenuItem>

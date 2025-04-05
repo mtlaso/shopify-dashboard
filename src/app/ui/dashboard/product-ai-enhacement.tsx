@@ -22,7 +22,7 @@ export function ProductAiEnhancement({
 			<div>
 				<h2 className="text-lg font-semibold">Revue du produit</h2>
 				<p className="text-muted-foreground text-sm">
-					Générer une revue des informations du produits (IA).
+					Générer une revue des informations du produit (IA).
 				</p>
 				<Button
 					onClick={async (): Promise<void> => {

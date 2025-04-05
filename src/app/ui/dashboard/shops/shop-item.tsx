@@ -1,34 +1,24 @@
 import { DeleteShopForm } from "@/app/ui/dashboard/shops/delete-shop-form";
-import {
-	Card,
-	CardDescription,
-	CardFooter,
-	CardHeader,
-	CardTitle,
-} from "@/shadcn/ui/card";
+import { SPACING } from "@/app/ui/spacing";
+import type { Shop } from "@/db/generated/client";
+import { cn } from "@/lib/utils";
 
-type Props = {
-	name: string;
-	id: string;
-	shopifyId: string;
-	accessToken: string;
-	createdAt: Date;
-	updatedAt: Date;
-	userId: string | null;
-};
-
-export function ShopItem({ shop }: { shop: Props }): React.JSX.Element {
+export function ShopItem({ shop }: { shop: Shop }): React.JSX.Element {
 	return (
-		<Card className="break-all">
-			<CardHeader>
-				<CardTitle>{shop.name}</CardTitle>
-				<CardDescription>{shop.shopifyId}</CardDescription>
-				<CardDescription>{shop.accessToken}</CardDescription>
-			</CardHeader>
+		<div
+			className={cn(
+				"flex flex-col p-4 break-all bg-secondary border rounded",
+				SPACING.SM,
+			)}
+		>
+			<div>
+				<h1 className="text-bolder font-semibold">{shop.name}</h1>
+				<p className="text-muted-foreground text-sm">{shop.shopifyId}</p>
+			</div>
 
-			<CardFooter>
+			<div>
 				<DeleteShopForm id={shop.id} />
-			</CardFooter>
-		</Card>
+			</div>
+		</div>
 	);
 }

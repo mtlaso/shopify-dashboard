@@ -37,7 +37,6 @@ export async function Products({
 				{products?.products.map((product) => (
 					<TableRow key={product.id}>
 						<TableCell className="font-medium">
-							{/* // product.featuredMedia.id?.url ?? "https://picsum.photos/200/300" */}
 							{product.featuredMedia?.mediaContentType === "VIDEO" && (
 								<video
 									className="aspect-square rounded"

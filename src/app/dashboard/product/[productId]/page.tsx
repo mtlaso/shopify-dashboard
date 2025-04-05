@@ -4,6 +4,15 @@ import { SPACING } from "@/app/ui/spacing";
 import { MediaContentType } from "@/db/generated/client";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/shadcn/ui/separator";
+import {
+	Table,
+	TableBody,
+	TableCaption,
+	TableCell,
+	TableHead,
+	TableHeader,
+	TableRow,
+} from "@/shadcn/ui/table";
 import { SiShopify } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
@@ -46,16 +55,20 @@ export default async function Page({
 				<TbExternalLink className="ml-1" />
 			</Link>
 
-			<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-				<ImageSection product={product} />
+			<div className={SPACING.MD}>
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+					<ImageSection product={product} />
 
-				<DescriptionSection product={product} />
+					<DescriptionSection product={product} />
 
-				<TagsSection product={product} />
+					<TagsSection product={product} />
 
-				<SEOSection product={product} />
+					<SEOSection product={product} />
 
-				<ProductAiEnhancement context={context} />
+					<ProductAiEnhancement context={context} />
+				</div>
+
+				<VariantsSection product={product} />
 			</div>
 		</section>
 	);
@@ -229,5 +242,48 @@ function SEOSection({
 				)}
 			</div>
 		</div>
+	);
+}
+
+function VariantsSection({
+	product,
+}: { product: GetShopProduct["products"][number] }): React.JSX.Element {
+	return (
+		<>
+			<h2 className="text-bolder text-xl">Variants</h2>
+			<Table>
+				<TableCaption>Une liste des variantes du produit.</TableCaption>
+				<TableHeader>
+					<TableRow>
+						<TableHead className="w-[100px]">Titre</TableHead>
+						<TableHead className="flex items-center gap-1">
+							URL Shopify
+							<SiShopify color="black" className="size-5" />
+						</TableHead>
+					</TableRow>
+				</TableHeader>
+				<TableBody>
+					{product.variants.map((variant) => (
+						<TableRow key={variant.id}>
+							<TableCell className="font-medium">{variant.title}</TableCell>
+							<TableCell className="justify-center">
+								<Link
+									href={variant.productVariantProduct?.onlineStoreUrl ?? ""}
+									className="flex items-center underline underline-offset-4"
+								>
+									{
+										variant.productVariantProduct?.onlineStoreUrl?.split(
+											".myshopify.com/",
+										)[1]
+									}
+									<SiShopify color="black" className="size-5 ml-1" />
+									<TbExternalLink className="ml-1" />
+								</Link>
+							</TableCell>
+						</TableRow>
+					))}
+				</TableBody>
+			</Table>
+		</>
 	);
 }

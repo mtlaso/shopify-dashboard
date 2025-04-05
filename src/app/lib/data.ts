@@ -1,5 +1,5 @@
 import { logger } from "@/app/lib/logging";
-import type { Shop } from "@/db/generated/client";
+import type { Prisma, Shop } from "@/db/generated/client";
 import { auth, prisma } from "@/lib/auth";
 import { headers } from "next/headers";
 import "server-only";
@@ -142,7 +142,18 @@ async function getShopProduct(shopId: string, productId: string) {
 					take: 1,
 					include: {
 						ProductSEO: true,
-						featuredMedia: true,
+						featuredMedia: {
+							include: {
+								featuredMediaVideo: true,
+								featuredMediaImage: true,
+								featuredMediaExternalVideo: true,
+							},
+						},
+						variants: {
+							include: {
+								productVariantProduct: true,
+							},
+						},
 					},
 				},
 			},
@@ -154,6 +165,33 @@ async function getShopProduct(shopId: string, productId: string) {
 		);
 	}
 }
+
+export type GetShopProduct = Prisma.ShopGetPayload<{
+	include: {
+		products: {
+			include: {
+				ProductSEO: true;
+				featuredMedia: {
+					include: {
+						featuredMediaVideo: true;
+						featuredMediaImage: true;
+						featuredMediaExternalVideo: true;
+					};
+				};
+				variants: {
+					include: {
+						productVariantProduct: true;
+					};
+				};
+			};
+		};
+	};
+}>;
+
+/**
+ * GetShopReturnType est le type de retour de getShopProduct.
+ */
+export type GetShopReturnType = Awaited<ReturnType<typeof getShopProduct>>;
 
 /**
  * data permet d'effectuer des operations de récupération de données.

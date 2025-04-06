@@ -1,7 +1,9 @@
 
-https://github.com/user-attachments/assets/812f41b8-cff4-4b56-b51f-e9b220c633bc
-
 # E-commerce Analytics Platform
+
+https://github.com/user-attachments/assets/13649a9a-bb98-48b5-8475-9e4be0ff321f
+
+[https://full-stack-ai-technical-test-hqed.vercel.app](https://full-stack-ai-technical-test-hqed.vercel.app)
 
 ## Overview
 Build a full-stack application that allows e-commerce merchants to gain insights from their store data. The application will connect to Shopify via GraphQL, process and and present data through an interactive dashboard.

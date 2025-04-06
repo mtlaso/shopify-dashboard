@@ -69,6 +69,16 @@ AWS_REGION=xxx
 
 8. Vous pouvez aussi utiliser prisma studio pour intéragir avec la base de données : `pnpm run prisma:studio`
 
+## Raccourcis
+### Fonctionnalités non implémenté qui auraient été utile et raccourcis
+- Recharger les données d’une boutique périodiquement (et manuellement)
+- Mettre à jour directement une donnée (ex : description produit, etc.) en se basant sur ce qu’un LLM recommende
+- Implémentation de pagination sur les produits, les variantes, les collections, les commandes
+- Rate limiting (requête LLM et reste application)
+- Afficher des informations détaillées sur les collections et les commandes
+- Afficher toutes les images d’un produit et des variantes
+- Metadonnnés (seo, sitemap, favicon, traduction en plusieurs langues (fr/en), etc.)
+
 
 ## Overview
 Build a full-stack application that allows e-commerce merchants to gain insights from their store data. The application will connect to Shopify via GraphQL, process and and present data through an interactive dashboard.

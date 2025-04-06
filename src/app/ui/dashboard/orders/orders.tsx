@@ -42,6 +42,7 @@ export async function Orders({
 							{new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
 								Number(order.orderPrice?.amount),
 							)}
+							&nbsp;{order.orderPrice?.currencyCode}
 						</TableCell>
 					</TableRow>
 				))}

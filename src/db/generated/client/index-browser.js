@@ -200,6 +200,7 @@ exports.Prisma.ProductScalarFieldEnum = {
 exports.Prisma.OrderPriceScalarFieldEnum = {
   id: 'id',
   amount: 'amount',
+  currencyCode: 'currencyCode',
   orderId: 'orderId',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'

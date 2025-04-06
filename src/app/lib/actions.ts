@@ -344,6 +344,7 @@ export async function addShopifyShop(
 				data: data.orders.map((order, i) => ({
 					orderId: orders[i].id,
 					amount: Number(order.totalPriceSet.shopMoney.amount),
+					currencyCode: order.totalPriceSet.shopMoney.currencyCode,
 				})),
 			});
 		});

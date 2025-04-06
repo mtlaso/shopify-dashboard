@@ -11178,6 +11178,7 @@ export namespace Prisma {
   export type OrderPriceMinAggregateOutputType = {
     id: string | null
     amount: Decimal | null
+    currencyCode: string | null
     orderId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11186,6 +11187,7 @@ export namespace Prisma {
   export type OrderPriceMaxAggregateOutputType = {
     id: string | null
     amount: Decimal | null
+    currencyCode: string | null
     orderId: string | null
     createdAt: Date | null
     updatedAt: Date | null
@@ -11194,6 +11196,7 @@ export namespace Prisma {
   export type OrderPriceCountAggregateOutputType = {
     id: number
     amount: number
+    currencyCode: number
     orderId: number
     createdAt: number
     updatedAt: number
@@ -11212,6 +11215,7 @@ export namespace Prisma {
   export type OrderPriceMinAggregateInputType = {
     id?: true
     amount?: true
+    currencyCode?: true
     orderId?: true
     createdAt?: true
     updatedAt?: true
@@ -11220,6 +11224,7 @@ export namespace Prisma {
   export type OrderPriceMaxAggregateInputType = {
     id?: true
     amount?: true
+    currencyCode?: true
     orderId?: true
     createdAt?: true
     updatedAt?: true
@@ -11228,6 +11233,7 @@ export namespace Prisma {
   export type OrderPriceCountAggregateInputType = {
     id?: true
     amount?: true
+    currencyCode?: true
     orderId?: true
     createdAt?: true
     updatedAt?: true
@@ -11323,6 +11329,7 @@ export namespace Prisma {
   export type OrderPriceGroupByOutputType = {
     id: string
     amount: Decimal
+    currencyCode: string
     orderId: string
     createdAt: Date
     updatedAt: Date
@@ -11350,6 +11357,7 @@ export namespace Prisma {
   export type OrderPriceSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
+    currencyCode?: boolean
     orderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11359,6 +11367,7 @@ export namespace Prisma {
   export type OrderPriceSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
+    currencyCode?: boolean
     orderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11368,6 +11377,7 @@ export namespace Prisma {
   export type OrderPriceSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     amount?: boolean
+    currencyCode?: boolean
     orderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
@@ -11377,12 +11387,13 @@ export namespace Prisma {
   export type OrderPriceSelectScalar = {
     id?: boolean
     amount?: boolean
+    currencyCode?: boolean
     orderId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type OrderPriceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "orderId" | "createdAt" | "updatedAt", ExtArgs["result"]["orderPrice"]>
+  export type OrderPriceOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "amount" | "currencyCode" | "orderId" | "createdAt" | "updatedAt", ExtArgs["result"]["orderPrice"]>
   export type OrderPriceInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     order?: boolean | OrderDefaultArgs<ExtArgs>
   }
@@ -11401,6 +11412,7 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       amount: Prisma.Decimal
+      currencyCode: string
       orderId: string
       createdAt: Date
       updatedAt: Date
@@ -11830,6 +11842,7 @@ export namespace Prisma {
   interface OrderPriceFieldRefs {
     readonly id: FieldRef<"OrderPrice", 'String'>
     readonly amount: FieldRef<"OrderPrice", 'Decimal'>
+    readonly currencyCode: FieldRef<"OrderPrice", 'String'>
     readonly orderId: FieldRef<"OrderPrice", 'String'>
     readonly createdAt: FieldRef<"OrderPrice", 'DateTime'>
     readonly updatedAt: FieldRef<"OrderPrice", 'DateTime'>
@@ -19122,6 +19135,7 @@ export namespace Prisma {
   export const OrderPriceScalarFieldEnum: {
     id: 'id',
     amount: 'amount',
+    currencyCode: 'currencyCode',
     orderId: 'orderId',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
@@ -19874,6 +19888,7 @@ export namespace Prisma {
     NOT?: OrderPriceWhereInput | OrderPriceWhereInput[]
     id?: StringFilter<"OrderPrice"> | string
     amount?: DecimalFilter<"OrderPrice"> | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFilter<"OrderPrice"> | string
     orderId?: StringFilter<"OrderPrice"> | string
     createdAt?: DateTimeFilter<"OrderPrice"> | Date | string
     updatedAt?: DateTimeFilter<"OrderPrice"> | Date | string
@@ -19883,6 +19898,7 @@ export namespace Prisma {
   export type OrderPriceOrderByWithRelationInput = {
     id?: SortOrder
     amount?: SortOrder
+    currencyCode?: SortOrder
     orderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19896,6 +19912,7 @@ export namespace Prisma {
     OR?: OrderPriceWhereInput[]
     NOT?: OrderPriceWhereInput | OrderPriceWhereInput[]
     amount?: DecimalFilter<"OrderPrice"> | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFilter<"OrderPrice"> | string
     createdAt?: DateTimeFilter<"OrderPrice"> | Date | string
     updatedAt?: DateTimeFilter<"OrderPrice"> | Date | string
     order?: XOR<OrderScalarRelationFilter, OrderWhereInput>
@@ -19904,6 +19921,7 @@ export namespace Prisma {
   export type OrderPriceOrderByWithAggregationInput = {
     id?: SortOrder
     amount?: SortOrder
+    currencyCode?: SortOrder
     orderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -19920,6 +19938,7 @@ export namespace Prisma {
     NOT?: OrderPriceScalarWhereWithAggregatesInput | OrderPriceScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"OrderPrice"> | string
     amount?: DecimalWithAggregatesFilter<"OrderPrice"> | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringWithAggregatesFilter<"OrderPrice"> | string
     orderId?: StringWithAggregatesFilter<"OrderPrice"> | string
     createdAt?: DateTimeWithAggregatesFilter<"OrderPrice"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"OrderPrice"> | Date | string
@@ -20960,6 +20979,7 @@ export namespace Prisma {
   export type OrderPriceCreateInput = {
     id?: string
     amount?: Decimal | DecimalJsLike | number | string
+    currencyCode?: string
     createdAt?: Date | string
     updatedAt?: Date | string
     order: OrderCreateNestedOneWithoutOrderPriceInput
@@ -20968,6 +20988,7 @@ export namespace Prisma {
   export type OrderPriceUncheckedCreateInput = {
     id?: string
     amount?: Decimal | DecimalJsLike | number | string
+    currencyCode?: string
     orderId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -20976,6 +20997,7 @@ export namespace Prisma {
   export type OrderPriceUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     order?: OrderUpdateOneRequiredWithoutOrderPriceNestedInput
@@ -20984,6 +21006,7 @@ export namespace Prisma {
   export type OrderPriceUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -20992,6 +21015,7 @@ export namespace Prisma {
   export type OrderPriceCreateManyInput = {
     id?: string
     amount?: Decimal | DecimalJsLike | number | string
+    currencyCode?: string
     orderId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -21000,6 +21024,7 @@ export namespace Prisma {
   export type OrderPriceUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -21007,6 +21032,7 @@ export namespace Prisma {
   export type OrderPriceUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     orderId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -21965,6 +21991,7 @@ export namespace Prisma {
   export type OrderPriceCountOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
+    currencyCode?: SortOrder
     orderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -21977,6 +22004,7 @@ export namespace Prisma {
   export type OrderPriceMaxOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
+    currencyCode?: SortOrder
     orderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -21985,6 +22013,7 @@ export namespace Prisma {
   export type OrderPriceMinOrderByAggregateInput = {
     id?: SortOrder
     amount?: SortOrder
+    currencyCode?: SortOrder
     orderId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -24254,6 +24283,7 @@ export namespace Prisma {
   export type OrderPriceCreateWithoutOrderInput = {
     id?: string
     amount?: Decimal | DecimalJsLike | number | string
+    currencyCode?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -24261,6 +24291,7 @@ export namespace Prisma {
   export type OrderPriceUncheckedCreateWithoutOrderInput = {
     id?: string
     amount?: Decimal | DecimalJsLike | number | string
+    currencyCode?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -24315,6 +24346,7 @@ export namespace Prisma {
   export type OrderPriceUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -24322,6 +24354,7 @@ export namespace Prisma {
   export type OrderPriceUncheckedUpdateWithoutOrderInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
+    currencyCode?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

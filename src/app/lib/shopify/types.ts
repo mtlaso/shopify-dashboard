@@ -74,17 +74,26 @@ export type ShopifyShop = {
 	shipsToCountries: string[];
 };
 
+type ShopMoney = {
+	amount: number;
+	/**
+	 * ISO 4217 codes.
+	 * Ex: CAD, USD, JPY, EUR, etc.
+	 */
+	currencyCode: string;
+};
+
+type TotalPriceSet = {
+	shopMoney: ShopMoney;
+};
+
 export type ShopifyOrder = {
 	id: string;
 	name: string;
-	totalPriceSet: {
-		shopMoney: {
-			amount: number;
-		};
-	};
+	totalPriceSet: TotalPriceSet;
 	unpaid: boolean;
 	/**
-	 * ISO 8601 date.
+	 * ISO 8601 date (UTC).
 	 * Ex: "2023-09-25T14:30:00Z"
 	 */
 	processedAt: Date;

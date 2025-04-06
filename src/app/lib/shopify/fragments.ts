@@ -65,6 +65,7 @@ const order = /* GraphQL */ `
     totalPriceSet {
       shopMoney {
         amount
+        currencyCode
       }
     }
     unpaid

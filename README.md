@@ -77,7 +77,7 @@ AWS_REGION=xxx
 - Mettre en place un rate limiting (requêtes vers le LLM et le reste de l’application).
 - Afficher des informations détaillées sur les collections et les commandes.
 - Afficher toutes les images d’un produit et de ses variantes.
-Gérer les métadonnées (SEO, sitemap, favicon, traduction en plusieurs langues — FR/EN, etc.).
+- Gérer les métadonnées (SEO, sitemap, favicon, traduction en plusieurs langues — FR/EN, etc.).
 
 
 

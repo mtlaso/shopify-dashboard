@@ -10,7 +10,6 @@ import Link from "next/link";
 import { useActionState } from "react";
 
 export function AddShopifyStoreForm(): React.JSX.Element {
-	// ecommercethings12.myshopify.com
 	const initialState: AddShopifyShopState = {
 		errors: null,
 		errmsg: null,

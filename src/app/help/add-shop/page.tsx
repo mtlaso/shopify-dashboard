@@ -36,8 +36,10 @@ export default function Page(): React.JSX.Element {
 								</Link>
 							</li>
 							<li>
-								Séléctionnez le domaine de redirection. (Si le domaine ne
-								fonctionne pas, essayez avec les autres sur la liste.)
+								Séléctionnez{" "}
+								<span className="font-bold"> le domaine de redirection</span>.
+								(Si le domaine ne fonctionne pas, essayez avec les autres sur la
+								liste.)
 								<Image
 									alt="Image représentant comment trouver l'URL de la boutique Shopify"
 									src={"/help-shopify-url.png"}

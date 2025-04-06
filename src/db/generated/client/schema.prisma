@@ -126,6 +126,32 @@ model Product {
   @@map("product")
 }
 
+model OrderPrice {
+  id        String   @id @default(ulid())
+  amount    Decimal  @default(0)
+  order     Order    @relation(fields: [orderId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  orderId   String   @unique
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("order_price")
+}
+
+model Order {
+  id           String      @id @default(ulid())
+  shopifyId    String
+  unpaid       Boolean     @default(false)
+  processedAt  DateTime?
+  orderPrice   OrderPrice?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  orderPriceId String?
+  Shop         Shop?       @relation(fields: [shopId], references: [id], onDelete: Cascade, onUpdate: Cascade)
+  shopId       String?
+
+  @@map("order")
+}
+
 model Shop {
   id               String    @id @default(ulid())
   shopifyId        String
@@ -133,6 +159,7 @@ model Shop {
   description      String?
   shipsToCountries String[]
   products         Product[]
+  orders           Order[]
   accessToken      String
   createdAt        DateTime  @default(now())
   updatedAt        DateTime  @updatedAt

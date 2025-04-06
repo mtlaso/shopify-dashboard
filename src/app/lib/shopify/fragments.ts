@@ -58,6 +58,19 @@ const product = /* GraphQL */ `
   ${seo}
 `;
 
+const order = /* GraphQL */ `
+  fragment order on Order {
+    id
+    totalPriceSet {
+      shopMoney {
+        amount
+      }
+    }
+    unpaid
+    processedAt
+  }
+`;
+
 /**
  * shopifyFragments permet de regrouper les fragments utilisés dans les requêtes GraphQL de shopify.
  */
@@ -65,4 +78,5 @@ export const shopifyFragments = {
 	media,
 	seo,
 	product,
+	order,
 };

@@ -250,7 +250,7 @@ function VariantsSection({
 }: { product: GetShopProduct["products"][number] }): React.JSX.Element {
 	return (
 		<>
-			<h2 className="text-bolder text-xl">Variants</h2>
+			<h2 className="text-bolder text-xl">Variantes</h2>
 			<Table>
 				<TableCaption>Une liste des variantes du produit.</TableCaption>
 				<TableHeader>

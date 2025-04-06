@@ -74,10 +74,26 @@ export type ShopifyShop = {
 	shipsToCountries: string[];
 };
 
+export type ShopifyOrder = {
+	id: string;
+	totalPriceSet: {
+		shopMoney: {
+			amount: number;
+		};
+	};
+	unpaid: boolean;
+	/**
+	 * ISO 8601 date.
+	 * Ex: "2023-09-25T14:30:00Z"
+	 */
+	processedAt: Date;
+};
+
 export type ShopifyProductsOperation = {
 	data: {
 		products: Connection<ShopifyProduct>;
 		shop: ShopifyShop;
+		orders: Connection<ShopifyOrder>;
 	};
 	variables: {
 		query?: string;

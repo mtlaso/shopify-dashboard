@@ -226,7 +226,7 @@ export async function addShopifyShop(
 
 		// Vérifier si la clé API est valide en effectuant une requête sur l'API de Shopify.
 		const data = await client.getShopProducts();
-		logger.info("Ajout données...", data);
+		logger.info("Ajout données...", data.orders[0].totalPriceSet);
 
 		await prisma.$transaction(async (tx) => {
 			const shop = await tx.shop.create({
@@ -293,7 +293,6 @@ export async function addShopifyShop(
 			});
 
 			// Crée FeaturedImageXXX selon mediaContentType.
-			// data.products.forEach((product) => {
 			for (const product of data.products) {
 				const media = product.featuredMedia;
 				const mediaContentType = media.mediaContentType;
@@ -330,6 +329,22 @@ export async function addShopifyShop(
 						break;
 				}
 			}
+
+			const orders = await tx.order.createManyAndReturn({
+				data: data.orders.map((order) => ({
+					shopifyId: order.id,
+					unpaid: order.unpaid,
+					processedAt: order.processedAt,
+					shopId: shop.id,
+				})),
+			});
+
+			await tx.orderPrice.createMany({
+				data: data.orders.map((order, i) => ({
+					orderId: orders[i].id,
+					amount: Number(order.totalPriceSet.shopMoney.amount),
+				})),
+			});
 		});
 	} catch (err) {
 		logger.error(err);

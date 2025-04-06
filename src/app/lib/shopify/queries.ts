@@ -5,7 +5,7 @@ import { shopifyFragments } from "@/app/lib/shopify/fragments";
  */
 const getShopProducts = /* GraphQL */ `
   query getProducts {
-    products(first: 10) {
+    products(first: 20) {
       edges {
         node {
         ...product
@@ -19,8 +19,19 @@ const getShopProducts = /* GraphQL */ `
       shipsToCountries
       description
     }
+
+
+    orders(first: 20) {
+      edges {
+        node {
+        ...order
+          }
+        }
+      }
   }
+
   ${shopifyFragments.product}
+  ${shopifyFragments.order}
 `;
 
 /**

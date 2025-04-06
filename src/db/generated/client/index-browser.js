@@ -218,6 +218,26 @@ exports.Prisma.OrderScalarFieldEnum = {
   shopId: 'shopId'
 };
 
+exports.Prisma.CollectionImageScalarFieldEnum = {
+  id: 'id',
+  url: 'url',
+  collectionId: 'collectionId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.CollectionScalarFieldEnum = {
+  id: 'id',
+  shopifyId: 'shopifyId',
+  title: 'title',
+  description: 'description',
+  handle: 'handle',
+  collectionImageId: 'collectionImageId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  shopId: 'shopId'
+};
+
 exports.Prisma.ShopScalarFieldEnum = {
   id: 'id',
   shopifyId: 'shopifyId',
@@ -308,6 +328,8 @@ exports.Prisma.ModelName = {
   Product: 'Product',
   OrderPrice: 'OrderPrice',
   Order: 'Order',
+  CollectionImage: 'CollectionImage',
+  Collection: 'Collection',
   Shop: 'Shop',
   User: 'User',
   Session: 'Session',

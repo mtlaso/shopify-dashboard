@@ -108,6 +108,7 @@ export class ShopifyClient {
 			products: reshapeProducts(removeEdgesAndNodes(res.body.data.products)),
 			shop: res.body.data.shop,
 			orders: removeEdgesAndNodes(res.body.data.orders),
+			collections: removeEdgesAndNodes(res.body.data.collections),
 		};
 	}
 }

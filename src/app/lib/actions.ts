@@ -347,6 +347,23 @@ export async function addShopifyShop(
 					currencyCode: order.totalPriceSet.shopMoney.currencyCode,
 				})),
 			});
+
+			const collections = await tx.collection.createManyAndReturn({
+				data: data.collections.map((collection) => ({
+					shopifyId: collection.id,
+					title: collection.title,
+					description: collection.description,
+					handle: collection.handle,
+					shopId: shop.id,
+				})),
+			});
+
+			await tx.collectionImage.createMany({
+				data: data.collections.map((collection, i) => ({
+					collectionId: collections[i].id,
+					url: collection.image?.url || "",
+				})),
+			});
 		});
 	} catch (err) {
 		logger.error(err);

@@ -99,11 +99,24 @@ export type ShopifyOrder = {
 	processedAt: Date;
 };
 
+export type CollectionImage = {
+	url: string;
+};
+
+export type ShopifyCollection = {
+	id: string;
+	title: string | null;
+	description: string | null;
+	handle: string;
+	image: CollectionImage | null;
+};
+
 export type ShopifyProductsOperation = {
 	data: {
 		products: Connection<ShopifyProduct>;
 		shop: ShopifyShop;
 		orders: Connection<ShopifyOrder>;
+		collections: Connection<ShopifyCollection>;
 	};
 	variables: {
 		query?: string;

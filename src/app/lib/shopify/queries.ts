@@ -28,10 +28,21 @@ const getShopProducts = /* GraphQL */ `
           }
         }
       }
+
+    collections(first: 20) {
+        edges {
+          node {
+            ...collection
+          }
+        }
+      }
+
+
   }
 
   ${shopifyFragments.product}
   ${shopifyFragments.order}
+  ${shopifyFragments.collection}
 `;
 
 /**

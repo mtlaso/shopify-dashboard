@@ -64,6 +64,16 @@ export type OrderPrice = $Result.DefaultSelection<Prisma.$OrderPricePayload>
  */
 export type Order = $Result.DefaultSelection<Prisma.$OrderPayload>
 /**
+ * Model CollectionImage
+ * 
+ */
+export type CollectionImage = $Result.DefaultSelection<Prisma.$CollectionImagePayload>
+/**
+ * Model Collection
+ * 
+ */
+export type Collection = $Result.DefaultSelection<Prisma.$CollectionPayload>
+/**
  * Model Shop
  * 
  */
@@ -332,6 +342,26 @@ export class PrismaClient<
     * ```
     */
   get order(): Prisma.OrderDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.collectionImage`: Exposes CRUD operations for the **CollectionImage** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more CollectionImages
+    * const collectionImages = await prisma.collectionImage.findMany()
+    * ```
+    */
+  get collectionImage(): Prisma.CollectionImageDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.collection`: Exposes CRUD operations for the **Collection** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Collections
+    * const collections = await prisma.collection.findMany()
+    * ```
+    */
+  get collection(): Prisma.CollectionDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.shop`: Exposes CRUD operations for the **Shop** model.
@@ -832,6 +862,8 @@ export namespace Prisma {
     Product: 'Product',
     OrderPrice: 'OrderPrice',
     Order: 'Order',
+    CollectionImage: 'CollectionImage',
+    Collection: 'Collection',
     Shop: 'Shop',
     User: 'User',
     Session: 'Session',
@@ -855,7 +887,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "featuredMediaVideo" | "featuredMediaExternalVideo" | "featuredMediaImage" | "productFeaturedMedia" | "productSEO" | "productVariantProduct" | "productVariant" | "product" | "orderPrice" | "order" | "shop" | "user" | "session" | "account" | "verification"
+      modelProps: "featuredMediaVideo" | "featuredMediaExternalVideo" | "featuredMediaImage" | "productFeaturedMedia" | "productSEO" | "productVariantProduct" | "productVariant" | "product" | "orderPrice" | "order" | "collectionImage" | "collection" | "shop" | "user" | "session" | "account" | "verification"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1599,6 +1631,154 @@ export namespace Prisma {
           }
         }
       }
+      CollectionImage: {
+        payload: Prisma.$CollectionImagePayload<ExtArgs>
+        fields: Prisma.CollectionImageFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CollectionImageFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CollectionImageFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          findFirst: {
+            args: Prisma.CollectionImageFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CollectionImageFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          findMany: {
+            args: Prisma.CollectionImageFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>[]
+          }
+          create: {
+            args: Prisma.CollectionImageCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          createMany: {
+            args: Prisma.CollectionImageCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CollectionImageCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>[]
+          }
+          delete: {
+            args: Prisma.CollectionImageDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          update: {
+            args: Prisma.CollectionImageUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          deleteMany: {
+            args: Prisma.CollectionImageDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CollectionImageUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CollectionImageUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>[]
+          }
+          upsert: {
+            args: Prisma.CollectionImageUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionImagePayload>
+          }
+          aggregate: {
+            args: Prisma.CollectionImageAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCollectionImage>
+          }
+          groupBy: {
+            args: Prisma.CollectionImageGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CollectionImageGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CollectionImageCountArgs<ExtArgs>
+            result: $Utils.Optional<CollectionImageCountAggregateOutputType> | number
+          }
+        }
+      }
+      Collection: {
+        payload: Prisma.$CollectionPayload<ExtArgs>
+        fields: Prisma.CollectionFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.CollectionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.CollectionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          findFirst: {
+            args: Prisma.CollectionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.CollectionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          findMany: {
+            args: Prisma.CollectionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>[]
+          }
+          create: {
+            args: Prisma.CollectionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          createMany: {
+            args: Prisma.CollectionCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.CollectionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>[]
+          }
+          delete: {
+            args: Prisma.CollectionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          update: {
+            args: Prisma.CollectionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          deleteMany: {
+            args: Prisma.CollectionDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.CollectionUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.CollectionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>[]
+          }
+          upsert: {
+            args: Prisma.CollectionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$CollectionPayload>
+          }
+          aggregate: {
+            args: Prisma.CollectionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCollection>
+          }
+          groupBy: {
+            args: Prisma.CollectionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CollectionGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.CollectionCountArgs<ExtArgs>
+            result: $Utils.Optional<CollectionCountAggregateOutputType> | number
+          }
+        }
+      }
       Shop: {
         payload: Prisma.$ShopPayload<ExtArgs>
         fields: Prisma.ShopFieldRefs
@@ -2063,6 +2243,8 @@ export namespace Prisma {
     product?: ProductOmit
     orderPrice?: OrderPriceOmit
     order?: OrderOmit
+    collectionImage?: CollectionImageOmit
+    collection?: CollectionOmit
     shop?: ShopOmit
     user?: UserOmit
     session?: SessionOmit
@@ -2195,11 +2377,13 @@ export namespace Prisma {
   export type ShopCountOutputType = {
     products: number
     orders: number
+    collections: number
   }
 
   export type ShopCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | ShopCountOutputTypeCountProductsArgs
     orders?: boolean | ShopCountOutputTypeCountOrdersArgs
+    collections?: boolean | ShopCountOutputTypeCountCollectionsArgs
   }
 
   // Custom InputTypes
@@ -2225,6 +2409,13 @@ export namespace Prisma {
    */
   export type ShopCountOutputTypeCountOrdersArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: OrderWhereInput
+  }
+
+  /**
+   * ShopCountOutputType without action
+   */
+  export type ShopCountOutputTypeCountCollectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CollectionWhereInput
   }
 
 
@@ -13413,6 +13604,2216 @@ export namespace Prisma {
 
 
   /**
+   * Model CollectionImage
+   */
+
+  export type AggregateCollectionImage = {
+    _count: CollectionImageCountAggregateOutputType | null
+    _min: CollectionImageMinAggregateOutputType | null
+    _max: CollectionImageMaxAggregateOutputType | null
+  }
+
+  export type CollectionImageMinAggregateOutputType = {
+    id: string | null
+    url: string | null
+    collectionId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CollectionImageMaxAggregateOutputType = {
+    id: string | null
+    url: string | null
+    collectionId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type CollectionImageCountAggregateOutputType = {
+    id: number
+    url: number
+    collectionId: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type CollectionImageMinAggregateInputType = {
+    id?: true
+    url?: true
+    collectionId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CollectionImageMaxAggregateInputType = {
+    id?: true
+    url?: true
+    collectionId?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type CollectionImageCountAggregateInputType = {
+    id?: true
+    url?: true
+    collectionId?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type CollectionImageAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CollectionImage to aggregate.
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CollectionImages to fetch.
+     */
+    orderBy?: CollectionImageOrderByWithRelationInput | CollectionImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CollectionImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CollectionImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CollectionImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned CollectionImages
+    **/
+    _count?: true | CollectionImageCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CollectionImageMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CollectionImageMaxAggregateInputType
+  }
+
+  export type GetCollectionImageAggregateType<T extends CollectionImageAggregateArgs> = {
+        [P in keyof T & keyof AggregateCollectionImage]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCollectionImage[P]>
+      : GetScalarType<T[P], AggregateCollectionImage[P]>
+  }
+
+
+
+
+  export type CollectionImageGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CollectionImageWhereInput
+    orderBy?: CollectionImageOrderByWithAggregationInput | CollectionImageOrderByWithAggregationInput[]
+    by: CollectionImageScalarFieldEnum[] | CollectionImageScalarFieldEnum
+    having?: CollectionImageScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CollectionImageCountAggregateInputType | true
+    _min?: CollectionImageMinAggregateInputType
+    _max?: CollectionImageMaxAggregateInputType
+  }
+
+  export type CollectionImageGroupByOutputType = {
+    id: string
+    url: string
+    collectionId: string
+    createdAt: Date
+    updatedAt: Date
+    _count: CollectionImageCountAggregateOutputType | null
+    _min: CollectionImageMinAggregateOutputType | null
+    _max: CollectionImageMaxAggregateOutputType | null
+  }
+
+  type GetCollectionImageGroupByPayload<T extends CollectionImageGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CollectionImageGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CollectionImageGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CollectionImageGroupByOutputType[P]>
+            : GetScalarType<T[P], CollectionImageGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CollectionImageSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    collectionId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["collectionImage"]>
+
+  export type CollectionImageSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    collectionId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["collectionImage"]>
+
+  export type CollectionImageSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    url?: boolean
+    collectionId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["collectionImage"]>
+
+  export type CollectionImageSelectScalar = {
+    id?: boolean
+    url?: boolean
+    collectionId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type CollectionImageOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "collectionId" | "createdAt" | "updatedAt", ExtArgs["result"]["collectionImage"]>
+  export type CollectionImageInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }
+  export type CollectionImageIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }
+  export type CollectionImageIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collection?: boolean | CollectionDefaultArgs<ExtArgs>
+  }
+
+  export type $CollectionImagePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "CollectionImage"
+    objects: {
+      collection: Prisma.$CollectionPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      url: string
+      collectionId: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["collectionImage"]>
+    composites: {}
+  }
+
+  type CollectionImageGetPayload<S extends boolean | null | undefined | CollectionImageDefaultArgs> = $Result.GetResult<Prisma.$CollectionImagePayload, S>
+
+  type CollectionImageCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CollectionImageFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CollectionImageCountAggregateInputType | true
+    }
+
+  export interface CollectionImageDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CollectionImage'], meta: { name: 'CollectionImage' } }
+    /**
+     * Find zero or one CollectionImage that matches the filter.
+     * @param {CollectionImageFindUniqueArgs} args - Arguments to find a CollectionImage
+     * @example
+     * // Get one CollectionImage
+     * const collectionImage = await prisma.collectionImage.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CollectionImageFindUniqueArgs>(args: SelectSubset<T, CollectionImageFindUniqueArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one CollectionImage that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CollectionImageFindUniqueOrThrowArgs} args - Arguments to find a CollectionImage
+     * @example
+     * // Get one CollectionImage
+     * const collectionImage = await prisma.collectionImage.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CollectionImageFindUniqueOrThrowArgs>(args: SelectSubset<T, CollectionImageFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CollectionImage that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageFindFirstArgs} args - Arguments to find a CollectionImage
+     * @example
+     * // Get one CollectionImage
+     * const collectionImage = await prisma.collectionImage.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CollectionImageFindFirstArgs>(args?: SelectSubset<T, CollectionImageFindFirstArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first CollectionImage that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageFindFirstOrThrowArgs} args - Arguments to find a CollectionImage
+     * @example
+     * // Get one CollectionImage
+     * const collectionImage = await prisma.collectionImage.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CollectionImageFindFirstOrThrowArgs>(args?: SelectSubset<T, CollectionImageFindFirstOrThrowArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more CollectionImages that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all CollectionImages
+     * const collectionImages = await prisma.collectionImage.findMany()
+     * 
+     * // Get first 10 CollectionImages
+     * const collectionImages = await prisma.collectionImage.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const collectionImageWithIdOnly = await prisma.collectionImage.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CollectionImageFindManyArgs>(args?: SelectSubset<T, CollectionImageFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a CollectionImage.
+     * @param {CollectionImageCreateArgs} args - Arguments to create a CollectionImage.
+     * @example
+     * // Create one CollectionImage
+     * const CollectionImage = await prisma.collectionImage.create({
+     *   data: {
+     *     // ... data to create a CollectionImage
+     *   }
+     * })
+     * 
+     */
+    create<T extends CollectionImageCreateArgs>(args: SelectSubset<T, CollectionImageCreateArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many CollectionImages.
+     * @param {CollectionImageCreateManyArgs} args - Arguments to create many CollectionImages.
+     * @example
+     * // Create many CollectionImages
+     * const collectionImage = await prisma.collectionImage.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CollectionImageCreateManyArgs>(args?: SelectSubset<T, CollectionImageCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many CollectionImages and returns the data saved in the database.
+     * @param {CollectionImageCreateManyAndReturnArgs} args - Arguments to create many CollectionImages.
+     * @example
+     * // Create many CollectionImages
+     * const collectionImage = await prisma.collectionImage.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many CollectionImages and only return the `id`
+     * const collectionImageWithIdOnly = await prisma.collectionImage.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CollectionImageCreateManyAndReturnArgs>(args?: SelectSubset<T, CollectionImageCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a CollectionImage.
+     * @param {CollectionImageDeleteArgs} args - Arguments to delete one CollectionImage.
+     * @example
+     * // Delete one CollectionImage
+     * const CollectionImage = await prisma.collectionImage.delete({
+     *   where: {
+     *     // ... filter to delete one CollectionImage
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CollectionImageDeleteArgs>(args: SelectSubset<T, CollectionImageDeleteArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one CollectionImage.
+     * @param {CollectionImageUpdateArgs} args - Arguments to update one CollectionImage.
+     * @example
+     * // Update one CollectionImage
+     * const collectionImage = await prisma.collectionImage.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CollectionImageUpdateArgs>(args: SelectSubset<T, CollectionImageUpdateArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more CollectionImages.
+     * @param {CollectionImageDeleteManyArgs} args - Arguments to filter CollectionImages to delete.
+     * @example
+     * // Delete a few CollectionImages
+     * const { count } = await prisma.collectionImage.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CollectionImageDeleteManyArgs>(args?: SelectSubset<T, CollectionImageDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CollectionImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many CollectionImages
+     * const collectionImage = await prisma.collectionImage.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CollectionImageUpdateManyArgs>(args: SelectSubset<T, CollectionImageUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more CollectionImages and returns the data updated in the database.
+     * @param {CollectionImageUpdateManyAndReturnArgs} args - Arguments to update many CollectionImages.
+     * @example
+     * // Update many CollectionImages
+     * const collectionImage = await prisma.collectionImage.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more CollectionImages and only return the `id`
+     * const collectionImageWithIdOnly = await prisma.collectionImage.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CollectionImageUpdateManyAndReturnArgs>(args: SelectSubset<T, CollectionImageUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one CollectionImage.
+     * @param {CollectionImageUpsertArgs} args - Arguments to update or create a CollectionImage.
+     * @example
+     * // Update or create a CollectionImage
+     * const collectionImage = await prisma.collectionImage.upsert({
+     *   create: {
+     *     // ... data to create a CollectionImage
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the CollectionImage we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CollectionImageUpsertArgs>(args: SelectSubset<T, CollectionImageUpsertArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of CollectionImages.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageCountArgs} args - Arguments to filter CollectionImages to count.
+     * @example
+     * // Count the number of CollectionImages
+     * const count = await prisma.collectionImage.count({
+     *   where: {
+     *     // ... the filter for the CollectionImages we want to count
+     *   }
+     * })
+    **/
+    count<T extends CollectionImageCountArgs>(
+      args?: Subset<T, CollectionImageCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CollectionImageCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a CollectionImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CollectionImageAggregateArgs>(args: Subset<T, CollectionImageAggregateArgs>): Prisma.PrismaPromise<GetCollectionImageAggregateType<T>>
+
+    /**
+     * Group by CollectionImage.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionImageGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CollectionImageGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CollectionImageGroupByArgs['orderBy'] }
+        : { orderBy?: CollectionImageGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CollectionImageGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCollectionImageGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the CollectionImage model
+   */
+  readonly fields: CollectionImageFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for CollectionImage.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CollectionImageClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    collection<T extends CollectionDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CollectionDefaultArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the CollectionImage model
+   */ 
+  interface CollectionImageFieldRefs {
+    readonly id: FieldRef<"CollectionImage", 'String'>
+    readonly url: FieldRef<"CollectionImage", 'String'>
+    readonly collectionId: FieldRef<"CollectionImage", 'String'>
+    readonly createdAt: FieldRef<"CollectionImage", 'DateTime'>
+    readonly updatedAt: FieldRef<"CollectionImage", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * CollectionImage findUnique
+   */
+  export type CollectionImageFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter, which CollectionImage to fetch.
+     */
+    where: CollectionImageWhereUniqueInput
+  }
+
+  /**
+   * CollectionImage findUniqueOrThrow
+   */
+  export type CollectionImageFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter, which CollectionImage to fetch.
+     */
+    where: CollectionImageWhereUniqueInput
+  }
+
+  /**
+   * CollectionImage findFirst
+   */
+  export type CollectionImageFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter, which CollectionImage to fetch.
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CollectionImages to fetch.
+     */
+    orderBy?: CollectionImageOrderByWithRelationInput | CollectionImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CollectionImages.
+     */
+    cursor?: CollectionImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CollectionImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CollectionImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CollectionImages.
+     */
+    distinct?: CollectionImageScalarFieldEnum | CollectionImageScalarFieldEnum[]
+  }
+
+  /**
+   * CollectionImage findFirstOrThrow
+   */
+  export type CollectionImageFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter, which CollectionImage to fetch.
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CollectionImages to fetch.
+     */
+    orderBy?: CollectionImageOrderByWithRelationInput | CollectionImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for CollectionImages.
+     */
+    cursor?: CollectionImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CollectionImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CollectionImages.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of CollectionImages.
+     */
+    distinct?: CollectionImageScalarFieldEnum | CollectionImageScalarFieldEnum[]
+  }
+
+  /**
+   * CollectionImage findMany
+   */
+  export type CollectionImageFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter, which CollectionImages to fetch.
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of CollectionImages to fetch.
+     */
+    orderBy?: CollectionImageOrderByWithRelationInput | CollectionImageOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing CollectionImages.
+     */
+    cursor?: CollectionImageWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` CollectionImages from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` CollectionImages.
+     */
+    skip?: number
+    distinct?: CollectionImageScalarFieldEnum | CollectionImageScalarFieldEnum[]
+  }
+
+  /**
+   * CollectionImage create
+   */
+  export type CollectionImageCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * The data needed to create a CollectionImage.
+     */
+    data: XOR<CollectionImageCreateInput, CollectionImageUncheckedCreateInput>
+  }
+
+  /**
+   * CollectionImage createMany
+   */
+  export type CollectionImageCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many CollectionImages.
+     */
+    data: CollectionImageCreateManyInput | CollectionImageCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * CollectionImage createManyAndReturn
+   */
+  export type CollectionImageCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * The data used to create many CollectionImages.
+     */
+    data: CollectionImageCreateManyInput | CollectionImageCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CollectionImage update
+   */
+  export type CollectionImageUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * The data needed to update a CollectionImage.
+     */
+    data: XOR<CollectionImageUpdateInput, CollectionImageUncheckedUpdateInput>
+    /**
+     * Choose, which CollectionImage to update.
+     */
+    where: CollectionImageWhereUniqueInput
+  }
+
+  /**
+   * CollectionImage updateMany
+   */
+  export type CollectionImageUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update CollectionImages.
+     */
+    data: XOR<CollectionImageUpdateManyMutationInput, CollectionImageUncheckedUpdateManyInput>
+    /**
+     * Filter which CollectionImages to update
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * Limit how many CollectionImages to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * CollectionImage updateManyAndReturn
+   */
+  export type CollectionImageUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * The data used to update CollectionImages.
+     */
+    data: XOR<CollectionImageUpdateManyMutationInput, CollectionImageUncheckedUpdateManyInput>
+    /**
+     * Filter which CollectionImages to update
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * Limit how many CollectionImages to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * CollectionImage upsert
+   */
+  export type CollectionImageUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * The filter to search for the CollectionImage to update in case it exists.
+     */
+    where: CollectionImageWhereUniqueInput
+    /**
+     * In case the CollectionImage found by the `where` argument doesn't exist, create a new CollectionImage with this data.
+     */
+    create: XOR<CollectionImageCreateInput, CollectionImageUncheckedCreateInput>
+    /**
+     * In case the CollectionImage was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CollectionImageUpdateInput, CollectionImageUncheckedUpdateInput>
+  }
+
+  /**
+   * CollectionImage delete
+   */
+  export type CollectionImageDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    /**
+     * Filter which CollectionImage to delete.
+     */
+    where: CollectionImageWhereUniqueInput
+  }
+
+  /**
+   * CollectionImage deleteMany
+   */
+  export type CollectionImageDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which CollectionImages to delete
+     */
+    where?: CollectionImageWhereInput
+    /**
+     * Limit how many CollectionImages to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * CollectionImage without action
+   */
+  export type CollectionImageDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Collection
+   */
+
+  export type AggregateCollection = {
+    _count: CollectionCountAggregateOutputType | null
+    _min: CollectionMinAggregateOutputType | null
+    _max: CollectionMaxAggregateOutputType | null
+  }
+
+  export type CollectionMinAggregateOutputType = {
+    id: string | null
+    shopifyId: string | null
+    title: string | null
+    description: string | null
+    handle: string | null
+    collectionImageId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    shopId: string | null
+  }
+
+  export type CollectionMaxAggregateOutputType = {
+    id: string | null
+    shopifyId: string | null
+    title: string | null
+    description: string | null
+    handle: string | null
+    collectionImageId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    shopId: string | null
+  }
+
+  export type CollectionCountAggregateOutputType = {
+    id: number
+    shopifyId: number
+    title: number
+    description: number
+    handle: number
+    collectionImageId: number
+    createdAt: number
+    updatedAt: number
+    shopId: number
+    _all: number
+  }
+
+
+  export type CollectionMinAggregateInputType = {
+    id?: true
+    shopifyId?: true
+    title?: true
+    description?: true
+    handle?: true
+    collectionImageId?: true
+    createdAt?: true
+    updatedAt?: true
+    shopId?: true
+  }
+
+  export type CollectionMaxAggregateInputType = {
+    id?: true
+    shopifyId?: true
+    title?: true
+    description?: true
+    handle?: true
+    collectionImageId?: true
+    createdAt?: true
+    updatedAt?: true
+    shopId?: true
+  }
+
+  export type CollectionCountAggregateInputType = {
+    id?: true
+    shopifyId?: true
+    title?: true
+    description?: true
+    handle?: true
+    collectionImageId?: true
+    createdAt?: true
+    updatedAt?: true
+    shopId?: true
+    _all?: true
+  }
+
+  export type CollectionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Collection to aggregate.
+     */
+    where?: CollectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Collections to fetch.
+     */
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: CollectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Collections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Collections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Collections
+    **/
+    _count?: true | CollectionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: CollectionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: CollectionMaxAggregateInputType
+  }
+
+  export type GetCollectionAggregateType<T extends CollectionAggregateArgs> = {
+        [P in keyof T & keyof AggregateCollection]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateCollection[P]>
+      : GetScalarType<T[P], AggregateCollection[P]>
+  }
+
+
+
+
+  export type CollectionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CollectionWhereInput
+    orderBy?: CollectionOrderByWithAggregationInput | CollectionOrderByWithAggregationInput[]
+    by: CollectionScalarFieldEnum[] | CollectionScalarFieldEnum
+    having?: CollectionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: CollectionCountAggregateInputType | true
+    _min?: CollectionMinAggregateInputType
+    _max?: CollectionMaxAggregateInputType
+  }
+
+  export type CollectionGroupByOutputType = {
+    id: string
+    shopifyId: string
+    title: string | null
+    description: string | null
+    handle: string
+    collectionImageId: string | null
+    createdAt: Date
+    updatedAt: Date
+    shopId: string | null
+    _count: CollectionCountAggregateOutputType | null
+    _min: CollectionMinAggregateOutputType | null
+    _max: CollectionMaxAggregateOutputType | null
+  }
+
+  type GetCollectionGroupByPayload<T extends CollectionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<CollectionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof CollectionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], CollectionGroupByOutputType[P]>
+            : GetScalarType<T[P], CollectionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type CollectionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    shopifyId?: boolean
+    title?: boolean
+    description?: boolean
+    handle?: boolean
+    collectionImageId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    shopId?: boolean
+    collectionImage?: boolean | Collection$collectionImageArgs<ExtArgs>
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }, ExtArgs["result"]["collection"]>
+
+  export type CollectionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    shopifyId?: boolean
+    title?: boolean
+    description?: boolean
+    handle?: boolean
+    collectionImageId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    shopId?: boolean
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }, ExtArgs["result"]["collection"]>
+
+  export type CollectionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    shopifyId?: boolean
+    title?: boolean
+    description?: boolean
+    handle?: boolean
+    collectionImageId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    shopId?: boolean
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }, ExtArgs["result"]["collection"]>
+
+  export type CollectionSelectScalar = {
+    id?: boolean
+    shopifyId?: boolean
+    title?: boolean
+    description?: boolean
+    handle?: boolean
+    collectionImageId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    shopId?: boolean
+  }
+
+  export type CollectionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "title" | "description" | "handle" | "collectionImageId" | "createdAt" | "updatedAt" | "shopId", ExtArgs["result"]["collection"]>
+  export type CollectionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    collectionImage?: boolean | Collection$collectionImageArgs<ExtArgs>
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }
+  export type CollectionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }
+  export type CollectionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    Shop?: boolean | Collection$ShopArgs<ExtArgs>
+  }
+
+  export type $CollectionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Collection"
+    objects: {
+      collectionImage: Prisma.$CollectionImagePayload<ExtArgs> | null
+      Shop: Prisma.$ShopPayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      shopifyId: string
+      title: string | null
+      description: string | null
+      handle: string
+      collectionImageId: string | null
+      createdAt: Date
+      updatedAt: Date
+      shopId: string | null
+    }, ExtArgs["result"]["collection"]>
+    composites: {}
+  }
+
+  type CollectionGetPayload<S extends boolean | null | undefined | CollectionDefaultArgs> = $Result.GetResult<Prisma.$CollectionPayload, S>
+
+  type CollectionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<CollectionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CollectionCountAggregateInputType | true
+    }
+
+  export interface CollectionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Collection'], meta: { name: 'Collection' } }
+    /**
+     * Find zero or one Collection that matches the filter.
+     * @param {CollectionFindUniqueArgs} args - Arguments to find a Collection
+     * @example
+     * // Get one Collection
+     * const collection = await prisma.collection.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends CollectionFindUniqueArgs>(args: SelectSubset<T, CollectionFindUniqueArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Collection that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {CollectionFindUniqueOrThrowArgs} args - Arguments to find a Collection
+     * @example
+     * // Get one Collection
+     * const collection = await prisma.collection.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends CollectionFindUniqueOrThrowArgs>(args: SelectSubset<T, CollectionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Collection that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionFindFirstArgs} args - Arguments to find a Collection
+     * @example
+     * // Get one Collection
+     * const collection = await prisma.collection.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends CollectionFindFirstArgs>(args?: SelectSubset<T, CollectionFindFirstArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Collection that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionFindFirstOrThrowArgs} args - Arguments to find a Collection
+     * @example
+     * // Get one Collection
+     * const collection = await prisma.collection.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends CollectionFindFirstOrThrowArgs>(args?: SelectSubset<T, CollectionFindFirstOrThrowArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Collections that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Collections
+     * const collections = await prisma.collection.findMany()
+     * 
+     * // Get first 10 Collections
+     * const collections = await prisma.collection.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const collectionWithIdOnly = await prisma.collection.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends CollectionFindManyArgs>(args?: SelectSubset<T, CollectionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Collection.
+     * @param {CollectionCreateArgs} args - Arguments to create a Collection.
+     * @example
+     * // Create one Collection
+     * const Collection = await prisma.collection.create({
+     *   data: {
+     *     // ... data to create a Collection
+     *   }
+     * })
+     * 
+     */
+    create<T extends CollectionCreateArgs>(args: SelectSubset<T, CollectionCreateArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Collections.
+     * @param {CollectionCreateManyArgs} args - Arguments to create many Collections.
+     * @example
+     * // Create many Collections
+     * const collection = await prisma.collection.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends CollectionCreateManyArgs>(args?: SelectSubset<T, CollectionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Collections and returns the data saved in the database.
+     * @param {CollectionCreateManyAndReturnArgs} args - Arguments to create many Collections.
+     * @example
+     * // Create many Collections
+     * const collection = await prisma.collection.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Collections and only return the `id`
+     * const collectionWithIdOnly = await prisma.collection.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends CollectionCreateManyAndReturnArgs>(args?: SelectSubset<T, CollectionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Collection.
+     * @param {CollectionDeleteArgs} args - Arguments to delete one Collection.
+     * @example
+     * // Delete one Collection
+     * const Collection = await prisma.collection.delete({
+     *   where: {
+     *     // ... filter to delete one Collection
+     *   }
+     * })
+     * 
+     */
+    delete<T extends CollectionDeleteArgs>(args: SelectSubset<T, CollectionDeleteArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Collection.
+     * @param {CollectionUpdateArgs} args - Arguments to update one Collection.
+     * @example
+     * // Update one Collection
+     * const collection = await prisma.collection.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends CollectionUpdateArgs>(args: SelectSubset<T, CollectionUpdateArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Collections.
+     * @param {CollectionDeleteManyArgs} args - Arguments to filter Collections to delete.
+     * @example
+     * // Delete a few Collections
+     * const { count } = await prisma.collection.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends CollectionDeleteManyArgs>(args?: SelectSubset<T, CollectionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Collections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Collections
+     * const collection = await prisma.collection.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends CollectionUpdateManyArgs>(args: SelectSubset<T, CollectionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Collections and returns the data updated in the database.
+     * @param {CollectionUpdateManyAndReturnArgs} args - Arguments to update many Collections.
+     * @example
+     * // Update many Collections
+     * const collection = await prisma.collection.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Collections and only return the `id`
+     * const collectionWithIdOnly = await prisma.collection.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends CollectionUpdateManyAndReturnArgs>(args: SelectSubset<T, CollectionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Collection.
+     * @param {CollectionUpsertArgs} args - Arguments to update or create a Collection.
+     * @example
+     * // Update or create a Collection
+     * const collection = await prisma.collection.upsert({
+     *   create: {
+     *     // ... data to create a Collection
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Collection we want to update
+     *   }
+     * })
+     */
+    upsert<T extends CollectionUpsertArgs>(args: SelectSubset<T, CollectionUpsertArgs<ExtArgs>>): Prisma__CollectionClient<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Collections.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionCountArgs} args - Arguments to filter Collections to count.
+     * @example
+     * // Count the number of Collections
+     * const count = await prisma.collection.count({
+     *   where: {
+     *     // ... the filter for the Collections we want to count
+     *   }
+     * })
+    **/
+    count<T extends CollectionCountArgs>(
+      args?: Subset<T, CollectionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], CollectionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Collection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends CollectionAggregateArgs>(args: Subset<T, CollectionAggregateArgs>): Prisma.PrismaPromise<GetCollectionAggregateType<T>>
+
+    /**
+     * Group by Collection.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {CollectionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends CollectionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: CollectionGroupByArgs['orderBy'] }
+        : { orderBy?: CollectionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, CollectionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCollectionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Collection model
+   */
+  readonly fields: CollectionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Collection.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__CollectionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    collectionImage<T extends Collection$collectionImageArgs<ExtArgs> = {}>(args?: Subset<T, Collection$collectionImageArgs<ExtArgs>>): Prisma__CollectionImageClient<$Result.GetResult<Prisma.$CollectionImagePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    Shop<T extends Collection$ShopArgs<ExtArgs> = {}>(args?: Subset<T, Collection$ShopArgs<ExtArgs>>): Prisma__ShopClient<$Result.GetResult<Prisma.$ShopPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Collection model
+   */ 
+  interface CollectionFieldRefs {
+    readonly id: FieldRef<"Collection", 'String'>
+    readonly shopifyId: FieldRef<"Collection", 'String'>
+    readonly title: FieldRef<"Collection", 'String'>
+    readonly description: FieldRef<"Collection", 'String'>
+    readonly handle: FieldRef<"Collection", 'String'>
+    readonly collectionImageId: FieldRef<"Collection", 'String'>
+    readonly createdAt: FieldRef<"Collection", 'DateTime'>
+    readonly updatedAt: FieldRef<"Collection", 'DateTime'>
+    readonly shopId: FieldRef<"Collection", 'String'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Collection findUnique
+   */
+  export type CollectionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Collection to fetch.
+     */
+    where: CollectionWhereUniqueInput
+  }
+
+  /**
+   * Collection findUniqueOrThrow
+   */
+  export type CollectionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Collection to fetch.
+     */
+    where: CollectionWhereUniqueInput
+  }
+
+  /**
+   * Collection findFirst
+   */
+  export type CollectionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Collection to fetch.
+     */
+    where?: CollectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Collections to fetch.
+     */
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Collections.
+     */
+    cursor?: CollectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Collections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Collections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Collections.
+     */
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
+  }
+
+  /**
+   * Collection findFirstOrThrow
+   */
+  export type CollectionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Collection to fetch.
+     */
+    where?: CollectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Collections to fetch.
+     */
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Collections.
+     */
+    cursor?: CollectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Collections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Collections.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Collections.
+     */
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
+  }
+
+  /**
+   * Collection findMany
+   */
+  export type CollectionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter, which Collections to fetch.
+     */
+    where?: CollectionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Collections to fetch.
+     */
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Collections.
+     */
+    cursor?: CollectionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Collections from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Collections.
+     */
+    skip?: number
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
+  }
+
+  /**
+   * Collection create
+   */
+  export type CollectionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Collection.
+     */
+    data: XOR<CollectionCreateInput, CollectionUncheckedCreateInput>
+  }
+
+  /**
+   * Collection createMany
+   */
+  export type CollectionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Collections.
+     */
+    data: CollectionCreateManyInput | CollectionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Collection createManyAndReturn
+   */
+  export type CollectionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Collections.
+     */
+    data: CollectionCreateManyInput | CollectionCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Collection update
+   */
+  export type CollectionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Collection.
+     */
+    data: XOR<CollectionUpdateInput, CollectionUncheckedUpdateInput>
+    /**
+     * Choose, which Collection to update.
+     */
+    where: CollectionWhereUniqueInput
+  }
+
+  /**
+   * Collection updateMany
+   */
+  export type CollectionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Collections.
+     */
+    data: XOR<CollectionUpdateManyMutationInput, CollectionUncheckedUpdateManyInput>
+    /**
+     * Filter which Collections to update
+     */
+    where?: CollectionWhereInput
+    /**
+     * Limit how many Collections to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Collection updateManyAndReturn
+   */
+  export type CollectionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * The data used to update Collections.
+     */
+    data: XOR<CollectionUpdateManyMutationInput, CollectionUncheckedUpdateManyInput>
+    /**
+     * Filter which Collections to update
+     */
+    where?: CollectionWhereInput
+    /**
+     * Limit how many Collections to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Collection upsert
+   */
+  export type CollectionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Collection to update in case it exists.
+     */
+    where: CollectionWhereUniqueInput
+    /**
+     * In case the Collection found by the `where` argument doesn't exist, create a new Collection with this data.
+     */
+    create: XOR<CollectionCreateInput, CollectionUncheckedCreateInput>
+    /**
+     * In case the Collection was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<CollectionUpdateInput, CollectionUncheckedUpdateInput>
+  }
+
+  /**
+   * Collection delete
+   */
+  export type CollectionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    /**
+     * Filter which Collection to delete.
+     */
+    where: CollectionWhereUniqueInput
+  }
+
+  /**
+   * Collection deleteMany
+   */
+  export type CollectionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Collections to delete
+     */
+    where?: CollectionWhereInput
+    /**
+     * Limit how many Collections to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Collection.collectionImage
+   */
+  export type Collection$collectionImageArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the CollectionImage
+     */
+    select?: CollectionImageSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the CollectionImage
+     */
+    omit?: CollectionImageOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionImageInclude<ExtArgs> | null
+    where?: CollectionImageWhereInput
+  }
+
+  /**
+   * Collection.Shop
+   */
+  export type Collection$ShopArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Shop
+     */
+    select?: ShopSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Shop
+     */
+    omit?: ShopOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ShopInclude<ExtArgs> | null
+    where?: ShopWhereInput
+  }
+
+  /**
+   * Collection without action
+   */
+  export type CollectionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Shop
    */
 
@@ -13606,6 +16007,7 @@ export namespace Prisma {
     userId?: boolean
     products?: boolean | Shop$productsArgs<ExtArgs>
     orders?: boolean | Shop$ordersArgs<ExtArgs>
+    collections?: boolean | Shop$collectionsArgs<ExtArgs>
     User?: boolean | Shop$UserArgs<ExtArgs>
     _count?: boolean | ShopCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["shop"]>
@@ -13652,6 +16054,7 @@ export namespace Prisma {
   export type ShopInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | Shop$productsArgs<ExtArgs>
     orders?: boolean | Shop$ordersArgs<ExtArgs>
+    collections?: boolean | Shop$collectionsArgs<ExtArgs>
     User?: boolean | Shop$UserArgs<ExtArgs>
     _count?: boolean | ShopCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -13667,6 +16070,7 @@ export namespace Prisma {
     objects: {
       products: Prisma.$ProductPayload<ExtArgs>[]
       orders: Prisma.$OrderPayload<ExtArgs>[]
+      collections: Prisma.$CollectionPayload<ExtArgs>[]
       User: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -14075,6 +16479,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     products<T extends Shop$productsArgs<ExtArgs> = {}>(args?: Subset<T, Shop$productsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     orders<T extends Shop$ordersArgs<ExtArgs> = {}>(args?: Subset<T, Shop$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    collections<T extends Shop$collectionsArgs<ExtArgs> = {}>(args?: Subset<T, Shop$collectionsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CollectionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     User<T extends Shop$UserArgs<ExtArgs> = {}>(args?: Subset<T, Shop$UserArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -14555,6 +16960,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: OrderScalarFieldEnum | OrderScalarFieldEnum[]
+  }
+
+  /**
+   * Shop.collections
+   */
+  export type Shop$collectionsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Collection
+     */
+    select?: CollectionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Collection
+     */
+    omit?: CollectionOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CollectionInclude<ExtArgs> | null
+    where?: CollectionWhereInput
+    orderBy?: CollectionOrderByWithRelationInput | CollectionOrderByWithRelationInput[]
+    cursor?: CollectionWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CollectionScalarFieldEnum | CollectionScalarFieldEnum[]
   }
 
   /**
@@ -19159,6 +21588,32 @@ export namespace Prisma {
   export type OrderScalarFieldEnum = (typeof OrderScalarFieldEnum)[keyof typeof OrderScalarFieldEnum]
 
 
+  export const CollectionImageScalarFieldEnum: {
+    id: 'id',
+    url: 'url',
+    collectionId: 'collectionId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type CollectionImageScalarFieldEnum = (typeof CollectionImageScalarFieldEnum)[keyof typeof CollectionImageScalarFieldEnum]
+
+
+  export const CollectionScalarFieldEnum: {
+    id: 'id',
+    shopifyId: 'shopifyId',
+    title: 'title',
+    description: 'description',
+    handle: 'handle',
+    collectionImageId: 'collectionImageId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    shopId: 'shopId'
+  };
+
+  export type CollectionScalarFieldEnum = (typeof CollectionScalarFieldEnum)[keyof typeof CollectionScalarFieldEnum]
+
+
   export const ShopScalarFieldEnum: {
     id: 'id',
     shopifyId: 'shopifyId',
@@ -20022,6 +22477,139 @@ export namespace Prisma {
     shopId?: StringNullableWithAggregatesFilter<"Order"> | string | null
   }
 
+  export type CollectionImageWhereInput = {
+    AND?: CollectionImageWhereInput | CollectionImageWhereInput[]
+    OR?: CollectionImageWhereInput[]
+    NOT?: CollectionImageWhereInput | CollectionImageWhereInput[]
+    id?: StringFilter<"CollectionImage"> | string
+    url?: StringFilter<"CollectionImage"> | string
+    collectionId?: StringFilter<"CollectionImage"> | string
+    createdAt?: DateTimeFilter<"CollectionImage"> | Date | string
+    updatedAt?: DateTimeFilter<"CollectionImage"> | Date | string
+    collection?: XOR<CollectionScalarRelationFilter, CollectionWhereInput>
+  }
+
+  export type CollectionImageOrderByWithRelationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    collectionId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    collection?: CollectionOrderByWithRelationInput
+  }
+
+  export type CollectionImageWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    collectionId?: string
+    AND?: CollectionImageWhereInput | CollectionImageWhereInput[]
+    OR?: CollectionImageWhereInput[]
+    NOT?: CollectionImageWhereInput | CollectionImageWhereInput[]
+    url?: StringFilter<"CollectionImage"> | string
+    createdAt?: DateTimeFilter<"CollectionImage"> | Date | string
+    updatedAt?: DateTimeFilter<"CollectionImage"> | Date | string
+    collection?: XOR<CollectionScalarRelationFilter, CollectionWhereInput>
+  }, "id" | "collectionId">
+
+  export type CollectionImageOrderByWithAggregationInput = {
+    id?: SortOrder
+    url?: SortOrder
+    collectionId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: CollectionImageCountOrderByAggregateInput
+    _max?: CollectionImageMaxOrderByAggregateInput
+    _min?: CollectionImageMinOrderByAggregateInput
+  }
+
+  export type CollectionImageScalarWhereWithAggregatesInput = {
+    AND?: CollectionImageScalarWhereWithAggregatesInput | CollectionImageScalarWhereWithAggregatesInput[]
+    OR?: CollectionImageScalarWhereWithAggregatesInput[]
+    NOT?: CollectionImageScalarWhereWithAggregatesInput | CollectionImageScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"CollectionImage"> | string
+    url?: StringWithAggregatesFilter<"CollectionImage"> | string
+    collectionId?: StringWithAggregatesFilter<"CollectionImage"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"CollectionImage"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"CollectionImage"> | Date | string
+  }
+
+  export type CollectionWhereInput = {
+    AND?: CollectionWhereInput | CollectionWhereInput[]
+    OR?: CollectionWhereInput[]
+    NOT?: CollectionWhereInput | CollectionWhereInput[]
+    id?: StringFilter<"Collection"> | string
+    shopifyId?: StringFilter<"Collection"> | string
+    title?: StringNullableFilter<"Collection"> | string | null
+    description?: StringNullableFilter<"Collection"> | string | null
+    handle?: StringFilter<"Collection"> | string
+    collectionImageId?: StringNullableFilter<"Collection"> | string | null
+    createdAt?: DateTimeFilter<"Collection"> | Date | string
+    updatedAt?: DateTimeFilter<"Collection"> | Date | string
+    shopId?: StringNullableFilter<"Collection"> | string | null
+    collectionImage?: XOR<CollectionImageNullableScalarRelationFilter, CollectionImageWhereInput> | null
+    Shop?: XOR<ShopNullableScalarRelationFilter, ShopWhereInput> | null
+  }
+
+  export type CollectionOrderByWithRelationInput = {
+    id?: SortOrder
+    shopifyId?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    handle?: SortOrder
+    collectionImageId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    shopId?: SortOrderInput | SortOrder
+    collectionImage?: CollectionImageOrderByWithRelationInput
+    Shop?: ShopOrderByWithRelationInput
+  }
+
+  export type CollectionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: CollectionWhereInput | CollectionWhereInput[]
+    OR?: CollectionWhereInput[]
+    NOT?: CollectionWhereInput | CollectionWhereInput[]
+    shopifyId?: StringFilter<"Collection"> | string
+    title?: StringNullableFilter<"Collection"> | string | null
+    description?: StringNullableFilter<"Collection"> | string | null
+    handle?: StringFilter<"Collection"> | string
+    collectionImageId?: StringNullableFilter<"Collection"> | string | null
+    createdAt?: DateTimeFilter<"Collection"> | Date | string
+    updatedAt?: DateTimeFilter<"Collection"> | Date | string
+    shopId?: StringNullableFilter<"Collection"> | string | null
+    collectionImage?: XOR<CollectionImageNullableScalarRelationFilter, CollectionImageWhereInput> | null
+    Shop?: XOR<ShopNullableScalarRelationFilter, ShopWhereInput> | null
+  }, "id">
+
+  export type CollectionOrderByWithAggregationInput = {
+    id?: SortOrder
+    shopifyId?: SortOrder
+    title?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
+    handle?: SortOrder
+    collectionImageId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    shopId?: SortOrderInput | SortOrder
+    _count?: CollectionCountOrderByAggregateInput
+    _max?: CollectionMaxOrderByAggregateInput
+    _min?: CollectionMinOrderByAggregateInput
+  }
+
+  export type CollectionScalarWhereWithAggregatesInput = {
+    AND?: CollectionScalarWhereWithAggregatesInput | CollectionScalarWhereWithAggregatesInput[]
+    OR?: CollectionScalarWhereWithAggregatesInput[]
+    NOT?: CollectionScalarWhereWithAggregatesInput | CollectionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Collection"> | string
+    shopifyId?: StringWithAggregatesFilter<"Collection"> | string
+    title?: StringNullableWithAggregatesFilter<"Collection"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Collection"> | string | null
+    handle?: StringWithAggregatesFilter<"Collection"> | string
+    collectionImageId?: StringNullableWithAggregatesFilter<"Collection"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Collection"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Collection"> | Date | string
+    shopId?: StringNullableWithAggregatesFilter<"Collection"> | string | null
+  }
+
   export type ShopWhereInput = {
     AND?: ShopWhereInput | ShopWhereInput[]
     OR?: ShopWhereInput[]
@@ -20037,6 +22625,7 @@ export namespace Prisma {
     userId?: StringNullableFilter<"Shop"> | string | null
     products?: ProductListRelationFilter
     orders?: OrderListRelationFilter
+    collections?: CollectionListRelationFilter
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
@@ -20052,6 +22641,7 @@ export namespace Prisma {
     userId?: SortOrderInput | SortOrder
     products?: ProductOrderByRelationAggregateInput
     orders?: OrderOrderByRelationAggregateInput
+    collections?: CollectionOrderByRelationAggregateInput
     User?: UserOrderByWithRelationInput
   }
 
@@ -20070,6 +22660,7 @@ export namespace Prisma {
     userId?: StringNullableFilter<"Shop"> | string | null
     products?: ProductListRelationFilter
     orders?: OrderListRelationFilter
+    collections?: CollectionListRelationFilter
     User?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
@@ -21125,6 +23716,148 @@ export namespace Prisma {
     shopId?: NullableStringFieldUpdateOperationsInput | string | null
   }
 
+  export type CollectionImageCreateInput = {
+    id?: string
+    url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    collection: CollectionCreateNestedOneWithoutCollectionImageInput
+  }
+
+  export type CollectionImageUncheckedCreateInput = {
+    id?: string
+    url: string
+    collectionId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CollectionImageUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    collection?: CollectionUpdateOneRequiredWithoutCollectionImageNestedInput
+  }
+
+  export type CollectionImageUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    collectionId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CollectionImageCreateManyInput = {
+    id?: string
+    url: string
+    collectionId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CollectionImageUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CollectionImageUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    collectionId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CollectionCreateInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    collectionImage?: CollectionImageCreateNestedOneWithoutCollectionInput
+    Shop?: ShopCreateNestedOneWithoutCollectionsInput
+  }
+
+  export type CollectionUncheckedCreateInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    shopId?: string | null
+    collectionImage?: CollectionImageUncheckedCreateNestedOneWithoutCollectionInput
+  }
+
+  export type CollectionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    collectionImage?: CollectionImageUpdateOneWithoutCollectionNestedInput
+    Shop?: ShopUpdateOneWithoutCollectionsNestedInput
+  }
+
+  export type CollectionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    shopId?: NullableStringFieldUpdateOperationsInput | string | null
+    collectionImage?: CollectionImageUncheckedUpdateOneWithoutCollectionNestedInput
+  }
+
+  export type CollectionCreateManyInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    shopId?: string | null
+  }
+
+  export type CollectionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CollectionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    shopId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
   export type ShopCreateInput = {
     id?: string
     shopifyId: string
@@ -21136,6 +23869,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     products?: ProductCreateNestedManyWithoutShopInput
     orders?: OrderCreateNestedManyWithoutShopInput
+    collections?: CollectionCreateNestedManyWithoutShopInput
     User?: UserCreateNestedOneWithoutShopsInput
   }
 
@@ -21151,6 +23885,7 @@ export namespace Prisma {
     userId?: string | null
     products?: ProductUncheckedCreateNestedManyWithoutShopInput
     orders?: OrderUncheckedCreateNestedManyWithoutShopInput
+    collections?: CollectionUncheckedCreateNestedManyWithoutShopInput
   }
 
   export type ShopUpdateInput = {
@@ -21164,6 +23899,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: ProductUpdateManyWithoutShopNestedInput
     orders?: OrderUpdateManyWithoutShopNestedInput
+    collections?: CollectionUpdateManyWithoutShopNestedInput
     User?: UserUpdateOneWithoutShopsNestedInput
   }
 
@@ -21179,6 +23915,7 @@ export namespace Prisma {
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductUncheckedUpdateManyWithoutShopNestedInput
     orders?: OrderUncheckedUpdateManyWithoutShopNestedInput
+    collections?: CollectionUncheckedUpdateManyWithoutShopNestedInput
   }
 
   export type ShopCreateManyInput = {
@@ -22118,6 +24855,76 @@ export namespace Prisma {
     _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
+  export type CollectionScalarRelationFilter = {
+    is?: CollectionWhereInput
+    isNot?: CollectionWhereInput
+  }
+
+  export type CollectionImageCountOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    collectionId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CollectionImageMaxOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    collectionId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CollectionImageMinOrderByAggregateInput = {
+    id?: SortOrder
+    url?: SortOrder
+    collectionId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type CollectionImageNullableScalarRelationFilter = {
+    is?: CollectionImageWhereInput | null
+    isNot?: CollectionImageWhereInput | null
+  }
+
+  export type CollectionCountOrderByAggregateInput = {
+    id?: SortOrder
+    shopifyId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    handle?: SortOrder
+    collectionImageId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    shopId?: SortOrder
+  }
+
+  export type CollectionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    shopifyId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    handle?: SortOrder
+    collectionImageId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    shopId?: SortOrder
+  }
+
+  export type CollectionMinOrderByAggregateInput = {
+    id?: SortOrder
+    shopifyId?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    handle?: SortOrder
+    collectionImageId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    shopId?: SortOrder
+  }
+
   export type ProductListRelationFilter = {
     every?: ProductWhereInput
     some?: ProductWhereInput
@@ -22130,6 +24937,12 @@ export namespace Prisma {
     none?: OrderWhereInput
   }
 
+  export type CollectionListRelationFilter = {
+    every?: CollectionWhereInput
+    some?: CollectionWhereInput
+    none?: CollectionWhereInput
+  }
+
   export type UserNullableScalarRelationFilter = {
     is?: UserWhereInput | null
     isNot?: UserWhereInput | null
@@ -22140,6 +24953,10 @@ export namespace Prisma {
   }
 
   export type OrderOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type CollectionOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -22803,6 +25620,68 @@ export namespace Prisma {
     update?: XOR<XOR<OrderPriceUpdateToOneWithWhereWithoutOrderInput, OrderPriceUpdateWithoutOrderInput>, OrderPriceUncheckedUpdateWithoutOrderInput>
   }
 
+  export type CollectionCreateNestedOneWithoutCollectionImageInput = {
+    create?: XOR<CollectionCreateWithoutCollectionImageInput, CollectionUncheckedCreateWithoutCollectionImageInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutCollectionImageInput
+    connect?: CollectionWhereUniqueInput
+  }
+
+  export type CollectionUpdateOneRequiredWithoutCollectionImageNestedInput = {
+    create?: XOR<CollectionCreateWithoutCollectionImageInput, CollectionUncheckedCreateWithoutCollectionImageInput>
+    connectOrCreate?: CollectionCreateOrConnectWithoutCollectionImageInput
+    upsert?: CollectionUpsertWithoutCollectionImageInput
+    connect?: CollectionWhereUniqueInput
+    update?: XOR<XOR<CollectionUpdateToOneWithWhereWithoutCollectionImageInput, CollectionUpdateWithoutCollectionImageInput>, CollectionUncheckedUpdateWithoutCollectionImageInput>
+  }
+
+  export type CollectionImageCreateNestedOneWithoutCollectionInput = {
+    create?: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+    connectOrCreate?: CollectionImageCreateOrConnectWithoutCollectionInput
+    connect?: CollectionImageWhereUniqueInput
+  }
+
+  export type ShopCreateNestedOneWithoutCollectionsInput = {
+    create?: XOR<ShopCreateWithoutCollectionsInput, ShopUncheckedCreateWithoutCollectionsInput>
+    connectOrCreate?: ShopCreateOrConnectWithoutCollectionsInput
+    connect?: ShopWhereUniqueInput
+  }
+
+  export type CollectionImageUncheckedCreateNestedOneWithoutCollectionInput = {
+    create?: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+    connectOrCreate?: CollectionImageCreateOrConnectWithoutCollectionInput
+    connect?: CollectionImageWhereUniqueInput
+  }
+
+  export type CollectionImageUpdateOneWithoutCollectionNestedInput = {
+    create?: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+    connectOrCreate?: CollectionImageCreateOrConnectWithoutCollectionInput
+    upsert?: CollectionImageUpsertWithoutCollectionInput
+    disconnect?: CollectionImageWhereInput | boolean
+    delete?: CollectionImageWhereInput | boolean
+    connect?: CollectionImageWhereUniqueInput
+    update?: XOR<XOR<CollectionImageUpdateToOneWithWhereWithoutCollectionInput, CollectionImageUpdateWithoutCollectionInput>, CollectionImageUncheckedUpdateWithoutCollectionInput>
+  }
+
+  export type ShopUpdateOneWithoutCollectionsNestedInput = {
+    create?: XOR<ShopCreateWithoutCollectionsInput, ShopUncheckedCreateWithoutCollectionsInput>
+    connectOrCreate?: ShopCreateOrConnectWithoutCollectionsInput
+    upsert?: ShopUpsertWithoutCollectionsInput
+    disconnect?: ShopWhereInput | boolean
+    delete?: ShopWhereInput | boolean
+    connect?: ShopWhereUniqueInput
+    update?: XOR<XOR<ShopUpdateToOneWithWhereWithoutCollectionsInput, ShopUpdateWithoutCollectionsInput>, ShopUncheckedUpdateWithoutCollectionsInput>
+  }
+
+  export type CollectionImageUncheckedUpdateOneWithoutCollectionNestedInput = {
+    create?: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+    connectOrCreate?: CollectionImageCreateOrConnectWithoutCollectionInput
+    upsert?: CollectionImageUpsertWithoutCollectionInput
+    disconnect?: CollectionImageWhereInput | boolean
+    delete?: CollectionImageWhereInput | boolean
+    connect?: CollectionImageWhereUniqueInput
+    update?: XOR<XOR<CollectionImageUpdateToOneWithWhereWithoutCollectionInput, CollectionImageUpdateWithoutCollectionInput>, CollectionImageUncheckedUpdateWithoutCollectionInput>
+  }
+
   export type ShopCreateshipsToCountriesInput = {
     set: string[]
   }
@@ -22819,6 +25698,13 @@ export namespace Prisma {
     connectOrCreate?: OrderCreateOrConnectWithoutShopInput | OrderCreateOrConnectWithoutShopInput[]
     createMany?: OrderCreateManyShopInputEnvelope
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
+  }
+
+  export type CollectionCreateNestedManyWithoutShopInput = {
+    create?: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput> | CollectionCreateWithoutShopInput[] | CollectionUncheckedCreateWithoutShopInput[]
+    connectOrCreate?: CollectionCreateOrConnectWithoutShopInput | CollectionCreateOrConnectWithoutShopInput[]
+    createMany?: CollectionCreateManyShopInputEnvelope
+    connect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
   }
 
   export type UserCreateNestedOneWithoutShopsInput = {
@@ -22839,6 +25725,13 @@ export namespace Prisma {
     connectOrCreate?: OrderCreateOrConnectWithoutShopInput | OrderCreateOrConnectWithoutShopInput[]
     createMany?: OrderCreateManyShopInputEnvelope
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
+  }
+
+  export type CollectionUncheckedCreateNestedManyWithoutShopInput = {
+    create?: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput> | CollectionCreateWithoutShopInput[] | CollectionUncheckedCreateWithoutShopInput[]
+    connectOrCreate?: CollectionCreateOrConnectWithoutShopInput | CollectionCreateOrConnectWithoutShopInput[]
+    createMany?: CollectionCreateManyShopInputEnvelope
+    connect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
   }
 
   export type ShopUpdateshipsToCountriesInput = {
@@ -22872,6 +25765,20 @@ export namespace Prisma {
     update?: OrderUpdateWithWhereUniqueWithoutShopInput | OrderUpdateWithWhereUniqueWithoutShopInput[]
     updateMany?: OrderUpdateManyWithWhereWithoutShopInput | OrderUpdateManyWithWhereWithoutShopInput[]
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
+  }
+
+  export type CollectionUpdateManyWithoutShopNestedInput = {
+    create?: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput> | CollectionCreateWithoutShopInput[] | CollectionUncheckedCreateWithoutShopInput[]
+    connectOrCreate?: CollectionCreateOrConnectWithoutShopInput | CollectionCreateOrConnectWithoutShopInput[]
+    upsert?: CollectionUpsertWithWhereUniqueWithoutShopInput | CollectionUpsertWithWhereUniqueWithoutShopInput[]
+    createMany?: CollectionCreateManyShopInputEnvelope
+    set?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    disconnect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    delete?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    connect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    update?: CollectionUpdateWithWhereUniqueWithoutShopInput | CollectionUpdateWithWhereUniqueWithoutShopInput[]
+    updateMany?: CollectionUpdateManyWithWhereWithoutShopInput | CollectionUpdateManyWithWhereWithoutShopInput[]
+    deleteMany?: CollectionScalarWhereInput | CollectionScalarWhereInput[]
   }
 
   export type UserUpdateOneWithoutShopsNestedInput = {
@@ -22910,6 +25817,20 @@ export namespace Prisma {
     update?: OrderUpdateWithWhereUniqueWithoutShopInput | OrderUpdateWithWhereUniqueWithoutShopInput[]
     updateMany?: OrderUpdateManyWithWhereWithoutShopInput | OrderUpdateManyWithWhereWithoutShopInput[]
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
+  }
+
+  export type CollectionUncheckedUpdateManyWithoutShopNestedInput = {
+    create?: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput> | CollectionCreateWithoutShopInput[] | CollectionUncheckedCreateWithoutShopInput[]
+    connectOrCreate?: CollectionCreateOrConnectWithoutShopInput | CollectionCreateOrConnectWithoutShopInput[]
+    upsert?: CollectionUpsertWithWhereUniqueWithoutShopInput | CollectionUpsertWithWhereUniqueWithoutShopInput[]
+    createMany?: CollectionCreateManyShopInputEnvelope
+    set?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    disconnect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    delete?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    connect?: CollectionWhereUniqueInput | CollectionWhereUniqueInput[]
+    update?: CollectionUpdateWithWhereUniqueWithoutShopInput | CollectionUpdateWithWhereUniqueWithoutShopInput[]
+    updateMany?: CollectionUpdateManyWithWhereWithoutShopInput | CollectionUpdateManyWithWhereWithoutShopInput[]
+    deleteMany?: CollectionScalarWhereInput | CollectionScalarWhereInput[]
   }
 
   export type SessionCreateNestedManyWithoutUserInput = {
@@ -23975,6 +26896,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     orders?: OrderCreateNestedManyWithoutShopInput
+    collections?: CollectionCreateNestedManyWithoutShopInput
     User?: UserCreateNestedOneWithoutShopsInput
   }
 
@@ -23989,6 +26911,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     userId?: string | null
     orders?: OrderUncheckedCreateNestedManyWithoutShopInput
+    collections?: CollectionUncheckedCreateNestedManyWithoutShopInput
   }
 
   export type ShopCreateOrConnectWithoutProductsInput = {
@@ -24103,6 +27026,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orders?: OrderUpdateManyWithoutShopNestedInput
+    collections?: CollectionUpdateManyWithoutShopNestedInput
     User?: UserUpdateOneWithoutShopsNestedInput
   }
 
@@ -24117,6 +27041,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     orders?: OrderUncheckedUpdateManyWithoutShopNestedInput
+    collections?: CollectionUncheckedUpdateManyWithoutShopNestedInput
   }
 
   export type ProductSEOUpsertWithoutProductInput = {
@@ -24311,6 +27236,7 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     products?: ProductCreateNestedManyWithoutShopInput
+    collections?: CollectionCreateNestedManyWithoutShopInput
     User?: UserCreateNestedOneWithoutShopsInput
   }
 
@@ -24325,6 +27251,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     userId?: string | null
     products?: ProductUncheckedCreateNestedManyWithoutShopInput
+    collections?: CollectionUncheckedCreateNestedManyWithoutShopInput
   }
 
   export type ShopCreateOrConnectWithoutOrdersInput = {
@@ -24380,6 +27307,7 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: ProductUpdateManyWithoutShopNestedInput
+    collections?: CollectionUpdateManyWithoutShopNestedInput
     User?: UserUpdateOneWithoutShopsNestedInput
   }
 
@@ -24394,6 +27322,187 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     userId?: NullableStringFieldUpdateOperationsInput | string | null
     products?: ProductUncheckedUpdateManyWithoutShopNestedInput
+    collections?: CollectionUncheckedUpdateManyWithoutShopNestedInput
+  }
+
+  export type CollectionCreateWithoutCollectionImageInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    Shop?: ShopCreateNestedOneWithoutCollectionsInput
+  }
+
+  export type CollectionUncheckedCreateWithoutCollectionImageInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    shopId?: string | null
+  }
+
+  export type CollectionCreateOrConnectWithoutCollectionImageInput = {
+    where: CollectionWhereUniqueInput
+    create: XOR<CollectionCreateWithoutCollectionImageInput, CollectionUncheckedCreateWithoutCollectionImageInput>
+  }
+
+  export type CollectionUpsertWithoutCollectionImageInput = {
+    update: XOR<CollectionUpdateWithoutCollectionImageInput, CollectionUncheckedUpdateWithoutCollectionImageInput>
+    create: XOR<CollectionCreateWithoutCollectionImageInput, CollectionUncheckedCreateWithoutCollectionImageInput>
+    where?: CollectionWhereInput
+  }
+
+  export type CollectionUpdateToOneWithWhereWithoutCollectionImageInput = {
+    where?: CollectionWhereInput
+    data: XOR<CollectionUpdateWithoutCollectionImageInput, CollectionUncheckedUpdateWithoutCollectionImageInput>
+  }
+
+  export type CollectionUpdateWithoutCollectionImageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    Shop?: ShopUpdateOneWithoutCollectionsNestedInput
+  }
+
+  export type CollectionUncheckedUpdateWithoutCollectionImageInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    shopId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CollectionImageCreateWithoutCollectionInput = {
+    id?: string
+    url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CollectionImageUncheckedCreateWithoutCollectionInput = {
+    id?: string
+    url: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type CollectionImageCreateOrConnectWithoutCollectionInput = {
+    where: CollectionImageWhereUniqueInput
+    create: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+  }
+
+  export type ShopCreateWithoutCollectionsInput = {
+    id?: string
+    shopifyId: string
+    name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
+    accessToken: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    products?: ProductCreateNestedManyWithoutShopInput
+    orders?: OrderCreateNestedManyWithoutShopInput
+    User?: UserCreateNestedOneWithoutShopsInput
+  }
+
+  export type ShopUncheckedCreateWithoutCollectionsInput = {
+    id?: string
+    shopifyId: string
+    name: string
+    description?: string | null
+    shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
+    accessToken: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    userId?: string | null
+    products?: ProductUncheckedCreateNestedManyWithoutShopInput
+    orders?: OrderUncheckedCreateNestedManyWithoutShopInput
+  }
+
+  export type ShopCreateOrConnectWithoutCollectionsInput = {
+    where: ShopWhereUniqueInput
+    create: XOR<ShopCreateWithoutCollectionsInput, ShopUncheckedCreateWithoutCollectionsInput>
+  }
+
+  export type CollectionImageUpsertWithoutCollectionInput = {
+    update: XOR<CollectionImageUpdateWithoutCollectionInput, CollectionImageUncheckedUpdateWithoutCollectionInput>
+    create: XOR<CollectionImageCreateWithoutCollectionInput, CollectionImageUncheckedCreateWithoutCollectionInput>
+    where?: CollectionImageWhereInput
+  }
+
+  export type CollectionImageUpdateToOneWithWhereWithoutCollectionInput = {
+    where?: CollectionImageWhereInput
+    data: XOR<CollectionImageUpdateWithoutCollectionInput, CollectionImageUncheckedUpdateWithoutCollectionInput>
+  }
+
+  export type CollectionImageUpdateWithoutCollectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type CollectionImageUncheckedUpdateWithoutCollectionInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    url?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ShopUpsertWithoutCollectionsInput = {
+    update: XOR<ShopUpdateWithoutCollectionsInput, ShopUncheckedUpdateWithoutCollectionsInput>
+    create: XOR<ShopCreateWithoutCollectionsInput, ShopUncheckedCreateWithoutCollectionsInput>
+    where?: ShopWhereInput
+  }
+
+  export type ShopUpdateToOneWithWhereWithoutCollectionsInput = {
+    where?: ShopWhereInput
+    data: XOR<ShopUpdateWithoutCollectionsInput, ShopUncheckedUpdateWithoutCollectionsInput>
+  }
+
+  export type ShopUpdateWithoutCollectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
+    accessToken?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    products?: ProductUpdateManyWithoutShopNestedInput
+    orders?: OrderUpdateManyWithoutShopNestedInput
+    User?: UserUpdateOneWithoutShopsNestedInput
+  }
+
+  export type ShopUncheckedUpdateWithoutCollectionsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
+    accessToken?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    userId?: NullableStringFieldUpdateOperationsInput | string | null
+    products?: ProductUncheckedUpdateManyWithoutShopNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutShopNestedInput
   }
 
   export type ProductCreateWithoutShopInput = {
@@ -24469,6 +27578,40 @@ export namespace Prisma {
 
   export type OrderCreateManyShopInputEnvelope = {
     data: OrderCreateManyShopInput | OrderCreateManyShopInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type CollectionCreateWithoutShopInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    collectionImage?: CollectionImageCreateNestedOneWithoutCollectionInput
+  }
+
+  export type CollectionUncheckedCreateWithoutShopInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    collectionImage?: CollectionImageUncheckedCreateNestedOneWithoutCollectionInput
+  }
+
+  export type CollectionCreateOrConnectWithoutShopInput = {
+    where: CollectionWhereUniqueInput
+    create: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput>
+  }
+
+  export type CollectionCreateManyShopInputEnvelope = {
+    data: CollectionCreateManyShopInput | CollectionCreateManyShopInput[]
     skipDuplicates?: boolean
   }
 
@@ -24563,6 +27706,37 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Order"> | Date | string
     orderPriceId?: StringNullableFilter<"Order"> | string | null
     shopId?: StringNullableFilter<"Order"> | string | null
+  }
+
+  export type CollectionUpsertWithWhereUniqueWithoutShopInput = {
+    where: CollectionWhereUniqueInput
+    update: XOR<CollectionUpdateWithoutShopInput, CollectionUncheckedUpdateWithoutShopInput>
+    create: XOR<CollectionCreateWithoutShopInput, CollectionUncheckedCreateWithoutShopInput>
+  }
+
+  export type CollectionUpdateWithWhereUniqueWithoutShopInput = {
+    where: CollectionWhereUniqueInput
+    data: XOR<CollectionUpdateWithoutShopInput, CollectionUncheckedUpdateWithoutShopInput>
+  }
+
+  export type CollectionUpdateManyWithWhereWithoutShopInput = {
+    where: CollectionScalarWhereInput
+    data: XOR<CollectionUpdateManyMutationInput, CollectionUncheckedUpdateManyWithoutShopInput>
+  }
+
+  export type CollectionScalarWhereInput = {
+    AND?: CollectionScalarWhereInput | CollectionScalarWhereInput[]
+    OR?: CollectionScalarWhereInput[]
+    NOT?: CollectionScalarWhereInput | CollectionScalarWhereInput[]
+    id?: StringFilter<"Collection"> | string
+    shopifyId?: StringFilter<"Collection"> | string
+    title?: StringNullableFilter<"Collection"> | string | null
+    description?: StringNullableFilter<"Collection"> | string | null
+    handle?: StringFilter<"Collection"> | string
+    collectionImageId?: StringNullableFilter<"Collection"> | string | null
+    createdAt?: DateTimeFilter<"Collection"> | Date | string
+    updatedAt?: DateTimeFilter<"Collection"> | Date | string
+    shopId?: StringNullableFilter<"Collection"> | string | null
   }
 
   export type UserUpsertWithoutShopsInput = {
@@ -24681,6 +27855,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     products?: ProductCreateNestedManyWithoutShopInput
     orders?: OrderCreateNestedManyWithoutShopInput
+    collections?: CollectionCreateNestedManyWithoutShopInput
   }
 
   export type ShopUncheckedCreateWithoutUserInput = {
@@ -24694,6 +27869,7 @@ export namespace Prisma {
     updatedAt?: Date | string
     products?: ProductUncheckedCreateNestedManyWithoutShopInput
     orders?: OrderUncheckedCreateNestedManyWithoutShopInput
+    collections?: CollectionUncheckedCreateNestedManyWithoutShopInput
   }
 
   export type ShopCreateOrConnectWithoutUserInput = {
@@ -24992,6 +28168,17 @@ export namespace Prisma {
     orderPriceId?: string | null
   }
 
+  export type CollectionCreateManyShopInput = {
+    id?: string
+    shopifyId: string
+    title?: string | null
+    description?: string | null
+    handle: string
+    collectionImageId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
   export type ProductUpdateWithoutShopInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
@@ -25070,6 +28257,41 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     orderPriceId?: NullableStringFieldUpdateOperationsInput | string | null
+  }
+
+  export type CollectionUpdateWithoutShopInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    collectionImage?: CollectionImageUpdateOneWithoutCollectionNestedInput
+  }
+
+  export type CollectionUncheckedUpdateWithoutShopInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    collectionImage?: CollectionImageUncheckedUpdateOneWithoutCollectionNestedInput
+  }
+
+  export type CollectionUncheckedUpdateManyWithoutShopInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    shopifyId?: StringFieldUpdateOperationsInput | string
+    title?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    handle?: StringFieldUpdateOperationsInput | string
+    collectionImageId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SessionCreateManyUserInput = {
@@ -25194,6 +28416,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: ProductUpdateManyWithoutShopNestedInput
     orders?: OrderUpdateManyWithoutShopNestedInput
+    collections?: CollectionUpdateManyWithoutShopNestedInput
   }
 
   export type ShopUncheckedUpdateWithoutUserInput = {
@@ -25207,6 +28430,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     products?: ProductUncheckedUpdateManyWithoutShopNestedInput
     orders?: OrderUncheckedUpdateManyWithoutShopNestedInput
+    collections?: CollectionUncheckedUpdateManyWithoutShopNestedInput
   }
 
   export type ShopUncheckedUpdateManyWithoutUserInput = {

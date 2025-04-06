@@ -73,6 +73,18 @@ const order = /* GraphQL */ `
   }
 `;
 
+const collection = /* GraphQL */ `
+  fragment collection on Collection {
+    id
+    title
+    description
+    handle
+    image {
+      url
+    }
+  }
+`;
+
 /**
  * shopifyFragments permet de regrouper les fragments utilisés dans les requêtes GraphQL de shopify.
  */
@@ -81,4 +93,5 @@ export const shopifyFragments = {
 	seo,
 	product,
 	order,
+	collection,
 };

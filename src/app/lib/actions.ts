@@ -226,7 +226,7 @@ export async function addShopifyShop(
 
 		// Vérifier si la clé API est valide en effectuant une requête sur l'API de Shopify.
 		const data = await client.getShopProducts();
-		logger.info("Ajout données...", data.orders[0].totalPriceSet);
+		logger.info("Ajout données...", data);
 
 		await prisma.$transaction(async (tx) => {
 			const shop = await tx.shop.create({
@@ -333,6 +333,7 @@ export async function addShopifyShop(
 			const orders = await tx.order.createManyAndReturn({
 				data: data.orders.map((order) => ({
 					shopifyId: order.id,
+					name: order.name,
 					unpaid: order.unpaid,
 					processedAt: order.processedAt,
 					shopId: shop.id,

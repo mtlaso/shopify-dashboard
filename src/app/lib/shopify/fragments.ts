@@ -61,6 +61,7 @@ const product = /* GraphQL */ `
 const order = /* GraphQL */ `
   fragment order on Order {
     id
+    name
     totalPriceSet {
       shopMoney {
         amount

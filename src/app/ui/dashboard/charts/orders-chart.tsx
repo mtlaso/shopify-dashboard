@@ -1,6 +1,8 @@
 import { data } from "@/app/lib/data";
+import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { SPACING } from "@/app/ui/spacing";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export async function OrdersChart({
 	selectedShopId,
@@ -13,7 +15,7 @@ export async function OrdersChart({
 	return (
 		<div
 			className={cn(
-				"flex flex-col justifycenter h-72 p-4 bg-secondary border rounded",
+				"flex flex-col justifycenter h-42 p-4 bg-secondary border rounded",
 				SPACING.SM,
 			)}
 		>
@@ -26,10 +28,21 @@ export async function OrdersChart({
 
 			<div className="flex flex-col justify-center items-center h-full">
 				<span className="font-semibold text-lg">
-					{orders &&
-						new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
-							orders.length,
-						)}
+					{orders && (
+						<Link
+							href={{
+								pathname: "/dashboard/orders",
+								query: {
+									[shopUrlState.SHOP_KEY]: selectedShopId,
+								},
+							}}
+							className="underline underline-offset-4"
+						>
+							{new Intl.NumberFormat("fr-CA", { useGrouping: "true" }).format(
+								orders.length,
+							)}
+						</Link>
+					)}
 
 					{!orders && "Aucune donnée"}
 				</span>

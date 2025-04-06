@@ -207,6 +207,7 @@ exports.Prisma.OrderPriceScalarFieldEnum = {
 
 exports.Prisma.OrderScalarFieldEnum = {
   id: 'id',
+  name: 'name',
   shopifyId: 'shopifyId',
   unpaid: 'unpaid',
   processedAt: 'processedAt',

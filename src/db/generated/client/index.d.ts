@@ -12259,6 +12259,7 @@ export namespace Prisma {
 
   export type OrderMinAggregateOutputType = {
     id: string | null
+    name: string | null
     shopifyId: string | null
     unpaid: boolean | null
     processedAt: Date | null
@@ -12270,6 +12271,7 @@ export namespace Prisma {
 
   export type OrderMaxAggregateOutputType = {
     id: string | null
+    name: string | null
     shopifyId: string | null
     unpaid: boolean | null
     processedAt: Date | null
@@ -12281,6 +12283,7 @@ export namespace Prisma {
 
   export type OrderCountAggregateOutputType = {
     id: number
+    name: number
     shopifyId: number
     unpaid: number
     processedAt: number
@@ -12294,6 +12297,7 @@ export namespace Prisma {
 
   export type OrderMinAggregateInputType = {
     id?: true
+    name?: true
     shopifyId?: true
     unpaid?: true
     processedAt?: true
@@ -12305,6 +12309,7 @@ export namespace Prisma {
 
   export type OrderMaxAggregateInputType = {
     id?: true
+    name?: true
     shopifyId?: true
     unpaid?: true
     processedAt?: true
@@ -12316,6 +12321,7 @@ export namespace Prisma {
 
   export type OrderCountAggregateInputType = {
     id?: true
+    name?: true
     shopifyId?: true
     unpaid?: true
     processedAt?: true
@@ -12400,6 +12406,7 @@ export namespace Prisma {
 
   export type OrderGroupByOutputType = {
     id: string
+    name: string
     shopifyId: string
     unpaid: boolean
     processedAt: Date | null
@@ -12428,6 +12435,7 @@ export namespace Prisma {
 
   export type OrderSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     shopifyId?: boolean
     unpaid?: boolean
     processedAt?: boolean
@@ -12441,6 +12449,7 @@ export namespace Prisma {
 
   export type OrderSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     shopifyId?: boolean
     unpaid?: boolean
     processedAt?: boolean
@@ -12453,6 +12462,7 @@ export namespace Prisma {
 
   export type OrderSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    name?: boolean
     shopifyId?: boolean
     unpaid?: boolean
     processedAt?: boolean
@@ -12465,6 +12475,7 @@ export namespace Prisma {
 
   export type OrderSelectScalar = {
     id?: boolean
+    name?: boolean
     shopifyId?: boolean
     unpaid?: boolean
     processedAt?: boolean
@@ -12474,7 +12485,7 @@ export namespace Prisma {
     shopId?: boolean
   }
 
-  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "unpaid" | "processedAt" | "createdAt" | "updatedAt" | "orderPriceId" | "shopId", ExtArgs["result"]["order"]>
+  export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "shopifyId" | "unpaid" | "processedAt" | "createdAt" | "updatedAt" | "orderPriceId" | "shopId", ExtArgs["result"]["order"]>
   export type OrderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     orderPrice?: boolean | Order$orderPriceArgs<ExtArgs>
     Shop?: boolean | Order$ShopArgs<ExtArgs>
@@ -12494,6 +12505,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      name: string
       shopifyId: string
       unpaid: boolean
       processedAt: Date | null
@@ -12927,6 +12939,7 @@ export namespace Prisma {
    */ 
   interface OrderFieldRefs {
     readonly id: FieldRef<"Order", 'String'>
+    readonly name: FieldRef<"Order", 'String'>
     readonly shopifyId: FieldRef<"Order", 'String'>
     readonly unpaid: FieldRef<"Order", 'Boolean'>
     readonly processedAt: FieldRef<"Order", 'DateTime'>
@@ -19119,6 +19132,7 @@ export namespace Prisma {
 
   export const OrderScalarFieldEnum: {
     id: 'id',
+    name: 'name',
     shopifyId: 'shopifyId',
     unpaid: 'unpaid',
     processedAt: 'processedAt',
@@ -19916,6 +19930,7 @@ export namespace Prisma {
     OR?: OrderWhereInput[]
     NOT?: OrderWhereInput | OrderWhereInput[]
     id?: StringFilter<"Order"> | string
+    name?: StringFilter<"Order"> | string
     shopifyId?: StringFilter<"Order"> | string
     unpaid?: BoolFilter<"Order"> | boolean
     processedAt?: DateTimeNullableFilter<"Order"> | Date | string | null
@@ -19929,6 +19944,7 @@ export namespace Prisma {
 
   export type OrderOrderByWithRelationInput = {
     id?: SortOrder
+    name?: SortOrder
     shopifyId?: SortOrder
     unpaid?: SortOrder
     processedAt?: SortOrderInput | SortOrder
@@ -19945,6 +19961,7 @@ export namespace Prisma {
     AND?: OrderWhereInput | OrderWhereInput[]
     OR?: OrderWhereInput[]
     NOT?: OrderWhereInput | OrderWhereInput[]
+    name?: StringFilter<"Order"> | string
     shopifyId?: StringFilter<"Order"> | string
     unpaid?: BoolFilter<"Order"> | boolean
     processedAt?: DateTimeNullableFilter<"Order"> | Date | string | null
@@ -19958,6 +19975,7 @@ export namespace Prisma {
 
   export type OrderOrderByWithAggregationInput = {
     id?: SortOrder
+    name?: SortOrder
     shopifyId?: SortOrder
     unpaid?: SortOrder
     processedAt?: SortOrderInput | SortOrder
@@ -19975,6 +19993,7 @@ export namespace Prisma {
     OR?: OrderScalarWhereWithAggregatesInput[]
     NOT?: OrderScalarWhereWithAggregatesInput | OrderScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Order"> | string
+    name?: StringWithAggregatesFilter<"Order"> | string
     shopifyId?: StringWithAggregatesFilter<"Order"> | string
     unpaid?: BoolWithAggregatesFilter<"Order"> | boolean
     processedAt?: DateTimeNullableWithAggregatesFilter<"Order"> | Date | string | null
@@ -20995,6 +21014,7 @@ export namespace Prisma {
 
   export type OrderCreateInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -21007,6 +21027,7 @@ export namespace Prisma {
 
   export type OrderUncheckedCreateInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -21019,6 +21040,7 @@ export namespace Prisma {
 
   export type OrderUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21031,6 +21053,7 @@ export namespace Prisma {
 
   export type OrderUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21043,6 +21066,7 @@ export namespace Prisma {
 
   export type OrderCreateManyInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -21054,6 +21078,7 @@ export namespace Prisma {
 
   export type OrderUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -21064,6 +21089,7 @@ export namespace Prisma {
 
   export type OrderUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -22007,6 +22033,7 @@ export namespace Prisma {
 
   export type OrderCountOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     shopifyId?: SortOrder
     unpaid?: SortOrder
     processedAt?: SortOrder
@@ -22018,6 +22045,7 @@ export namespace Prisma {
 
   export type OrderMaxOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     shopifyId?: SortOrder
     unpaid?: SortOrder
     processedAt?: SortOrder
@@ -22029,6 +22057,7 @@ export namespace Prisma {
 
   export type OrderMinOrderByAggregateInput = {
     id?: SortOrder
+    name?: SortOrder
     shopifyId?: SortOrder
     unpaid?: SortOrder
     processedAt?: SortOrder
@@ -24160,6 +24189,7 @@ export namespace Prisma {
 
   export type OrderCreateWithoutOrderPriceInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -24171,6 +24201,7 @@ export namespace Prisma {
 
   export type OrderUncheckedCreateWithoutOrderPriceInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -24198,6 +24229,7 @@ export namespace Prisma {
 
   export type OrderUpdateWithoutOrderPriceInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24209,6 +24241,7 @@ export namespace Prisma {
 
   export type OrderUncheckedUpdateWithoutOrderPriceInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24374,6 +24407,7 @@ export namespace Prisma {
 
   export type OrderCreateWithoutShopInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -24385,6 +24419,7 @@ export namespace Prisma {
 
   export type OrderUncheckedCreateWithoutShopInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -24487,6 +24522,7 @@ export namespace Prisma {
     OR?: OrderScalarWhereInput[]
     NOT?: OrderScalarWhereInput | OrderScalarWhereInput[]
     id?: StringFilter<"Order"> | string
+    name?: StringFilter<"Order"> | string
     shopifyId?: StringFilter<"Order"> | string
     unpaid?: BoolFilter<"Order"> | boolean
     processedAt?: DateTimeNullableFilter<"Order"> | Date | string | null
@@ -24914,6 +24950,7 @@ export namespace Prisma {
 
   export type OrderCreateManyShopInput = {
     id?: string
+    name: string
     shopifyId: string
     unpaid?: boolean
     processedAt?: Date | string | null
@@ -24969,6 +25006,7 @@ export namespace Prisma {
 
   export type OrderUpdateWithoutShopInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24980,6 +25018,7 @@ export namespace Prisma {
 
   export type OrderUncheckedUpdateWithoutShopInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
@@ -24991,6 +25030,7 @@ export namespace Prisma {
 
   export type OrderUncheckedUpdateManyWithoutShopInput = {
     id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
     unpaid?: BoolFieldUpdateOperationsInput | boolean
     processedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null

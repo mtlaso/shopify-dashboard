@@ -139,6 +139,7 @@ model OrderPrice {
 
 model Order {
   id           String      @id @default(ulid())
+  name         String
   shopifyId    String
   unpaid       Boolean     @default(false)
   processedAt  DateTime?

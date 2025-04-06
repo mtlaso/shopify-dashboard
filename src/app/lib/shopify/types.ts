@@ -76,6 +76,7 @@ export type ShopifyShop = {
 
 export type ShopifyOrder = {
 	id: string;
+	name: string;
 	totalPriceSet: {
 		shopMoney: {
 			amount: number;

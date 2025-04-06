@@ -38,7 +38,7 @@ export async function Products({
 				<TableBody>
 					{products?.products.map((product) => (
 						<TableRow key={product.id}>
-							<TableCell className="font-medium">
+							<TableCell>
 								{product.featuredMedia?.mediaContentType === "VIDEO" && (
 									<video
 										className="aspect-square rounded"

@@ -22,7 +22,7 @@ export async function Collections({
 
 	return (
 		<Table>
-			<TableCaption>Une liste des commandes.</TableCaption>
+			<TableCaption>Une liste des collections.</TableCaption>
 			<TableHeader>
 				<TableRow>
 					<TableHead>Image</TableHead>

@@ -70,14 +70,15 @@ AWS_REGION=xxx
 8. Vous pouvez aussi utiliser prisma studio pour intéragir avec la base de données : `pnpm run prisma:studio`
 
 ## Raccourcis
-### Fonctionnalités non implémenté qui auraient été utile et raccourcis
-- Recharger les données d’une boutique périodiquement (et manuellement)
-- Mettre à jour directement une donnée (ex : description produit, etc.) en se basant sur ce qu’un LLM recommende
-- Implémentation de pagination sur les produits, les variantes, les collections, les commandes
-- Rate limiting (requête LLM et reste application)
-- Afficher des informations détaillées sur les collections et les commandes
-- Afficher toutes les images d’un produit et des variantes
-- Metadonnnés (seo, sitemap, favicon, traduction en plusieurs langues (fr/en), etc.)
+### Fonctionnalités non implémentées qui auraient été utiles et raccourcis
+- Recharger les données d’une boutique périodiquement (et manuellement).
+- Mettre à jour directement une donnée (ex : description produit, etc.) en se basant sur ce qu’un LLM recommande.
+- Implémenter la pagination pour les produits, les variantes, les collections, les commandes.
+- Mettre en place un rate limiting (requêtes vers le LLM et le reste de l’application).
+- Afficher des informations détaillées sur les collections et les commandes.
+- Afficher toutes les images d’un produit et de ses variantes.
+Gérer les métadonnées (SEO, sitemap, favicon, traduction en plusieurs langues — FR/EN, etc.).
+
 
 
 ## Overview

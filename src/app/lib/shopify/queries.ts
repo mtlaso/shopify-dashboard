@@ -18,8 +18,8 @@ const getShopProducts = /* GraphQL */ `
       name
       shipsToCountries
       description
+      myshopifyDomain
     }
-
 
     orders(first: 20) {
       edges {

@@ -241,6 +241,7 @@ exports.Prisma.CollectionScalarFieldEnum = {
 exports.Prisma.ShopScalarFieldEnum = {
   id: 'id',
   shopifyId: 'shopifyId',
+  myshopifyDomain: 'myshopifyDomain',
   name: 'name',
   description: 'description',
   shipsToCountries: 'shipsToCountries',

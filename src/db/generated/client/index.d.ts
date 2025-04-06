@@ -13738,7 +13738,7 @@ export namespace Prisma {
 
   export type CollectionImageGroupByOutputType = {
     id: string
-    url: string
+    url: string | null
     collectionId: string
     createdAt: Date
     updatedAt: Date
@@ -13814,7 +13814,7 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      url: string
+      url: string | null
       collectionId: string
       createdAt: Date
       updatedAt: Date
@@ -15826,6 +15826,7 @@ export namespace Prisma {
   export type ShopMinAggregateOutputType = {
     id: string | null
     shopifyId: string | null
+    myshopifyDomain: string | null
     name: string | null
     description: string | null
     accessToken: string | null
@@ -15837,6 +15838,7 @@ export namespace Prisma {
   export type ShopMaxAggregateOutputType = {
     id: string | null
     shopifyId: string | null
+    myshopifyDomain: string | null
     name: string | null
     description: string | null
     accessToken: string | null
@@ -15848,6 +15850,7 @@ export namespace Prisma {
   export type ShopCountAggregateOutputType = {
     id: number
     shopifyId: number
+    myshopifyDomain: number
     name: number
     description: number
     shipsToCountries: number
@@ -15862,6 +15865,7 @@ export namespace Prisma {
   export type ShopMinAggregateInputType = {
     id?: true
     shopifyId?: true
+    myshopifyDomain?: true
     name?: true
     description?: true
     accessToken?: true
@@ -15873,6 +15877,7 @@ export namespace Prisma {
   export type ShopMaxAggregateInputType = {
     id?: true
     shopifyId?: true
+    myshopifyDomain?: true
     name?: true
     description?: true
     accessToken?: true
@@ -15884,6 +15889,7 @@ export namespace Prisma {
   export type ShopCountAggregateInputType = {
     id?: true
     shopifyId?: true
+    myshopifyDomain?: true
     name?: true
     description?: true
     shipsToCountries?: true
@@ -15969,6 +15975,7 @@ export namespace Prisma {
   export type ShopGroupByOutputType = {
     id: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description: string | null
     shipsToCountries: string[]
@@ -15998,6 +16005,7 @@ export namespace Prisma {
   export type ShopSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     shopifyId?: boolean
+    myshopifyDomain?: boolean
     name?: boolean
     description?: boolean
     shipsToCountries?: boolean
@@ -16015,6 +16023,7 @@ export namespace Prisma {
   export type ShopSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     shopifyId?: boolean
+    myshopifyDomain?: boolean
     name?: boolean
     description?: boolean
     shipsToCountries?: boolean
@@ -16028,6 +16037,7 @@ export namespace Prisma {
   export type ShopSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     shopifyId?: boolean
+    myshopifyDomain?: boolean
     name?: boolean
     description?: boolean
     shipsToCountries?: boolean
@@ -16041,6 +16051,7 @@ export namespace Prisma {
   export type ShopSelectScalar = {
     id?: boolean
     shopifyId?: boolean
+    myshopifyDomain?: boolean
     name?: boolean
     description?: boolean
     shipsToCountries?: boolean
@@ -16050,7 +16061,7 @@ export namespace Prisma {
     userId?: boolean
   }
 
-  export type ShopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "name" | "description" | "shipsToCountries" | "accessToken" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["shop"]>
+  export type ShopOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "shopifyId" | "myshopifyDomain" | "name" | "description" | "shipsToCountries" | "accessToken" | "createdAt" | "updatedAt" | "userId", ExtArgs["result"]["shop"]>
   export type ShopInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     products?: boolean | Shop$productsArgs<ExtArgs>
     orders?: boolean | Shop$ordersArgs<ExtArgs>
@@ -16076,6 +16087,10 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       shopifyId: string
+      /**
+       * Le 's' est en minuscule. Respecte l'API graphql Admin de shopify.
+       */
+      myshopifyDomain: string
       name: string
       description: string | null
       shipsToCountries: string[]
@@ -16512,6 +16527,7 @@ export namespace Prisma {
   interface ShopFieldRefs {
     readonly id: FieldRef<"Shop", 'String'>
     readonly shopifyId: FieldRef<"Shop", 'String'>
+    readonly myshopifyDomain: FieldRef<"Shop", 'String'>
     readonly name: FieldRef<"Shop", 'String'>
     readonly description: FieldRef<"Shop", 'String'>
     readonly shipsToCountries: FieldRef<"Shop", 'String[]'>
@@ -21617,6 +21633,7 @@ export namespace Prisma {
   export const ShopScalarFieldEnum: {
     id: 'id',
     shopifyId: 'shopifyId',
+    myshopifyDomain: 'myshopifyDomain',
     name: 'name',
     description: 'description',
     shipsToCountries: 'shipsToCountries',
@@ -22482,7 +22499,7 @@ export namespace Prisma {
     OR?: CollectionImageWhereInput[]
     NOT?: CollectionImageWhereInput | CollectionImageWhereInput[]
     id?: StringFilter<"CollectionImage"> | string
-    url?: StringFilter<"CollectionImage"> | string
+    url?: StringNullableFilter<"CollectionImage"> | string | null
     collectionId?: StringFilter<"CollectionImage"> | string
     createdAt?: DateTimeFilter<"CollectionImage"> | Date | string
     updatedAt?: DateTimeFilter<"CollectionImage"> | Date | string
@@ -22491,7 +22508,7 @@ export namespace Prisma {
 
   export type CollectionImageOrderByWithRelationInput = {
     id?: SortOrder
-    url?: SortOrder
+    url?: SortOrderInput | SortOrder
     collectionId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -22504,7 +22521,7 @@ export namespace Prisma {
     AND?: CollectionImageWhereInput | CollectionImageWhereInput[]
     OR?: CollectionImageWhereInput[]
     NOT?: CollectionImageWhereInput | CollectionImageWhereInput[]
-    url?: StringFilter<"CollectionImage"> | string
+    url?: StringNullableFilter<"CollectionImage"> | string | null
     createdAt?: DateTimeFilter<"CollectionImage"> | Date | string
     updatedAt?: DateTimeFilter<"CollectionImage"> | Date | string
     collection?: XOR<CollectionScalarRelationFilter, CollectionWhereInput>
@@ -22512,7 +22529,7 @@ export namespace Prisma {
 
   export type CollectionImageOrderByWithAggregationInput = {
     id?: SortOrder
-    url?: SortOrder
+    url?: SortOrderInput | SortOrder
     collectionId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -22526,7 +22543,7 @@ export namespace Prisma {
     OR?: CollectionImageScalarWhereWithAggregatesInput[]
     NOT?: CollectionImageScalarWhereWithAggregatesInput | CollectionImageScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"CollectionImage"> | string
-    url?: StringWithAggregatesFilter<"CollectionImage"> | string
+    url?: StringNullableWithAggregatesFilter<"CollectionImage"> | string | null
     collectionId?: StringWithAggregatesFilter<"CollectionImage"> | string
     createdAt?: DateTimeWithAggregatesFilter<"CollectionImage"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"CollectionImage"> | Date | string
@@ -22616,6 +22633,7 @@ export namespace Prisma {
     NOT?: ShopWhereInput | ShopWhereInput[]
     id?: StringFilter<"Shop"> | string
     shopifyId?: StringFilter<"Shop"> | string
+    myshopifyDomain?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
     description?: StringNullableFilter<"Shop"> | string | null
     shipsToCountries?: StringNullableListFilter<"Shop">
@@ -22632,6 +22650,7 @@ export namespace Prisma {
   export type ShopOrderByWithRelationInput = {
     id?: SortOrder
     shopifyId?: SortOrder
+    myshopifyDomain?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     shipsToCountries?: SortOrder
@@ -22651,6 +22670,7 @@ export namespace Prisma {
     OR?: ShopWhereInput[]
     NOT?: ShopWhereInput | ShopWhereInput[]
     shopifyId?: StringFilter<"Shop"> | string
+    myshopifyDomain?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
     description?: StringNullableFilter<"Shop"> | string | null
     shipsToCountries?: StringNullableListFilter<"Shop">
@@ -22667,6 +22687,7 @@ export namespace Prisma {
   export type ShopOrderByWithAggregationInput = {
     id?: SortOrder
     shopifyId?: SortOrder
+    myshopifyDomain?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
     shipsToCountries?: SortOrder
@@ -22685,6 +22706,7 @@ export namespace Prisma {
     NOT?: ShopScalarWhereWithAggregatesInput | ShopScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Shop"> | string
     shopifyId?: StringWithAggregatesFilter<"Shop"> | string
+    myshopifyDomain?: StringWithAggregatesFilter<"Shop"> | string
     name?: StringWithAggregatesFilter<"Shop"> | string
     description?: StringNullableWithAggregatesFilter<"Shop"> | string | null
     shipsToCountries?: StringNullableListFilter<"Shop">
@@ -23718,7 +23740,7 @@ export namespace Prisma {
 
   export type CollectionImageCreateInput = {
     id?: string
-    url: string
+    url?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     collection: CollectionCreateNestedOneWithoutCollectionImageInput
@@ -23726,7 +23748,7 @@ export namespace Prisma {
 
   export type CollectionImageUncheckedCreateInput = {
     id?: string
-    url: string
+    url?: string | null
     collectionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -23734,7 +23756,7 @@ export namespace Prisma {
 
   export type CollectionImageUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     collection?: CollectionUpdateOneRequiredWithoutCollectionImageNestedInput
@@ -23742,7 +23764,7 @@ export namespace Prisma {
 
   export type CollectionImageUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     collectionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23750,7 +23772,7 @@ export namespace Prisma {
 
   export type CollectionImageCreateManyInput = {
     id?: string
-    url: string
+    url?: string | null
     collectionId: string
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -23758,14 +23780,14 @@ export namespace Prisma {
 
   export type CollectionImageUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CollectionImageUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     collectionId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -23861,6 +23883,7 @@ export namespace Prisma {
   export type ShopCreateInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -23876,6 +23899,7 @@ export namespace Prisma {
   export type ShopUncheckedCreateInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -23891,6 +23915,7 @@ export namespace Prisma {
   export type ShopUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -23906,6 +23931,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -23921,6 +23947,7 @@ export namespace Prisma {
   export type ShopCreateManyInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -23933,6 +23960,7 @@ export namespace Prisma {
   export type ShopUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -23944,6 +23972,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -24963,6 +24992,7 @@ export namespace Prisma {
   export type ShopCountOrderByAggregateInput = {
     id?: SortOrder
     shopifyId?: SortOrder
+    myshopifyDomain?: SortOrder
     name?: SortOrder
     description?: SortOrder
     shipsToCountries?: SortOrder
@@ -24975,6 +25005,7 @@ export namespace Prisma {
   export type ShopMaxOrderByAggregateInput = {
     id?: SortOrder
     shopifyId?: SortOrder
+    myshopifyDomain?: SortOrder
     name?: SortOrder
     description?: SortOrder
     accessToken?: SortOrder
@@ -24986,6 +25017,7 @@ export namespace Prisma {
   export type ShopMinOrderByAggregateInput = {
     id?: SortOrder
     shopifyId?: SortOrder
+    myshopifyDomain?: SortOrder
     name?: SortOrder
     description?: SortOrder
     accessToken?: SortOrder
@@ -26889,6 +26921,7 @@ export namespace Prisma {
   export type ShopCreateWithoutProductsInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -26903,6 +26936,7 @@ export namespace Prisma {
   export type ShopUncheckedCreateWithoutProductsInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27019,6 +27053,7 @@ export namespace Prisma {
   export type ShopUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27033,6 +27068,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateWithoutProductsInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27229,6 +27265,7 @@ export namespace Prisma {
   export type ShopCreateWithoutOrdersInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27243,6 +27280,7 @@ export namespace Prisma {
   export type ShopUncheckedCreateWithoutOrdersInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27300,6 +27338,7 @@ export namespace Prisma {
   export type ShopUpdateWithoutOrdersInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27314,6 +27353,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateWithoutOrdersInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27391,14 +27431,14 @@ export namespace Prisma {
 
   export type CollectionImageCreateWithoutCollectionInput = {
     id?: string
-    url: string
+    url?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
   export type CollectionImageUncheckedCreateWithoutCollectionInput = {
     id?: string
-    url: string
+    url?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -27411,6 +27451,7 @@ export namespace Prisma {
   export type ShopCreateWithoutCollectionsInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27425,6 +27466,7 @@ export namespace Prisma {
   export type ShopUncheckedCreateWithoutCollectionsInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27454,14 +27496,14 @@ export namespace Prisma {
 
   export type CollectionImageUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CollectionImageUncheckedUpdateWithoutCollectionInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
+    url?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -27480,6 +27522,7 @@ export namespace Prisma {
   export type ShopUpdateWithoutCollectionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27494,6 +27537,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateWithoutCollectionsInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -27847,6 +27891,7 @@ export namespace Prisma {
   export type ShopCreateWithoutUserInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27861,6 +27906,7 @@ export namespace Prisma {
   export type ShopUncheckedCreateWithoutUserInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -27969,6 +28015,7 @@ export namespace Prisma {
     NOT?: ShopScalarWhereInput | ShopScalarWhereInput[]
     id?: StringFilter<"Shop"> | string
     shopifyId?: StringFilter<"Shop"> | string
+    myshopifyDomain?: StringFilter<"Shop"> | string
     name?: StringFilter<"Shop"> | string
     description?: StringNullableFilter<"Shop"> | string | null
     shipsToCountries?: StringNullableListFilter<"Shop">
@@ -28322,6 +28369,7 @@ export namespace Prisma {
   export type ShopCreateManyUserInput = {
     id?: string
     shopifyId: string
+    myshopifyDomain: string
     name: string
     description?: string | null
     shipsToCountries?: ShopCreateshipsToCountriesInput | string[]
@@ -28408,6 +28456,7 @@ export namespace Prisma {
   export type ShopUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -28422,6 +28471,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]
@@ -28436,6 +28486,7 @@ export namespace Prisma {
   export type ShopUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     shopifyId?: StringFieldUpdateOperationsInput | string
+    myshopifyDomain?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
     shipsToCountries?: ShopUpdateshipsToCountriesInput | string[]

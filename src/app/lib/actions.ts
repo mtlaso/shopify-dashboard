@@ -232,6 +232,7 @@ export async function addShopifyShop(
 			const shop = await tx.shop.create({
 				data: {
 					shopifyId: data.shop.id,
+					myshopifyDomain: data.shop.myshopifyDomain,
 					name: data.shop.name,
 					description: data.shop.description,
 					shipsToCountries: data.shop.shipsToCountries,
@@ -359,10 +360,12 @@ export async function addShopifyShop(
 			});
 
 			await tx.collectionImage.createMany({
-				data: data.collections.map((collection, i) => ({
-					collectionId: collections[i].id,
-					url: collection.image?.url || "",
-				})),
+				data: data.collections.map((collection, i) => {
+					return {
+						collectionId: collections[i].id,
+						url: collection.image?.url || null,
+					};
+				}),
 			});
 		});
 	} catch (err) {
@@ -398,7 +401,6 @@ export async function addShopifyShop(
 	return {
 		errmsg: null,
 		errors: null,
-		// data: null
 		data: {
 			shopUrlHost: formData.get("shop-url-host") as string,
 			accessToken: formData.get("access-token") as string,

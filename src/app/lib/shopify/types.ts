@@ -70,6 +70,11 @@ export type ShopifyProduct = {
 export type ShopifyShop = {
 	id: string;
 	name: string;
+	/**
+	 * Le 's' est en minuscule. Respecte l'API graphql Admin de shopify.
+	 * Ex: xxx.myshopify.com
+	 */
+	myshopifyDomain: string;
 	description: string;
 	shipsToCountries: string[];
 };

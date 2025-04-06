@@ -156,7 +156,7 @@ model Order {
 
 model CollectionImage {
   id           String     @id @default(ulid())
-  url          String
+  url          String?
   collection   Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   collectionId String     @unique
   createdAt    DateTime   @default(now())
@@ -175,7 +175,7 @@ model Collection {
   collectionImageId String?
   createdAt         DateTime         @default(now())
   updatedAt         DateTime         @updatedAt
-  Shop              Shop?            @relation(fields: [shopId], references: [id])
+  Shop              Shop?            @relation(fields: [shopId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   shopId            String?
 
   @@map("collection")
@@ -184,6 +184,8 @@ model Collection {
 model Shop {
   id               String       @id @default(ulid())
   shopifyId        String
+  /// Le 's' est en minuscule. Respecte l'API graphql Admin de shopify.
+  myshopifyDomain  String
   name             String
   description      String?
   shipsToCountries String[]

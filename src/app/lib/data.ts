@@ -75,9 +75,44 @@ async function getShopData(shopId: string) {
 			where: { userId: session.user.id, id: shopId },
 		});
 	} catch (err) {
-		logger.error(err);
+		logger.error(
+			"Erreur lors de la récupération des données de la boutique",
+			shopId,
+			err,
+		);
 		throw new Error(
 			"Erreur inattendue lors de la récupération d'une boutique de l'utilisateur.",
+		);
+	}
+}
+
+/**
+ * getShopOrders retourne les commandes de la boutique de l'utilisateur connecté.
+ * @param {string} shopId - L'identifiant de la boutique.
+ * @throws {Error} Erreur inattendue lors de la récupération des commandes de la boutique.
+ */
+// biome-ignore lint/nursery/useExplicitType: Type trop complexe pour être explicitement déclaré.
+async function getShopOrders(shopId: string) {
+	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		if (!session) {
+			throw new Error("Utilisateur non connecté.");
+		}
+
+		return await prisma.shop.findFirst({
+			where: { id: shopId, userId: session.user.id },
+			include: {
+				orders: {
+					include: {
+						orderPrice: true,
+					},
+				},
+			},
+		});
+	} catch (err) {
+		logger.error("Erreur recupération commandes", shopId, err);
+		throw new Error(
+			"Erreur inattendue lors de la récupération des commandes de la boutique.",
 		);
 	}
 }
@@ -113,7 +148,11 @@ async function getShopProductsData(shopId: string) {
 			},
 		});
 	} catch (err) {
-		logger.error(err);
+		logger.error(
+			"Erreur lors de la récupération des données des produits de la boutique",
+			shopId,
+			err,
+		);
 		throw new Error(
 			"Erreur inattendue lors de la récupération des boutiques de l'utilisateur.",
 		);
@@ -159,7 +198,12 @@ async function getShopProduct(shopId: string, productId: string) {
 			},
 		});
 	} catch (err) {
-		logger.error(err);
+		logger.error(
+			"Erreur lors de la récupération des données du produit",
+			shopId,
+			productId,
+			err,
+		);
 		throw new Error(
 			"Erreur inattendue lors de la récupération de produit de l'utilisateur.",
 		);
@@ -202,4 +246,5 @@ export const data = {
 	getShopData,
 	getShopProductsData,
 	getShopProduct,
+	getShopOrders,
 };

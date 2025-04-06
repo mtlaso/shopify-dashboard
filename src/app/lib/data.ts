@@ -118,6 +118,35 @@ async function getShopOrders(shopId: string) {
 }
 
 /**
+ * Récupère les collections d'une boutique.
+ * @param {string} shopId - L'identifiant de la boutique.
+ * @throws {Error} Erreur inattendue lors de la récupération des collections de la boutique.
+ */
+// biome-ignore lint/nursery/useExplicitType: Type trop complexe pour être explicitement déclaré.
+async function getShopCollections(shopId: string) {
+	try {
+		const session = await auth.api.getSession({ headers: await headers() });
+		if (!session) {
+			throw new Error("Utilisateur non connecté.");
+		}
+
+		return await prisma.shop.findFirst({
+			where: { id: shopId, userId: session.user.id },
+			include: {
+				collections: {
+					include: {
+						collectionImage: true,
+					},
+				},
+			},
+		});
+	} catch (err) {
+		logger.error("Erreur récupération collections", shopId, err);
+		throw new Error("Erreur récupération collections");
+	}
+}
+
+/**
  * getShopProductData retourne les données des produits de la boutique de l'utilisateur connecté.
  * @param {string} shopId - L'identifiant de la boutique.
  * @throws {Error} Erreur inattendue lors de la récupération des boutiques de l'utilisateur.
@@ -247,4 +276,5 @@ export const data = {
 	getShopProductsData,
 	getShopProduct,
 	getShopOrders,
+	getShopCollections,
 };

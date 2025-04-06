@@ -1,5 +1,6 @@
 import { shopUrlState } from "@/app/lib/stores/shop-state";
 import { AmountProductsChart } from "@/app/ui/dashboard/charts/amount-products-chart";
+import { CollectionsChart } from "@/app/ui/dashboard/charts/collections-chart";
 import { OrdersChart } from "@/app/ui/dashboard/charts/orders-chart";
 import { SEOInsightsChart } from "@/app/ui/dashboard/charts/seo-insights.chart";
 import { ShipsToCountriesChart } from "@/app/ui/dashboard/charts/ships-to-countries-chart";
@@ -44,6 +45,9 @@ export default async function Page(props: {
 					</Suspense>
 					<Suspense fallback={<p>chargement...</p>}>
 						<OrdersChart selectedShopId={selectedShopId} />
+					</Suspense>
+					<Suspense fallback={<p>chargement...</p>}>
+						<CollectionsChart selectedShopId={selectedShopId} />
 					</Suspense>
 				</div>
 

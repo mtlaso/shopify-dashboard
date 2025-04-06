@@ -1,3 +1,6 @@
+
+https://github.com/user-attachments/assets/812f41b8-cff4-4b56-b51f-e9b220c633bc
+
 # E-commerce Analytics Platform
 
 ## Overview

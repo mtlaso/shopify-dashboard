@@ -8,6 +8,7 @@ import {
 	TableHeader,
 	TableRow,
 } from "@/shadcn/ui/table";
+import { SiShopify } from "@icons-pack/react-simple-icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -24,9 +25,11 @@ export async function Collections({
 			<TableCaption>Une liste des commandes.</TableCaption>
 			<TableHeader>
 				<TableRow>
-					<TableHead className="w-[100]px">Image</TableHead>
+					<TableHead>Image</TableHead>
 					<TableHead>Titre</TableHead>
-					<TableHead>Lien</TableHead>
+					<TableHead className="flex justify-start items-center gap-1">
+						URL Shopify <SiShopify color="black" className="size-5" />
+					</TableHead>
 				</TableRow>
 			</TableHeader>
 			<TableBody>

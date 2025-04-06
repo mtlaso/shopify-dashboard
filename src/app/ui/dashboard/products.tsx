@@ -27,11 +27,10 @@ export async function Products({
 				<TableCaption>Une liste des produits en vente.</TableCaption>
 				<TableHeader>
 					<TableRow>
-						<TableHead className="w-[100px]">Image</TableHead>
+						<TableHead>Image</TableHead>
 						<TableHead>Produit</TableHead>
 						<TableHead className="flex justify-start items-center gap-1">
-							URL Shopify
-							<SiShopify color="black" className="size-5" />
+							URL Shopify <SiShopify color="black" className="size-5" />
 						</TableHead>
 					</TableRow>
 				</TableHeader>

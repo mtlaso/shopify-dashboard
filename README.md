@@ -79,6 +79,12 @@ AWS_REGION=xxx
 - Afficher toutes les images d’un produit et de ses variantes.
 - Gérer les métadonnées (SEO, sitemap, favicon, traduction en plusieurs langues — FR/EN, etc.).
 
+## Données de test
+
+- URL boutique : b01yvd-r5.myshopify.com
+- Admin API access token : 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
+
+Ils seront invalidés dans les prochaines semaines.
 
 
 ## Overview

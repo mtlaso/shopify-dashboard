@@ -201,6 +201,7 @@ export async function addShopifyShop(
 		const shopAlreadyExists = await prisma.shop.findFirst({
 			where: {
 				accessToken: validatedFields.data.accessToken,
+				userId: session.user.id,
 			},
 		});
 
